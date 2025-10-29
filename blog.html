@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog da APEX Engenharia Predial - Dicas, novidades e informações sobre reformas verticais, manutenção predial e engenharia.">
+    <title>Blog - APEX Engenharia Predial</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header id="header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo-link">
+                    <img src="img/logo-apex.png" alt="Logo APEX Engenharia Predial" class="logo">
+                </a>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#inicio" class="nav-link">Início</a></li>
+                    <li><a href="index.html#sobre" class="nav-link">Sobre a APEX</a></li>
+                    <li><a href="index.html#servicos" class="nav-link">Serviços</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero do Blog -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Blog da APEX</h1>
+            <p>Dicas, novidades e informações sobre reformas verticais e manutenção predial</p>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal do Blog -->
+    <section class="blog-main">
+        <div class="container">
+            <div class="blog-layout">
+                <!-- Área de Posts -->
+                <div class="blog-posts">
+                    <!-- Filtros de Categoria -->
+                    <div class="blog-filters">
+                        <button class="filter-btn active" data-category="todos">Todos</button>
+                        <button class="filter-btn" data-category="reformas">Reformas</button>
+                        <button class="filter-btn" data-category="manutencao">Manutenção</button>
+                        <button class="filter-btn" data-category="dicas">Dicas</button>
+                        <button class="filter-btn" data-category="seguranca">Segurança</button>
+                    </div>
+
+                    <!-- Grid de Posts -->
+                    <div class="posts-grid" id="postsGrid">
+                        <!-- Post 1 -->
+                        <article class="post-card" data-category="reformas">
+                            <div class="post-image">
+                                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800" alt="Restauração de Fachadas">
+                                <span class="post-category">Reformas</span>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-date">15 de Março, 2025</span>
+                                    <span class="post-read-time">5 min de leitura</span>
+                                </div>
+                                <h2 class="post-title">
+                                    <a href="blog/posts/restauracao-fachadas-quando-fazer.html">Restauração de Fachadas: Quando é Hora de Fazer?</a>
+                                </h2>
+                                <p class="post-excerpt">Descubra os sinais que indicam que sua fachada precisa de restauração e como a APEX pode ajudar a revitalizar seu edifício.</p>
+                                <a href="blog/posts/restauracao-fachadas-quando-fazer.html" class="read-more">Ler mais →</a>
+                            </div>
+                        </article>
+
+                        <!-- Post 2 -->
+                        <article class="post-card" data-category="manutencao">
+                            <div class="post-image">
+                                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800" alt="Impermeabilização">
+                                <span class="post-category">Manutenção</span>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-date">10 de Março, 2025</span>
+                                    <span class="post-read-time">7 min de leitura</span>
+                                </div>
+                                <h2 class="post-title">
+                                    <a href="blog/posts/impermeabilizacao-prevencao-infiltracoes.html">Impermeabilização: A Chave para Prevenir Infiltrações</a>
+                                </h2>
+                                <p class="post-excerpt">Entenda a importância da impermeabilização adequada e como ela pode economizar milhares em reparos futuros.</p>
+                                <a href="blog/posts/impermeabilizacao-prevencao-infiltracoes.html" class="read-more">Ler mais →</a>
+                            </div>
+                        </article>
+
+                        <!-- Post 3 -->
+                        <article class="post-card" data-category="seguranca">
+                            <div class="post-image">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800" alt="Trabalho em Altura">
+                                <span class="post-category">Segurança</span>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-date">5 de Março, 2025</span>
+                                    <span class="post-read-time">6 min de leitura</span>
+                                </div>
+                                <h2 class="post-title">
+                                    <a href="blog/posts/nr35-seguranca-trabalho-altura.html">NR35: Segurança em Trabalhos em Altura</a>
+                                </h2>
+                                <p class="post-excerpt">Conheça as normas de segurança que seguimos para garantir trabalhos em altura com total proteção e qualidade.</p>
+                                <a href="blog/posts/nr35-seguranca-trabalho-altura.html" class="read-more">Ler mais →</a>
+                            </div>
+                        </article>
+
+                        <!-- Post 4 -->
+                        <article class="post-card" data-category="dicas">
+                            <div class="post-image">
+                                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800" alt="Pintura Predial">
+                                <span class="post-category">Dicas</span>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-date">28 de Fevereiro, 2025</span>
+                                    <span class="post-read-time">4 min de leitura</span>
+                                </div>
+                                <h2 class="post-title">
+                                    <a href="blog/posts/escolher-tinta-ideal-fachada.html">Como Escolher a Tinta Ideal para Sua Fachada</a>
+                                </h2>
+                                <p class="post-excerpt">Dicas essenciais para escolher a tinta certa que garantirá durabilidade e beleza para a fachada do seu edifício.</p>
+                                <a href="blog/posts/escolher-tinta-ideal-fachada.html" class="read-more">Ler mais →</a>
+                            </div>
+                        </article>
+
+                        <!-- Post 5 -->
+                        <article class="post-card" data-category="reformas">
+                            <div class="post-image">
+                                <img src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=800" alt="Manutenção Preventiva">
+                                <span class="post-category">Reformas</span>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-date">20 de Fevereiro, 2025</span>
+                                    <span class="post-read-time">8 min de leitura</span>
+                                </div>
+                                <h2 class="post-title">
+                                    <a href="blog/posts/manutencao-preventiva-edificios.html">Manutenção Preventiva: Investimento que Vale a Pena</a>
+                                </h2>
+                                <p class="post-excerpt">Descubra como a manutenção preventiva pode prolongar a vida útil do seu edifício e evitar gastos emergenciais.</p>
+                                <a href="blog/posts/manutencao-preventiva-edificios.html" class="read-more">Ler mais →</a>
+                            </div>
+                        </article>
+
+                        <!-- Post 6 -->
+                        <article class="post-card" data-category="dicas">
+                            <div class="post-image">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800" alt="Valorização Imobiliária">
+                                <span class="post-category">Dicas</span>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-date">15 de Fevereiro, 2025</span>
+                                    <span class="post-read-time">5 min de leitura</span>
+                                </div>
+                                <h2 class="post-title">
+                                    <a href="blog/posts/reformas-que-valorizam-imovel.html">5 Reformas que Mais Valorizam Seu Imóvel</a>
+                                </h2>
+                                <p class="post-excerpt">Conheça as reformas estratégicas que podem aumentar significativamente o valor de mercado do seu imóvel.</p>
+                                <a href="blog/posts/reformas-que-valorizam-imovel.html" class="read-more">Ler mais →</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Sobre o Blog -->
+                    <div class="sidebar-widget">
+                        <h3>Sobre o Blog</h3>
+                        <p>Compartilhamos conhecimento e experiência em reformas verticais, manutenção predial e engenharia para ajudar você a cuidar melhor do seu patrimônio.</p>
+                    </div>
+
+                    <!-- Posts Recentes -->
+                    <div class="sidebar-widget">
+                        <h3>Posts Recentes</h3>
+                        <ul class="recent-posts">
+                            <li>
+                                <a href="blog/posts/restauracao-fachadas-quando-fazer.html">
+                                    <span class="recent-post-title">Restauração de Fachadas: Quando é Hora de Fazer?</span>
+                                    <span class="recent-post-date">15 Mar, 2025</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog/posts/impermeabilizacao-prevencao-infiltracoes.html">
+                                    <span class="recent-post-title">Impermeabilização: A Chave para Prevenir Infiltrações</span>
+                                    <span class="recent-post-date">10 Mar, 2025</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog/posts/nr35-seguranca-trabalho-altura.html">
+                                    <span class="recent-post-title">NR35: Segurança em Trabalhos em Altura</span>
+                                    <span class="recent-post-date">5 Mar, 2025</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="sidebar-widget newsletter-widget">
+                        <h3>Newsletter</h3>
+                        <p>Receba dicas e novidades diretamente no seu email!</p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input type="email" placeholder="Seu email" required>
+                            <button type="submit" class="btn btn-primary">Inscrever</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="img/logo-apex.png" alt="Logo APEX" class="footer-logo">
+                    <h3>APEX Engenharia Predial</h3>
+                    <p>Especializada em reformas verticais e manutenção predial, a APEX está sempre preparada para atendê-lo. Solicite seu orçamento!</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Nossos Serviços</h4>
+                    <ul>
+                        <li><a href="index.html#servicos">Restauração de Fachadas</a></li>
+                        <li><a href="index.html#servicos">Impermeabilização</a></li>
+                        <li><a href="index.html#servicos">Pintura Predial</a></li>
+                        <li><a href="index.html#servicos">Manutenção de Estruturas</a></li>
+                        <li><a href="index.html#servicos">Instalações e Acabamentos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Acesso Rápido</h4>
+                    <ul>
+                        <li><a href="index.html#inicio">Início</a></li>
+                        <li><a href="index.html#sobre">Sobre a APEX</a></li>
+                        <li><a href="index.html#servicos">Serviços</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contato">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 APEX Engenharia Predial. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5500000000000" target="_blank" class="whatsapp-float" title="Fale conosco no WhatsApp">
+        <svg viewBox="0 0 32 32" fill="currentColor">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.409 1.417-5.267-0.316-0.518c-1.351-2.217-2.067-4.78-2.067-7.403 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62-6.11 13.62-13.62 13.62zM21.524 19.006c-0.272-0.137-1.609-0.795-1.859-0.886-0.248-0.09-0.429-0.137-0.61 0.137s-0.702 0.886-0.861 1.068c-0.158 0.182-0.316 0.205-0.589 0.068-0.272-0.137-1.149-0.423-2.187-1.35-0.809-0.721-1.355-1.612-1.514-1.884s-0.017-0.421 0.12-0.557c0.123-0.123 0.272-0.319 0.408-0.478s0.181-0.272 0.272-0.453c0.090-0.181 0.045-0.34-0.023-0.478s-0.61-1.471-0.837-2.012c-0.221-0.525-0.444-0.454-0.61-0.462-0.158-0.008-0.339-0.010-0.52-0.010s-0.476 0.068-0.725 0.34c-0.248 0.272-0.949 0.928-0.949 2.263s0.972 2.625 1.108 2.806c0.137 0.181 1.898 2.963 4.651 4.088 2.753 1.125 2.753 0.75 3.252 0.704s1.609-0.657 1.836-1.291c0.226-0.635 0.226-1.178 0.158-1.291s-0.248-0.181-0.52-0.319z"/>
+        </svg>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>
+
