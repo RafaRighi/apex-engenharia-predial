@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Permitir todos os recursos importantes para SEO
+Allow: /img/
+Allow: /css/
+Allow: /js/
+
+# Sitemap location
+Sitemap: https://www.apexengenharia.com.br/sitemap.xml
+
+# Crawl-delay para evitar sobrecarga (opcional)
+Crawl-delay: 1
+
