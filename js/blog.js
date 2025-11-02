@@ -202,5 +202,3 @@ if (document.querySelector('.post-article')) {
     calculateReadingTime();
 }
 
-console.log('Blog APEX - Scripts carregados com sucesso!');
-

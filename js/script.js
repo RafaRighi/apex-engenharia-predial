@@ -95,7 +95,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Elementos para animar
-const animateElements = document.querySelectorAll('.servico-card, .diferencial-item, .stat-item, .info-item');
+const animateElements = document.querySelectorAll('.servico-card, .diferencial-item, .stat-item, .info-item, .galeria-item');
 if (animateElements) {
     animateElements.forEach(el => {
         el.style.opacity = '0';
@@ -106,30 +106,20 @@ if (animateElements) {
 }
 
 
-// --- NOVO BLOCO: Redirecionamento de Serviço (Melhor Prática) ---
-
+// Redirecionamento de Serviço
 const servicoCards = document.querySelectorAll('.servico-card');
 
 if (servicoCards.length > 0) {
     servicoCards.forEach(card => {
-        // Encontra o link 'Saiba Mais' dentro do card
         const link = card.querySelector('.btn-link'); 
         
-        // Verifica se o link existe e se tem um destino (href)
         if (link && link.href) {
-            // Remove o 'onclick' do HTML para evitar duplicação de eventos (LIMPEZA)
-            card.removeAttribute('onclick'); 
-            
-            // Adiciona o listener de clique no card
             card.addEventListener('click', () => {
-                // Redireciona para o mesmo link que o botão 'Saiba Mais'
                 window.location.href = link.href;
             });
         }
     });
 }
-
-// --- FIM DO NOVO BLOCO ---
 
 
 // Formulário de contato (restante do seu código)
@@ -177,38 +167,6 @@ if (telefoneInput) {
     });
 }
 
-// Contador animado para estatísticas
-const animateCounter = (element, target, duration = 2000) => {
-    let start = 0;
-    const increment = target / (duration / 16);
-    
-    const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-            element.textContent = target;
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(start);
-        }
-    }, 16);
-};
-
-// Observador para iniciar contadores quando visíveis
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-            entry.target.classList.add('counted');
-            const statItems = entry.target.querySelectorAll('.stat-item h3');
-            
-            // Personalize os valores aqui, ex.: animateCounter(statItems[0], 10);
-        }
-    });
-}, { threshold: 0.5 });
-
-const statsSection = document.querySelector('.sobre-stats');
-if (statsSection) {
-    statsObserver.observe(statsSection);
-}
 
 // Atualizar ano no footer automaticamente
 const updateYear = () => {
@@ -223,9 +181,6 @@ updateYear();
 
 // Prevenção de scroll horizontal
 document.body.style.overflowX = 'hidden';
-
-// Log de inicialização
-console.log('APEX Engenharia Predial - Site carregado com sucesso!');
 
 // Evento de clique no WhatsApp
 document.addEventListener('click', function(e){
