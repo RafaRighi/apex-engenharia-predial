@@ -95,7 +95,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Elementos para animar
-const animateElements = document.querySelectorAll('.servico-card, .diferencial-item, .stat-item, .info-item, .galeria-item');
+const animateElements = document.querySelectorAll('.servico-card, .diferencial-item, .stat-item, .info-item, .galeria-item, .blog-preview-card');
 if (animateElements) {
     animateElements.forEach(el => {
         el.style.opacity = '0';

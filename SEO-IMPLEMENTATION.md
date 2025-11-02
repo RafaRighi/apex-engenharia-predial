@@ -147,10 +147,9 @@ Antes de publicar o site em produção:
 ## 🎯 Palavras-chave Principais
 
 ### Primárias:
-- Reformas Verticais
+- Pintura Predial
 - Engenharia Predial
 - Manutenção de Fachadas
-- Pintura Predial
 - Impermeabilização
 
 ### Secundárias:

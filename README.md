@@ -1,6 +1,6 @@
 # Site APEX Engenharia Predial
 
-Site institucional desenvolvido para a APEX Engenharia Predial, especializada em reformas verticais e manutenção predial.
+Site institucional desenvolvido para a APEX Engenharia Predial, especializada em pintura predial e manutenção predial.
 
 ## 📁 Estrutura do Projeto
 
