@@ -549,6 +549,110 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Seção Nossos Números */
+.numeros-section {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.numeros-divider {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #FF6B6B 0%, #FFD93D 100%);
+    margin: 20px auto 30px;
+    border-radius: 2px;
+}
+
+.numeros-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.8;
+}
+
+.numeros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.numero-item {
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    background: var(--bg-light);
+    transition: var(--transition);
+    border-top: 4px solid transparent;
+}
+
+.numero-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--primary-color);
+    background: var(--white);
+}
+
+.numero-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.numero-item h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.numero-item p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Seção Produtos de Qualidade */
+.produtos-section {
+    padding: 100px 0;
+    background: var(--bg-light);
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.produto-item {
+    background: var(--white);
+    padding: 50px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.produto-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.produto-logo {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+.produto-site {
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 /* Seção Blog Preview */
 .blog-preview {
     padding: 100px 0;
@@ -680,6 +784,24 @@ body {
     
     .blog-preview-card {
         max-width: 100%;
+    }
+    
+    .numeros-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .numero-item h3 {
+        font-size: 2rem;
+    }
+    
+    .numero-icon {
+        font-size: 2.5rem;
+    }
+    
+    .produtos-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
 
