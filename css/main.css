@@ -1264,7 +1264,7 @@ body {
     align-items: center;
     list-style: none;
     gap: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .breadcrumb-item {
@@ -1278,6 +1278,24 @@ body {
     transition: var(--transition);
 }
 
+/* Breadcrumb branco em páginas com hero (serviços) */
+.breadcrumb:has(+ .hero) .breadcrumb-item a,
+body:has(.hero) .breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+}
+
+.breadcrumb:has(+ .hero) .breadcrumb-item.active,
+body:has(.hero) .breadcrumb-item.active {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumb:has(+ .hero) .breadcrumb-separator,
+body:has(.hero) .breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Breadcrumb branco no blog */
 .breadcrumb:has(+ .blog-hero) .breadcrumb-item a,
 body:has(.blog-hero) .breadcrumb-item a {
     color: var(--white);
