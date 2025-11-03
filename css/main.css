@@ -23,6 +23,8 @@
 
 html {
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -30,6 +32,8 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -50,6 +54,8 @@ body {
     z-index: 1000;
     transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     opacity: 1;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -1238,6 +1244,8 @@ body {
     padding: 1rem 0;
     margin-top: 70px;
     border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    z-index: 999;
 }
 
 .breadcrumb-container {
