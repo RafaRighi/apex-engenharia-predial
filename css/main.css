@@ -1244,8 +1244,12 @@ body {
     padding: 1rem 0;
     margin-top: 70px;
     border-bottom: none;
-    position: relative;
-    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+    color: var(--white);
 }
 
 .breadcrumb-container {
@@ -1272,6 +1276,21 @@ body {
     color: var(--primary-color);
     text-decoration: none;
     transition: var(--transition);
+}
+
+.breadcrumb:has(+ .blog-hero) .breadcrumb-item a,
+body:has(.blog-hero) .breadcrumb-item a {
+    color: var(--white);
+}
+
+.breadcrumb:has(+ .blog-hero) .breadcrumb-item.active,
+body:has(.blog-hero) .breadcrumb-item.active {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumb:has(+ .blog-hero) .breadcrumb-separator,
+body:has(.blog-hero) .breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .breadcrumb-item a:hover {
