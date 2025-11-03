@@ -1240,10 +1240,10 @@ body {
 
 /* Breadcrumbs - Navegação Estruturada para SEO */
 .breadcrumb {
-    background: var(--bg-light);
+    background: transparent;
     padding: 1rem 0;
     margin-top: 70px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: none;
     position: relative;
     z-index: 999;
 }

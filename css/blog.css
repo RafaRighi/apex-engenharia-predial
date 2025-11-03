@@ -6,7 +6,8 @@
     color: var(--white);
     padding: 150px 0 80px;
     text-align: center;
-    margin-top: 90px;
+    margin-top: 0;
+    position: relative;
 }
 
 .blog-hero h1 {
