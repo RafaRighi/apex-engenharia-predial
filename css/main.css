@@ -1232,3 +1232,65 @@ body {
     }
 }
 
+/* Breadcrumbs - Navegação Estruturada para SEO */
+.breadcrumb {
+    background: var(--bg-light);
+    padding: 1rem 0;
+    margin-top: 70px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.breadcrumb-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--text-light);
+}
+
+.breadcrumb-separator {
+    color: var(--text-light);
+    margin: 0 0.5rem;
+}
+
+.breadcrumb-item.active .breadcrumb-separator {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .breadcrumb {
+        padding: 0.75rem 0;
+        margin-top: 60px;
+    }
+    
+    .breadcrumb-list {
+        font-size: 0.85rem;
+    }
+}
+

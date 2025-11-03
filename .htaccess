@@ -82,9 +82,9 @@ AddDefaultCharset UTF-8
 # RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?apexengenharia.com.br [NC]
 # RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [NC,F,L]
 
-# Custom Error Pages (opcional)
-# ErrorDocument 404 /404.html
-# ErrorDocument 500 /500.html
+# Custom Error Pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /404.html
 
 # Melhorar segurança
 <IfModule mod_headers.c>

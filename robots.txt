@@ -1,3 +1,6 @@
+# APEX Engenharia Predial - Robots.txt
+# Otimizado para melhor indexação no Google
+
 User-agent: *
 Allow: /
 
@@ -5,10 +8,37 @@ Allow: /
 Allow: /img/
 Allow: /css/
 Allow: /js/
+Allow: /blog/
+Allow: /blog/posts/
 
-# Sitemap location
-Sitemap: https://www.apexengenharia.com.br/sitemap.xml
+# Bloquear arquivos e diretórios desnecessários
+Disallow: /.git/
+Disallow: /.htaccess
+Disallow: /README.md
+Disallow: /*.md$
+Disallow: /SE-Competitor-Analysis.md
+Disallow: /SEO-IMPLEMENTATION.md
+Disallow: /SSL-IMPLEMENTATION.md
 
-# Crawl-delay para evitar sobrecarga (opcional)
+# Permitir indexação de arquivos importantes
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /manifest.json
+
+# Crawlers específicos
+User-agent: Googlebot
+Allow: /
 Crawl-delay: 1
 
+User-agent: Googlebot-Image
+Allow: /img/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location (Obrigatório para melhor indexação)
+Sitemap: https://www.apexengenharia.com.br/sitemap.xml
+
+# Crawl-delay padrão para evitar sobrecarga
+Crawl-delay: 1
