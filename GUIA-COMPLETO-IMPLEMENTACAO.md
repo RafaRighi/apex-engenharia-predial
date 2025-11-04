@@ -52,7 +52,7 @@
 1. No Dashboard do Vercel, clique no seu projeto
 2. Vá em **"Settings"** (Configurações)
 3. Clique em **"Domains"** (no menu lateral esquerdo)
-4. No campo de texto, digite: **`apexengenharia.com.br`**
+4. No campo de texto, digite: **`apexengenhariapredial.com.br`**
 5. Clique em **"Add"**
 
 ### **2.2. Vercel Mostrará as Configurações DNS**
@@ -60,16 +60,19 @@
 Você verá algo como:
 
 ```
-Type: A
+Type: A (pode aparecer como "UM" na interface)
 Name: @
-Value: 76.76.21.21
+Value: 216.198.79.1 ⭐ NOVO IP RECOMENDADO
 
 Type: CNAME
 Name: www
 Value: cname.vercel-dns.com
 ```
 
-**IMPORTANTE:** Anote essas informações! Você precisará delas.
+**⚠️ IMPORTANTE:** 
+- A Vercel recomenda usar os **novos registros** (`216.198.79.1`) como parte da expansão planejada do intervalo de IPs
+- Os registros antigos (`76.76.21.21` e `cname.vercel-dns.com`) continuam funcionando, mas os novos são recomendados
+- Anote essas informações! Você precisará delas para configurar no Registro.br
 
 ### **2.3. Configurar DNS no Registrador de Domínio**
 
@@ -80,16 +83,16 @@ Value: cname.vercel-dns.com
 1. Acesse: **https://registro.br**
 2. Faça login na sua conta
 3. Clique em **"Meus Domínios"**
-4. Clique no domínio: **`apexengenharia.com.br`**
+4. Clique no domínio: **`apexengenhariapredial.com.br`**
 5. Vá em **"DNS"** ou **"Zona DNS"**
-6. Clique em **"Alterar"** ou **"Editar"**
+6. Clique em **"Alterar"** ou **"Editar"** ou **"Configurar zona DNS"**
 
 **Configurações a adicionar:**
 
-**A) Registro A (Domínio principal):**
+**A) Registro A (Domínio principal - RECOMENDADO):**
 - **Tipo:** A
 - **Nome/Host:** @ (ou deixe vazio)
-- **Valor/IP:** `76.76.21.21` (use o IP que o Vercel forneceu)
+- **Valor/IP:** `216.198.79.1` ⭐ **NOVO IP RECOMENDADO** (use o IP que o Vercel forneceu)
 - **TTL:** 3600 (ou padrão)
 
 **B) Registro CNAME (www):**
@@ -97,6 +100,8 @@ Value: cname.vercel-dns.com
 - **Nome/Host:** www
 - **Valor:** `cname.vercel-dns.com` (use o valor que o Vercel forneceu)
 - **TTL:** 3600 (ou padrão)
+
+**📝 Nota:** Se o `www.apexengenhariapredial.com.br` estiver mostrando "Configuração Inválida" no Vercel, isso é normal antes de configurar o DNS. Após configurar, o status deve mudar para válido.
 
 7. Salve as alterações
 
