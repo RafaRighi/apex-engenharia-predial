@@ -1,0 +1,10 @@
+{
+  "name": "apex-engenharia-predial",
+  "version": "1.0.0",
+  "description": "Site institucional APEX Engenharia Predial",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "nodemailer": "^6.9.8"
+  }
+}

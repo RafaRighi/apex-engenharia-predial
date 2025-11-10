@@ -81,7 +81,7 @@ Localize e atualize as seguintes informações no arquivo `index.html`:
     <span class="info-icon">✉️</span>
     <div>
         <h4>Email</h4>
-        <p>contato@apexengenharia.com.br</p>
+        <p>contato@apexengenhariapredial.com.br</p>
     </div>
 </div>
 ```
@@ -191,39 +191,39 @@ Ou adicionar suas próprias imagens na pasta `img/`.
 
 ## 📧 Configuração do Formulário de Contato
 
-O formulário atualmente exibe um alerta de confirmação. Para enviar emails reais, você tem algumas opções:
+O site agora possui uma API serverless (`api/send-email.js`) hospedada na Vercel que envia os contatos diretamente para o `contato@apexengenhariapredial.com.br` usando o SMTP da Zoho Mail.
 
-### Opção 1: FormSubmit (Gratuito e Simples)
+### Variáveis de Ambiente Necessárias (Vercel)
 
-1. Acesse [formsubmit.co](https://formsubmit.co/)
-2. No arquivo `index.html`, modifique o formulário:
+Adicione em **Project Settings → Environment Variables**:
 
-```html
-<form action="https://formsubmit.co/seu-email@exemplo.com" method="POST">
-    <input type="hidden" name="_subject" value="Novo contato do site APEX">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://seusite.com.br/obrigado.html">
-    
-    <div class="form-group">
-        <input type="text" name="nome" placeholder="Seu Nome" required>
-    </div>
-    <!-- ... resto do formulário ... -->
-</form>
+| Chave | Valor | Observações |
+| --- | --- | --- |
+| `ZOHO_MAIL_USER` | `contato@apexengenhariapredial.com.br` | Use o endereço completo |
+| `ZOHO_MAIL_PASS` | Senha do aplicativo Zoho | Gere em **Zoho Mail → Security → App Passwords** |
+| `ZOHO_MAIL_TO` *(opcional)* | Email(s) que irão receber as mensagens | Pode ser o mesmo do usuário ou uma lista separada por vírgula |
+| `ZOHO_SMTP_HOST` *(opcional)* | `smtp.zoho.com` | Use apenas se precisar alterar |
+| `ZOHO_SMTP_PORT` *(opcional)* | `465` | 465 (SSL) ou 587 (TLS) |
+
+Depois de salvar as variáveis, faça o deploy novamente (ou clique em **Redeploy**) para que elas fiquem disponíveis nas funções.
+
+### Como funciona
+
+1. O formulário (`index.html`) envia os dados via `fetch` para `/api/send-email`.
+2. A função usa o `nodemailer` (configurado em `package.json`) para autenticar na Zoho Mail.
+3. Você receberá um email com todas as informações preenchidas no formulário e o campo **Reply-To** apontando para o email do visitante.
+
+### Teste local
+
+Para testar o envio localmente você precisará do [Vercel CLI](https://vercel.com/docs/cli) e das variáveis de ambiente configuradas em um arquivo `.env` na raiz do projeto. Depois:
+
+```bash
+vercel dev
 ```
 
-### Opção 2: EmailJS (Gratuito até 200 emails/mês)
+O projeto rodará em `http://localhost:3000` e usará as mesmas funções serverless da produção.
 
-1. Crie uma conta em [emailjs.com](https://www.emailjs.com/)
-2. Configure seu serviço de email
-3. Adicione o SDK do EmailJS no `index.html`
-4. Configure o JavaScript conforme a documentação
-
-### Opção 3: Backend Próprio
-
-Se você tiver conhecimento em programação backend, pode criar uma API própria usando:
-- PHP
-- Node.js
-- Python (Flask/Django)
+> **Importante:** o botão do formulário já exibe feedback de “Enviando…” e mensagens de sucesso/erro. Se o envio falhar, o visitante receberá instruções para entrar em contato direto pelo email.
 
 ## 📰 Configuração da Newsletter
 

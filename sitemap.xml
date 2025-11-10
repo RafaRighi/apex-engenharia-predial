@@ -3,116 +3,116 @@
     
     <!-- Página Principal - Prioridade Máxima -->
     <url>
-        <loc>https://apexengenhariapredial.com.br/</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     
     <!-- Páginas de Serviços Principais - Alta Prioridade -->
     <url>
-        <loc>https://apexengenhariapredial.com.br/pintura-predial.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/pintura-predial.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/restauracao-fachadas.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/restauracao-fachadas.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/impermeabilizacao.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/impermeabilizacao.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/trabalhos-em-altura.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/trabalhos-em-altura.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/manutencao-reforma-telhados.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/manutencao-reforma-telhados.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/demarcacoes-pisos.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/demarcacoes-pisos.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <!-- Blog Principal -->
     <url>
-        <loc>https://apexengenhariapredial.com.br/blog.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/blog.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <!-- Posts do Blog - Conteúdo SEO -->
     <url>
-        <loc>https://apexengenhariapredial.com.br/blog/posts/pintura-epoxi-guia-completo.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/pintura-epoxi-guia-completo.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/blog/posts/restauracao-fachadas-quando-fazer.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/restauracao-fachadas-quando-fazer.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/blog/posts/impermeabilizacao-prevencao-infiltracoes.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/impermeabilizacao-prevencao-infiltracoes.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/blog/posts/pintura-acrilica-vs-esmalte.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/pintura-acrilica-vs-esmalte.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/blog/posts/escolher-tinta-ideal-fachada.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/escolher-tinta-ideal-fachada.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/blog/posts/nr35-seguranca-trabalho-altura.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/nr35-seguranca-trabalho-altura.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/blog/posts/manutencao-preventiva-edificios.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/manutencao-preventiva-edificios.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://apexengenhariapredial.com.br/blog/posts/reformas-que-valorizam-imovel.html</loc>
-        <lastmod>2025-11-03</lastmod>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/reformas-que-valorizam-imovel.html</loc>
+        <lastmod>2025-11-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>

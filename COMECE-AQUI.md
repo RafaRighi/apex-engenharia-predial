@@ -83,6 +83,7 @@ Me avise:
 - O que aparece na tela?
 
 ---
-
+ cname.vercel-dns.com
 **Boa sorte! 🚀**
 
+ cname.vercel-dns.com cname.vercel-dns.com

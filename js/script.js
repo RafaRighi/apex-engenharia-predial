@@ -125,7 +125,7 @@ if (servicoCards.length > 0) {
 // Formulário de contato (restante do seu código)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         // Validação básica
@@ -145,10 +145,39 @@ if (contactForm) {
             alert('Por favor, insira um email válido!');
             return;
         }
-        
-        // Simulação de envio
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-        contactForm.reset();
+
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitButton ? submitButton.textContent : '';
+
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+        }
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome, email, telefone, mensagem })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok || !data?.success) {
+                throw new Error(data?.message || 'Falha no envio');
+            }
+
+            alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
+            contactForm.reset();
+        } catch (error) {
+            console.error('Erro ao enviar formulário de contato:', error);
+            alert('Não foi possível enviar sua mensagem agora. Tente novamente mais tarde ou envie um e-mail diretamente para contato@apexengenhariapredial.com.br.');
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText || 'Enviar Mensagem';
+            }
+        }
     });
 }
 
