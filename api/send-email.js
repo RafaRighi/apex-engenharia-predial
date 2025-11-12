@@ -13,13 +13,37 @@ const isJsonString = (value) => {
   }
 };
 
+const readRequestBody = async (req) =>
+  new Promise((resolve, reject) => {
+    let data = '';
+
+    req.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    req.on('end', () => {
+      resolve(data);
+    });
+
+    req.on('error', (error) => {
+      reject(error);
+    });
+  });
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ success: false, message: 'Método não permitido.' });
   }
 
-  const payload = isJsonString(req.body) ? JSON.parse(req.body) : req.body;
+  const rawBody =
+    typeof req.body !== 'undefined' && req.body !== null ? req.body : await readRequestBody(req);
+
+  const payload =
+    typeof rawBody === 'string' && rawBody.trim().length > 0
+      ? JSON.parse(isJsonString(rawBody) ? rawBody : '{}')
+      : rawBody;
+
   const { nome, email, telefone, mensagem } = payload || {};
 
   if (!nome || !email || !telefone || !mensagem) {

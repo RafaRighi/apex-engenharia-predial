@@ -124,7 +124,7 @@
 #### **Tarefas:**
 
 **3.1. Verificar Telefone Atual**
-- [ ] Confirmar telefone atual: `(51) 98278-2690`
+- [ ] Confirmar telefone atual: `(51) 98107-8843`
 - [ ] Verificar se é o número correto
 
 **3.2. Atualizar (Se necessário)**
