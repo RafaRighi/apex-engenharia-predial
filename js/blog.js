@@ -52,10 +52,11 @@ postCards.forEach((card, index) => {
 const newsletterForm = document.getElementById('newsletterForm');
 
 if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
+    newsletterForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const submitButton = newsletterForm.querySelector('button[type="submit"]');
         const email = emailInput.value.trim();
         
         // Validação de email
@@ -64,32 +65,38 @@ if (newsletterForm) {
             alert('Por favor, insira um email válido!');
             return;
         }
-        
-        // Aqui você pode adicionar a lógica para enviar para um serviço de newsletter
-        // Por exemplo, MailChimp, SendGrid, etc.
-        
-        alert('Obrigado por se inscrever! Você receberá nossas novidades em breve.');
-        newsletterForm.reset();
-        
-        // Exemplo de integração com serviço de newsletter (descomente e configure):
-        /*
-        fetch('https://seu-backend.com/api/newsletter', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email: email })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Inscrição realizada com sucesso!');
+
+        const originalText = submitButton ? submitButton.textContent : '';
+
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Inscrevendo...';
+        }
+
+        try {
+            const response = await fetch('/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok || !data?.success) {
+                throw new Error(data?.message || 'Falha na inscrição');
+            }
+
+            alert('Inscrição realizada com sucesso! Verifique sua caixa de entrada para confirmar.');
             newsletterForm.reset();
-        })
-        .catch(error => {
-            alert('Erro ao realizar inscrição. Tente novamente.');
-            console.error('Erro:', error);
-        });
-        */
+        } catch (error) {
+            console.error('Erro ao inscrever na newsletter:', error);
+            alert('Não foi possível realizar a inscrição agora. Tente novamente mais tarde ou entre em contato conosco.');
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText || 'Inscrever';
+            }
+        }
     });
 }
 
@@ -119,86 +126,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Função para compartilhamento social (para páginas de posts individuais)
-function shareOnSocial(platform, url, title) {
-    const encodedUrl = encodeURIComponent(url);
-    const encodedTitle = encodeURIComponent(title);
-    let shareUrl = '';
-    
-    switch(platform) {
-        case 'facebook':
-            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-            break;
-        case 'twitter':
-            shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
-            break;
-        case 'linkedin':
-            shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
-            break;
-        case 'whatsapp':
-            shareUrl = `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`;
-            break;
-    }
-    
-    if (shareUrl) {
-        window.open(shareUrl, '_blank', 'width=600,height=400');
-    }
-}
-
-// Adiciona event listeners para botões de compartilhamento
-const shareButtons = document.querySelectorAll('.share-btn');
-shareButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const platform = button.classList.contains('facebook') ? 'facebook' :
-                        button.classList.contains('twitter') ? 'twitter' :
-                        button.classList.contains('linkedin') ? 'linkedin' :
-                        button.classList.contains('whatsapp') ? 'whatsapp' : '';
-        
-        const url = window.location.href;
-        const title = document.querySelector('.post-header h1')?.textContent || document.title;
-        
-        shareOnSocial(platform, url, title);
-    });
-});
-
-// Lazy loading de imagens (opcional, para melhor performance)
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    observer.unobserve(img);
-                }
-            }
-        });
-    });
-    
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    lazyImages.forEach(img => imageObserver.observe(img));
-}
-
-// Tempo de leitura estimado (para páginas de posts individuais)
-function calculateReadingTime() {
-    const article = document.querySelector('.post-article');
-    if (article) {
-        const text = article.textContent;
-        const wordsPerMinute = 200;
-        const words = text.trim().split(/\s+/).length;
-        const readingTime = Math.ceil(words / wordsPerMinute);
-        
-        const readTimeElement = document.querySelector('.post-read-time');
-        if (readTimeElement) {
-            readTimeElement.textContent = `${readingTime} min de leitura`;
-        }
-    }
-}
-
-// Executa o cálculo de tempo de leitura se estiver em uma página de post
-if (document.querySelector('.post-article')) {
-    calculateReadingTime();
-}
+// Código removido: funções de compartilhamento social, lazy loading customizado e cálculo de tempo de leitura
+// não estão sendo utilizadas no HTML atual. Se precisar no futuro, podem ser reimplementadas.
 

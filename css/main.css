@@ -14,7 +14,7 @@
     --bg-light: #f8f9fa;
     --white: #ffffff;
     --gradient-primary: linear-gradient(135deg, #00a8e8 0%, #007ea7 100%);
-    --gradient-overlay: linear-gradient(135deg, rgba(0, 52, 89, 0.85) 0%, rgba(0, 126, 167, 0.85) 100%);
+    --gradient-overlay: linear-gradient(135deg, rgba(0, 52, 89, 0.45) 0%, rgba(0, 126, 167, 0.45) 100%);
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -153,7 +153,15 @@ body {
     position: relative;
     height: 100vh;
     min-height: 600px;
-    background: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920') center/cover no-repeat;
+    background: url('../img/mock-hero-apex.jpg') center/cover no-repeat;
+    background-image: -webkit-image-set(
+        url('../img/mock-hero-apex.webp') type('image/webp'),
+        url('../img/mock-hero-apex.jpg') type('image/jpeg')
+    );
+    background-image: image-set(
+        url('../img/mock-hero-apex.webp') type('image/webp'),
+        url('../img/mock-hero-apex.jpg') type('image/jpeg')
+    );
     display: flex;
     align-items: center;
     justify-content: center;
