@@ -37,7 +37,7 @@ module.exports = async (req, res) => {
   }
 
   const rawBody =
-    typeof req.body !== 'undefined' && req.body !== null ? await readRequestBody(req) : '{}';
+    typeof req.body !== 'undefined' && req.body !== null ? req.body : await readRequestBody(req);
 
   const payload =
     typeof rawBody === 'string' && rawBody.trim().length > 0
