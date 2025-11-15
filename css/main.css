@@ -151,8 +151,8 @@ body {
 
 .hero {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    min-height: 100vh;
+    padding-bottom: 50px;
     background: url('../img/mock-hero-apex.jpg') center/cover no-repeat;
     background-image: -webkit-image-set(
         url('../img/mock-hero-apex.webp') type('image/webp'),
@@ -185,6 +185,7 @@ body {
     padding: 20px;
     animation: fadeInUp 1s ease;
     margin-top: 100px;
+    margin-bottom: 50px;
 }
 
 .hero-title {
