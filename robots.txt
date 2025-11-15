@@ -38,7 +38,7 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location (Obrigatório para melhor indexação)
-Sitemap: https://apexengenhariapredial.com.br/sitemap.xml
+Sitemap: https://www.apexengenhariapredial.com.br/sitemap.xml
 
 # Crawl-delay padrão para evitar sobrecarga
 Crawl-delay: 1
