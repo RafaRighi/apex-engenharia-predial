@@ -967,7 +967,7 @@ body {
 .footer {
     background: var(--secondary-color);
     color: var(--white);
-    padding: 60px 0 30px;
+    padding: 60px 0 120px;
 }
 
 .footer-content {
@@ -1234,6 +1234,10 @@ body {
     .whatsapp-float svg {
         width: 28px;
         height: 28px;
+    }
+
+    .footer {
+        padding: 60px 0 100px;
     }
 
     .galeria-grid {
