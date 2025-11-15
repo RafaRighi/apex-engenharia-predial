@@ -254,7 +254,7 @@ body {
 .btn-secondary {
     background: transparent;
     color: var(--white);
-    border-color: var(--white);
+    border: 2px solid var(--white);
 }
 
 .btn-secondary:hover {
