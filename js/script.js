@@ -58,24 +58,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header invisível ao rolar
+// Header invisível ao rolar - DESABILITADO para evitar CLS
+// O header hide/show estava causando layout shift (CLS 0.20)
+// Mantendo header sempre visível para melhor performance
 let lastScrollTop = 0; 
 const header = document.getElementById('header');
-const scrollThreshold = 100;
 
 if (header) {
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
         
-        // --- 1. Lógica de Ocultar/Mostrar ---
-        if (currentScroll > lastScrollTop && currentScroll > scrollThreshold) {
-            header.classList.add('hidden');
-        } 
-        else if (currentScroll < lastScrollTop || currentScroll <= scrollThreshold) {
-            header.classList.remove('hidden');
-        }
-        
-        // --- 2. Lógica para o efeito 'scrolled' ---
+        // Apenas efeito 'scrolled' - sem esconder/mostrar para evitar CLS
         if (currentScroll > 10) { 
             header.classList.add('scrolled');
         } else {

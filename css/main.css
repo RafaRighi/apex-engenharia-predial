@@ -102,6 +102,8 @@ body {
     list-style: none;
     gap: 25px;
     align-items: center;
+    /* Previne layout shift do menu */
+    min-height: 50px;
 }
 
 .nav-link {
