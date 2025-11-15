@@ -1222,6 +1222,12 @@ body {
 
     .hero-buttons {
         flex-direction: column;
+        margin-top: 40px;
+    }
+
+    .hero-content p + .btn,
+    .hero-content .btn {
+        margin-top: 40px;
     }
 
     .btn {
