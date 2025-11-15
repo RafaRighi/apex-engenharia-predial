@@ -34,6 +34,8 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    /* Previne layout shift durante carregamento de fontes */
+    font-display: swap;
 }
 
 .container {
@@ -399,6 +401,11 @@ body {
     text-align: center;
     transition: var(--transition);
     border: 2px solid transparent;
+    /* Previne layout shift */
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .diferencial-item:hover {
@@ -493,6 +500,8 @@ body {
     border-top: 4px solid var(--primary-color);
     overflow: hidden;
     cursor: pointer;
+    /* Previne layout shift */
+    min-height: 400px;
 }
 
 .servico-card:hover {

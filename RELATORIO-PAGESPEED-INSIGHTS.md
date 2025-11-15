@@ -8,7 +8,7 @@
 
 | Métrica | Pontuação | Status |
 |---------|-----------|--------|
-| **Desempenho (Performance)** | 82 | 🟠 Laranja |
+| **Desempenho (Performance)** | 84 | 🟠 Laranja |
 | **Acessibilidade (Accessibility)** | 94 | 🟢 Verde |
 | **Práticas Recomendadas (Best Practices)** | 96 | 🟢 Verde |
 | **SEO** | 100 | 🟢 Verde |
