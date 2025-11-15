@@ -330,6 +330,12 @@ body {
     text-align: justify;
 }
 
+.sobre p + .btn,
+.sobre .container > .btn {
+    margin-top: 40px;
+    display: inline-block;
+}
+
 .sobre-stats {
     display: flex;
     flex-direction: column;
