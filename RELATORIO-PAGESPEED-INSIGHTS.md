@@ -87,14 +87,17 @@
 3. ✅ **Width/height em todas as imagens** - Previne layout shift (serviços, galeria, blog, logos)
 4. ✅ **Animação WhatsApp otimizada** - Usa transform/opacity ao invés de box-shadow
 5. ✅ **Fonte de fallback** - Melhora LCP com renderização imediata
-6. ✅ Adicionado preload para CSS crítico
-7. ✅ Adicionado preload para logo (imagem crítica)
-8. ✅ Melhorado contraste de cores (text-light: #666 → #555)
-9. ✅ Adicionados aria-labels em todos os botões e links importantes
-10. ✅ Adicionados labels com sr-only para campos do formulário
-11. ✅ Melhorado contraste no footer (opacity aumentada)
-12. ✅ Adicionado text-shadow em textos do hero para melhor legibilidade
-13. ✅ Otimizada configuração do Google Analytics
+6. ✅ **Preload imagem hero** - mock-hero-apex.webp com fetchpriority="high"
+7. ✅ **CSS crítico inline** - Hero renderiza imediatamente sem esperar CSS externo
+8. ✅ **Animação fadeInUp removida** - Hero-content renderiza instantaneamente
+9. ✅ Adicionado preload para CSS crítico
+10. ✅ Adicionado preload para logo (imagem crítica)
+11. ✅ Melhorado contraste de cores (text-light: #666 → #555)
+12. ✅ Adicionados aria-labels em todos os botões e links importantes
+13. ✅ Adicionados labels com sr-only para campos do formulário
+14. ✅ Melhorado contraste no footer (opacity aumentada)
+15. ✅ Adicionado text-shadow em textos do hero para melhor legibilidade
+16. ✅ Otimizada configuração do Google Analytics
 
 ### ⏳ Pendentes - Média Prioridade
 1. ⏳ **Redimensionar logo APEX** - De 500x500 para tamanho adequado (economia: ~21,9 KiB)

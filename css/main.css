@@ -183,9 +183,12 @@ body {
     z-index: 2;
     max-width: 800px;
     padding: 20px;
-    animation: fadeInUp 1s ease;
+    /* Removida animação para melhorar LCP - renderização imediata */
     margin-top: 100px;
     margin-bottom: 50px;
+    /* Garantir renderização imediata */
+    opacity: 1;
+    transform: none;
 }
 
 .hero-title {

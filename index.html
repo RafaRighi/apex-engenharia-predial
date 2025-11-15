@@ -103,6 +103,37 @@
     <link rel="manifest" href="manifest.json">
     <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="img/logo-apex.png" as="image">
+    <link rel="preload" href="img/mock-hero-apex.webp" as="image" fetchpriority="high">
+    <!-- CSS crítico inline para hero - melhora LCP -->
+    <style>
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            padding-bottom: 50px;
+            background: url('../img/mock-hero-apex.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            opacity: 1;
+            transform: none;
+        }
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+    </style>
     <link rel="stylesheet" href="css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
