@@ -10,7 +10,7 @@
     --secondary-color: #003459;
     --accent-color: #007ea7;
     --text-dark: #1a1a1a;
-    --text-light: #666;
+    --text-light: #555;
     --bg-light: #f8f9fa;
     --white: #ffffff;
     --gradient-primary: linear-gradient(135deg, #00a8e8 0%, #007ea7 100%);
@@ -208,12 +208,14 @@ body {
     font-size: 1.5rem;
     margin-bottom: 15px;
     font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-text {
     font-size: 1.1rem;
     margin-bottom: 30px;
-    opacity: 0.95;
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content p + .btn,
@@ -951,6 +953,18 @@ body {
 
 .form-group {
     margin-bottom: 20px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 .form-group input,
