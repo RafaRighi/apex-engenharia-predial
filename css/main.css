@@ -967,7 +967,7 @@ body {
 .footer {
     background: var(--secondary-color);
     color: var(--white);
-    padding: 60px 0 120px;
+    padding: 60px 0 70px;
 }
 
 .footer-content {
@@ -1237,7 +1237,7 @@ body {
     }
 
     .footer {
-        padding: 60px 0 100px;
+        padding: 60px 0 70px;
     }
 
     .galeria-grid {
