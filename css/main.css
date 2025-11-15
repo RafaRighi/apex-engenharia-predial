@@ -967,7 +967,7 @@ body {
 .footer {
     background: var(--secondary-color);
     color: var(--white);
-    padding: 60px 0 50px;
+    padding: 60px 0 30px;
 }
 
 .footer-content {
@@ -1068,7 +1068,8 @@ body {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
