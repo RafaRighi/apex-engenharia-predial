@@ -77,20 +77,29 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .logo-link {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    margin-right: auto;
+    margin-left: 0;
+    padding: 0;
 }
 
 .logo {
     width: 630px;
-    max-width: 80%;
+    max-width: 50%;
     height: 144px;
     object-fit: contain;
+    object-position: left center;
     /* Previne layout shift do logo - dimensões fixas */
     display: block;
+    margin: 0;
+    padding: 0;
 }
 
 .logo:hover {
@@ -1204,6 +1213,15 @@ body {
     .menu-toggle {
         display: flex;
     }
+    
+    .navbar .container {
+        padding-left: 20px;
+        padding-right: 15px;
+    }
+    
+    .logo {
+        max-width: 60%;
+    }
 
     .nav-menu {
         position: fixed;
@@ -1260,6 +1278,25 @@ body {
         width: 375px;
         max-width: 75%;
         height: 86px;
+        margin-left: 0;
+        margin-right: auto;
+    }
+    
+    .logo-link {
+        margin-left: 0;
+        margin-right: auto;
+        justify-content: flex-start;
+    }
+    
+    .navbar .container {
+        justify-content: flex-start;
+        padding-left: 20px;
+        padding-right: 15px;
+    }
+    
+    .menu-toggle {
+        margin-left: auto;
+        margin-right: 0;
     }
 
     .hero-content {
