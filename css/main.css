@@ -55,11 +55,17 @@ body {
     box-shadow: none;
     z-index: 1000;
     /* Usa transform ao invés de top para evitar layout shift */
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease;
     opacity: 1;
     margin: 0;
     padding: 0;
     transform: translateY(0);
+}
+
+#header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -122,6 +128,8 @@ body {
     font-size: 16px;
     transition: var(--transition);
     position: relative;
+    text-transform: none;
+    letter-spacing: normal;
 }
 
 .nav-link::after {
