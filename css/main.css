@@ -65,12 +65,12 @@ body {
 
 
 .navbar {
-    padding: 10px 0;
+    padding: 15px 0;
     transition: padding 0.3s ease;
 }
 
 #header.scrolled .navbar {
-    padding: 5px 0;
+    padding: 8px 0;
 }
 
 .navbar .container {
@@ -85,11 +85,11 @@ body {
 }
 
 .logo {
-    width: 420px;
-    max-width: 75%;
-    height: 96px;
+    width: 630px;
+    max-width: 80%;
+    height: 144px;
     object-fit: contain;
-    /* Previne layout shift do logo */
+    /* Previne layout shift do logo - dimensões fixas */
     display: block;
 }
 
@@ -1257,9 +1257,9 @@ body {
     }
 
     .logo {
-        width: 250px;
-        max-width: 70%;
-        height: 57px;
+        width: 375px;
+        max-width: 75%;
+        height: 86px;
     }
 
     .hero-content {
