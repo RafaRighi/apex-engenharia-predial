@@ -85,9 +85,9 @@ body {
 }
 
 .logo {
-    width: 350px;
-    max-width: 70%;
-    height: 80px;
+    width: 420px;
+    max-width: 75%;
+    height: 96px;
     object-fit: contain;
     /* Previne layout shift do logo */
     display: block;
@@ -1257,8 +1257,9 @@ body {
     }
 
     .logo {
-        width: 200px;
-        max-width: 60%;
+        width: 250px;
+        max-width: 70%;
+        height: 57px;
     }
 
     .hero-content {
