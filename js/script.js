@@ -105,17 +105,16 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Elementos para animar - Otimizado para evitar layout shift
+// Elementos para animar - DESABILITADO para evitar CLS
+// As animações de entrada estavam causando layout shift (CLS 0.20)
+// Mantendo elementos visíveis desde o início para melhor performance
 const animateElements = document.querySelectorAll('.servico-card, .diferencial-item, .stat-item, .info-item, .galeria-item, .blog-preview-card, .numero-item, .produto-item');
 if (animateElements) {
     animateElements.forEach(el => {
-        // Garante que o elemento já tenha espaço reservado (evita CLS)
-        el.style.minHeight = el.offsetHeight + 'px';
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        el.style.willChange = 'opacity, transform';
-        observer.observe(el);
+        // Elementos já visíveis desde o início - sem animação para evitar CLS
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        // Removido observer para evitar qualquer layout shift
     });
 }
 

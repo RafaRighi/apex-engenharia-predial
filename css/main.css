@@ -54,10 +54,12 @@ body {
     background: transparent;
     box-shadow: none;
     z-index: 1000;
-    transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    /* Usa transform ao invés de top para evitar layout shift */
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     opacity: 1;
     margin: 0;
     padding: 0;
+    transform: translateY(0);
 }
 
 
@@ -85,7 +87,10 @@ body {
 .logo {
     width: 350px;
     max-width: 70%;
-    height: auto;
+    height: 80px;
+    object-fit: contain;
+    /* Previne layout shift do logo */
+    display: block;
 }
 
 .logo:hover {
@@ -148,7 +153,8 @@ body {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
-    top: -100px !important;
+    /* Usa transform ao invés de top para evitar layout shift */
+    transform: translateY(-100%) !important;
 }
 
 .hero {
