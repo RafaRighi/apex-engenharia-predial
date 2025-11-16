@@ -5,14 +5,6 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        { "type": "host", "value": "apexengenhariapredial.com.br" }
-      ],
-      "destination": "https://www.apexengenhariapredial.com.br/$1",
-      "permanent": true
     }
   ],
   "headers": [
