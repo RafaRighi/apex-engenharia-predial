@@ -58,25 +58,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header invisível ao rolar - DESABILITADO para evitar CLS
-// O header hide/show estava causando layout shift (CLS 0.20)
-// Mantendo header sempre visível para melhor performance
-let lastScrollTop = 0; 
+// Header: esconder ao rolar para baixo e mostrar ao rolar para cima
+// Implementado com transform para evitar CLS (sem alterar o fluxo do layout)
+let lastScrollTop = 0;
+let ticking = false;
 const header = document.getElementById('header');
 
 if (header) {
-    window.addEventListener('scroll', () => {
+    const onScroll = () => {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Apenas efeito 'scrolled' - sem esconder/mostrar para evitar CLS
-        if (currentScroll > 10) { 
+
+        // Estado visual (fundo/sombra) ao rolar
+        if (currentScroll > 10) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
 
+        // Não esconder se menu mobile estiver aberto
+        const isMenuOpen = navMenu && navMenu.classList.contains('active');
+
+        // Lógica de direção: esconde ao descer, mostra ao subir
+        if (!isMenuOpen) {
+            const isScrollingDown = currentScroll > lastScrollTop;
+            const beyondThreshold = currentScroll > 120;
+
+            if (isScrollingDown && beyondThreshold) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+        }
+
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    });
+        ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(onScroll);
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 // Animação de entrada dos elementos - Otimizada para evitar CLS
