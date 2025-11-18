@@ -83,7 +83,7 @@ section {
     margin: 0;
     padding: 0;
     transform: translateY(0);
-    overflow: hidden;
+    overflow: visible;
 }
 
 #header.scrolled {
@@ -146,6 +146,7 @@ section {
     align-items: center;
     /* Previne layout shift do menu */
     min-height: 50px;
+    z-index: 1100;
 }
 
 .nav-link {
@@ -1274,19 +1275,38 @@ section {
 
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 0;
         left: -100%;
         width: 100%;
         max-width: 100vw;
-        height: calc(100vh - 70px);
+        height: 100vh;
         background: var(--white);
         flex-direction: column;
         justify-content: flex-start;
-        padding: 50px 0;
+        align-items: flex-start;
+        padding: 120px 30px 40px;
+        gap: 20px;
         transition: var(--transition);
         box-shadow: var(--shadow-lg);
         overflow-y: auto;
         overflow-x: hidden;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu .nav-link {
+        display: block;
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        text-align: left;
+    }
+
+    .nav-menu .nav-link::after {
+        display: none;
     }
 
     .nav-menu.active {
@@ -1437,6 +1457,46 @@ section {
 
     .galeria-overlay h3 {
         font-size: 1rem;
+    }
+
+    .contato {
+        padding: 70px 0;
+    }
+
+    .contato .container {
+        padding: 0 25px;
+    }
+
+    .contato-content {
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 0;
+        gap: 30px;
+    }
+
+    .contato-info,
+    .contato-form {
+        width: 100%;
+    }
+
+    .contato-info,
+    .contato-info h3,
+    .contato-info > p {
+        text-align: center;
+    }
+
+    .info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info-icon {
+        margin-bottom: 10px;
+    }
+
+    .contato-form {
+        padding: 30px 20px;
     }
 }
 
