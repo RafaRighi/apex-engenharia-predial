@@ -81,8 +81,9 @@
     'use strict';
     
     function initSmoothScroll() {
-        // Seleciona todos os links que contêm âncoras (mesma página ou outra página)
-        const anchors = document.querySelectorAll('a[href*="#"]');
+        // Seleciona APENAS links de âncoras na mesma página (que começam com #)
+        // Links para outras páginas (ex: index.html#inicio) NÃO são interceptados - funcionam normalmente
+        const anchors = document.querySelectorAll('a[href^="#"]');
         
         anchors.forEach(anchor => {
             // Evita adicionar múltiplos listeners
@@ -98,13 +99,6 @@
                     return;
                 }
                 
-                // Se o link aponta para outra página (ex: index.html#inicio, blog.html), deixa navegar normalmente
-                // Não intercepta - permite navegação padrão do navegador
-                if (href.includes('.html')) {
-                    // Link para outra página - permite navegação normal sem interceptação
-                    return true;
-                }
-                
                 // Se é um link de âncora na mesma página (começa com #)
                 if (href.startsWith('#')) {
                     const target = document.querySelector(href);
@@ -118,10 +112,9 @@
                             top: offsetPosition,
                             behavior: 'smooth'
                         });
-                        return false;
                     }
                 }
-            }, true); // Usa capture phase para garantir que executa antes de outros handlers
+            });
         });
     }
     
