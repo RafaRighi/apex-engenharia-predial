@@ -70,23 +70,50 @@
     }
 })();
 
-// Scroll suave para âncoras
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerOffset = 90;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+// Scroll suave para âncoras - Garante que funciona mesmo com defer
+(function() {
+    'use strict';
+    
+    function initSmoothScroll() {
+        const anchors = document.querySelectorAll('a[href^="#"]');
+        
+        anchors.forEach(anchor => {
+            // Remove listeners anteriores para evitar duplicação
+            const newAnchor = anchor.cloneNode(true);
+            anchor.parentNode.replaceChild(newAnchor, anchor);
+            
+            newAnchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Ignora links vazios ou apenas #
+                if (!href || href === '#' || href === '') {
+                    e.preventDefault();
+                    return;
+                }
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const headerOffset = 90;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
-        }
-    });
-});
+        });
+    }
+    
+    // Inicializa quando o DOM estiver pronto
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSmoothScroll);
+    } else {
+        initSmoothScroll();
+    }
+})();
 
 // Header: esconder ao rolar para baixo e mostrar ao rolar para cima
 // Implementado com transform para evitar CLS (sem alterar o fluxo do layout)

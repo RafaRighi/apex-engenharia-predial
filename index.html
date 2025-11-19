@@ -24,9 +24,9 @@
         };
         document.head.appendChild(script);
       }
-      // Carrega após 2 segundos ou na primeira interação
-      setTimeout(loadGtag, 2000);
-      ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(function(event) {
+      // Carrega após 3 segundos (após LCP) ou na primeira interação
+      setTimeout(loadGtag, 3000);
+      ['mousedown', 'touchstart', 'keydown'].forEach(function(event) {
         document.addEventListener(event, loadGtag, { once: true, passive: true });
       });
     </script>

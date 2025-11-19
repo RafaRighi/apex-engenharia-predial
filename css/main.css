@@ -301,8 +301,13 @@ section {
     /* Garante renderização imediata - crítico para LCP */
     display: block;
     visibility: visible;
-    /* Usa fonte do sistema primeiro para renderização imediata */
+    /* Usa fonte do sistema primeiro para renderização imediata - evita FOUT */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    /* Previne layout shift durante carregamento de fontes */
+    font-display: swap;
+    /* Garante que o texto seja renderizado imediatamente */
+    will-change: auto;
+    contain: layout style;
 }
 
 .hero-content p + .btn,
