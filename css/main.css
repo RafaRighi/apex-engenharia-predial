@@ -129,10 +129,12 @@ section {
     height: 144px;
     object-fit: contain;
     object-position: left center;
-    /* Previne layout shift do logo - dimensões fixas */
     display: block;
     margin: 0;
     padding: 0;
+    /* Otimização: decoding async para melhor performance */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .logo:hover {
@@ -298,15 +300,10 @@ section {
     margin-bottom: 30px;
     opacity: 1;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    /* Garante renderização imediata - crítico para LCP */
     display: block;
     visibility: visible;
-    /* Usa fonte do sistema primeiro para renderização imediata - evita FOUT */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    /* Previne layout shift durante carregamento de fontes */
     font-display: swap;
-    /* Garante que o texto seja renderizado imediatamente */
-    will-change: auto;
     contain: layout style;
 }
 
@@ -1391,12 +1388,13 @@ section {
     }
 
     .logo {
-        width: 375px;
+        width: 300px;
         max-width: calc(100vw - 80px);
-        height: 86px;
+        height: 69px;
         margin-left: 0;
         margin-right: auto;
         flex-shrink: 1;
+        /* Otimização: reduz tamanho no mobile para melhor performance */
     }
     
     .logo-link {

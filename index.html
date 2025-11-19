@@ -24,10 +24,21 @@
         };
         document.head.appendChild(script);
       }
-      // Carrega após 3 segundos (após LCP) ou na primeira interação
-      setTimeout(loadGtag, 3000);
-      ['mousedown', 'touchstart', 'keydown'].forEach(function(event) {
-        document.addEventListener(event, loadGtag, { once: true, passive: true });
+      // Carrega após 5 segundos (bem após LCP) ou apenas em interações significativas
+      // No mobile, prioriza performance sobre tracking imediato
+      var gtagLoaded = false;
+      function tryLoadGtag() {
+        if (gtagLoaded) return;
+        gtagLoaded = true;
+        loadGtag();
+      }
+      setTimeout(tryLoadGtag, 5000);
+      // Só carrega em interações que indicam engajamento real (clique, não scroll)
+      ['mousedown', 'touchstart'].forEach(function(event) {
+        document.addEventListener(event, function() {
+          // Aguarda para garantir que é uma interação real, não acidental
+          setTimeout(tryLoadGtag, 1000);
+        }, { once: true, passive: true });
       });
     </script>
     <meta charset="UTF-8">
@@ -198,7 +209,7 @@
         <nav class="navbar">
             <div class="container">
                 <a href="#inicio" class="logo-link" aria-label="Voltar para o início">
-                    <img src="img/logo-apex.png" alt="Logo APEX Engenharia Predial" class="logo" width="630" height="144" fetchpriority="high" loading="eager">
+                    <img src="img/logo-apex.png" alt="Logo APEX Engenharia Predial" class="logo" width="630" height="144" fetchpriority="high" loading="eager" decoding="async">
                 </a>
                 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
                     <span></span>

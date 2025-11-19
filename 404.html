@@ -25,7 +25,18 @@
         document.head.appendChild(script);
       }
       // Carrega após 2 segundos ou na primeira interação
-      setTimeout(loadGtag, 3000);
+      var gtagLoaded = false;
+      function tryLoadGtag() {
+        if (gtagLoaded) return;
+        gtagLoaded = true;
+        loadGtag();
+      }
+      setTimeout(tryLoadGtag, 5000);
+      ["mousedown", "touchstart"].forEach(function(event) {
+        document.addEventListener(event, function() {
+          setTimeout(tryLoadGtag, 1000);
+        }, { once: true, passive: true });
+      });
       ['mousedown', 'touchstart', 'keydown'].forEach(function(event) {
         document.addEventListener(event, loadGtag, { once: true, passive: true });
       });
