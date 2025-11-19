@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSL6B8S18Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JSL6B8S18Y');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial em Porto Alegre. Pintura de galpões, estruturas metálicas, proteção anti-corrosiva e pintura epóxi industrial. Mais de 10 anos. Solicite seu orçamento grátis agora!">
@@ -766,35 +775,5 @@
     </a>
 
     <script src="js/script.js" defer></script>
-    
-    <!-- Google tag (gtag.js) - Carregado muito depois para não bloquear renderização -->
-    <script>
-        // Adiar Google Analytics até após interação do usuário ou 3 segundos
-        // Isso evita que bloqueie a renderização do LCP (hero-text)
-        function loadGoogleAnalytics() {
-            if (window.dataLayer && window.dataLayer.length > 0) return; // Já carregado
-            
-            var script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JSL6B8S18Y';
-            document.head.appendChild(script);
-            
-            script.onload = function() {
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-JSL6B8S18Y', {
-                    'anonymize_ip': true,
-                    'cookie_flags': 'SameSite=None;Secure'
-                });
-            };
-        }
-        
-        // Carrega após 3 segundos (após LCP) ou na primeira interação
-        setTimeout(loadGoogleAnalytics, 3000);
-        document.addEventListener('scroll', loadGoogleAnalytics, { once: true });
-        document.addEventListener('click', loadGoogleAnalytics, { once: true });
-        document.addEventListener('touchstart', loadGoogleAnalytics, { once: true });
-    </script>
 </body>
 </html>
