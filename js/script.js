@@ -75,14 +75,15 @@
     'use strict';
     
     function initSmoothScroll() {
-        const anchors = document.querySelectorAll('a[href^="#"]');
+        // Seleciona todos os links que contêm âncoras (mesma página ou outra página)
+        const anchors = document.querySelectorAll('a[href*="#"]');
         
         anchors.forEach(anchor => {
-            // Remove listeners anteriores para evitar duplicação
-            const newAnchor = anchor.cloneNode(true);
-            anchor.parentNode.replaceChild(newAnchor, anchor);
+            // Evita adicionar múltiplos listeners
+            if (anchor.dataset.smoothScrollAdded) return;
+            anchor.dataset.smoothScrollAdded = 'true';
             
-            newAnchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 
                 // Ignora links vazios ou apenas #
@@ -91,17 +92,26 @@
                     return;
                 }
                 
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    const headerOffset = 90;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                // Se o link aponta para outra página (ex: index.html#inicio), deixa navegar normalmente
+                if (href.includes('.html') && !href.startsWith('#')) {
+                    // Link para outra página - permite navegação normal
+                    return;
+                }
+                
+                // Se é um link de âncora na mesma página
+                if (href.startsWith('#')) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const headerOffset = 90;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
@@ -113,6 +123,9 @@
     } else {
         initSmoothScroll();
     }
+    
+    // Re-inicializa após navegação (para SPAs ou mudanças dinâmicas)
+    window.addEventListener('load', initSmoothScroll);
 })();
 
 // Header: esconder ao rolar para baixo e mostrar ao rolar para cima
