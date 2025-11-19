@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSL6B8S18Y"></script>
+    <!-- Google tag (gtag.js) - Carregamento otimizado para não bloquear renderização -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'G-JSL6B8S18Y');
+      gtag('config', 'G-JSL6B8S18Y', {
+        'send_page_view': false
+      });
+    </script>
+    <script>
+      // Carrega gtag.js de forma diferida após interação ou 2 segundos
+      function loadGtag() {
+        if (document.querySelector('script[src*="gtag/js"]')) return;
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JSL6B8S18Y';
+        script.onload = function() {
+          gtag('config', 'G-JSL6B8S18Y', {
+            'send_page_view': true
+          });
+        };
+        document.head.appendChild(script);
+      }
+      // Carrega após 2 segundos ou na primeira interação
+      setTimeout(loadGtag, 2000);
+      ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(function(event) {
+        document.addEventListener(event, loadGtag, { once: true, passive: true });
+      });
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +41,6 @@
     
     <!-- Segurança -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
