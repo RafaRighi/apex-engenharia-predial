@@ -66,14 +66,15 @@
 
         // Fechar menu ao clicar fora dele (overlay) - apenas para mobile
         document.addEventListener('click', (e) => {
-            // Só fecha o menu se estiver aberto (mobile) e o clique não for em um link
+            // Só fecha o menu se estiver aberto (mobile) e o clique não for em um link ou botão
             if (navMenu.classList.contains('active') && 
                 !navMenu.contains(e.target) && 
                 !menuToggle.contains(e.target) &&
-                !e.target.closest('a')) { // Não fecha se o clique for em um link
+                !e.target.closest('a') && // Não fecha se o clique for em um link
+                !e.target.closest('button')) { // Não fecha se o clique for em um botão
                 closeMenu();
             }
-        });
+        }, { passive: true }); // Passive para melhor performance
     }
 
     // Inicializa quando o DOM estiver pronto
@@ -91,17 +92,23 @@
     function initSmoothScroll() {
         // Seleciona APENAS links de âncoras na mesma página (que começam com # e NÃO contêm .html)
         // Links para outras páginas (ex: index.html#inicio) NÃO são interceptados - funcionam normalmente
+        // Links do menu (.nav-link) NUNCA são interceptados
         const allLinks = document.querySelectorAll('a[href]');
         
         allLinks.forEach(anchor => {
             const href = anchor.getAttribute('href');
             
-            // Ignora links que apontam para outras páginas ou são vazios
-            if (!href || href === '#' || href === '' || href.includes('.html')) {
+            // NUNCA intercepta links do menu ou links que apontam para outras páginas
+            if (!href || 
+                href === '#' || 
+                href === '' || 
+                href.includes('.html') || 
+                anchor.classList.contains('nav-link') || 
+                anchor.closest('.nav-menu')) {
                 return; // Não intercepta - deixa funcionar normalmente
             }
             
-            // Só intercepta links que começam com # (âncoras na mesma página)
+            // Só intercepta links que começam com # (âncoras na mesma página) e NÃO são do menu
             if (href.startsWith('#')) {
                 // Evita adicionar múltiplos listeners
                 if (anchor.dataset.smoothScrollAdded) return;
@@ -110,8 +117,10 @@
                 anchor.addEventListener('click', function(e) {
                     const targetHref = this.getAttribute('href');
                     
-                    // Dupla verificação - se contém .html, não intercepta
-                    if (targetHref.includes('.html')) {
+                    // Verificações de segurança - se contém .html ou é do menu, não intercepta
+                    if (targetHref.includes('.html') || 
+                        this.classList.contains('nav-link') || 
+                        this.closest('.nav-menu')) {
                         return true; // Permite navegação normal
                     }
                     
