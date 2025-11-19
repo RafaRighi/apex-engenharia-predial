@@ -3,23 +3,59 @@ const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
+// Função para fechar o menu
+const closeMenu = () => {
+    if (navMenu) {
+        navMenu.classList.remove('active');
+    }
+    if (menuToggle) {
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+    }
+};
+
+// Função para abrir/fechar o menu
+const toggleMenu = () => {
+    if (!navMenu || !menuToggle) return;
+    const isExpanded = navMenu.classList.toggle('active');
+    menuToggle.classList.toggle('active', isExpanded);
+    menuToggle.setAttribute('aria-expanded', isExpanded);
+    menuToggle.setAttribute('aria-label', isExpanded ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+};
+
 if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        const isExpanded = navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active', isExpanded);
-        menuToggle.setAttribute('aria-expanded', isExpanded);
-        menuToggle.setAttribute('aria-label', isExpanded ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    menuToggle.addEventListener('click', toggleMenu);
+}
+
+// Fechar menu ao clicar em qualquer link do menu
+// Usa múltiplos eventos para garantir que funcione mesmo quando o link leva para outra página
+if (navLinks && navLinks.length > 0) {
+    navLinks.forEach(link => {
+        // Usa mousedown e touchstart para capturar antes da navegação
+        link.addEventListener('mousedown', closeMenu);
+        link.addEventListener('touchstart', closeMenu);
+        link.addEventListener('click', (e) => {
+            // Fecha o menu imediatamente
+            closeMenu();
+            // Se for link para outra página, permite a navegação normalmente
+            // Se for âncora na mesma página, o código de scroll suave abaixo cuidará
+        });
     });
 }
 
-if (navLinks && navMenu && menuToggle) {
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
-        });
+// Fechar menu quando a página perder o foco (antes de navegar para outra página)
+window.addEventListener('beforeunload', closeMenu);
+
+// Fechar menu ao clicar fora dele (overlay)
+if (navMenu) {
+    document.addEventListener('click', (e) => {
+        // Se o menu estiver aberto e o clique não for no menu nem no botão toggle
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !menuToggle?.contains(e.target)) {
+            closeMenu();
+        }
     });
 }
 
