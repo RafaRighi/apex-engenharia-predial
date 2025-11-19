@@ -126,6 +126,36 @@
     
     // Re-inicializa após navegação (para SPAs ou mudanças dinâmicas)
     window.addEventListener('load', initSmoothScroll);
+    
+    // Scroll automático para âncora quando a página carrega com hash na URL
+    function scrollToHash() {
+        if (window.location.hash) {
+            const hash = window.location.hash;
+            const target = document.querySelector(hash);
+            if (target) {
+                // Aguarda um pouco para garantir que a página está totalmente renderizada
+                setTimeout(() => {
+                    const headerOffset = 90;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            }
+        }
+    }
+    
+    // Executa quando a página carrega
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', scrollToHash);
+    } else {
+        scrollToHash();
+    }
+    
+    // Também escuta mudanças no hash (navegação via JavaScript)
+    window.addEventListener('hashchange', scrollToHash);
 })();
 
 // Header: esconder ao rolar para baixo e mostrar ao rolar para cima
