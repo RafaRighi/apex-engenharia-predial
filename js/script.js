@@ -58,11 +58,13 @@
         // Fechar menu quando a página perder o foco
         window.addEventListener('beforeunload', closeMenu);
 
-        // Fechar menu ao clicar fora dele (overlay)
+        // Fechar menu ao clicar fora dele (overlay) - apenas para mobile
         document.addEventListener('click', (e) => {
+            // Só fecha o menu se estiver aberto (mobile) e o clique não for em um link
             if (navMenu.classList.contains('active') && 
                 !navMenu.contains(e.target) && 
-                !menuToggle.contains(e.target)) {
+                !menuToggle.contains(e.target) &&
+                !e.target.closest('a')) { // Não fecha se o clique for em um link
                 closeMenu();
             }
         });
@@ -81,27 +83,33 @@
     'use strict';
     
     function initSmoothScroll() {
-        // Seleciona APENAS links de âncoras na mesma página (que começam com #)
+        // Seleciona APENAS links de âncoras na mesma página (que começam com # e NÃO contêm .html)
         // Links para outras páginas (ex: index.html#inicio) NÃO são interceptados - funcionam normalmente
-        const anchors = document.querySelectorAll('a[href^="#"]');
+        const allLinks = document.querySelectorAll('a[href]');
         
-        anchors.forEach(anchor => {
-            // Evita adicionar múltiplos listeners
-            if (anchor.dataset.smoothScrollAdded) return;
-            anchor.dataset.smoothScrollAdded = 'true';
+        allLinks.forEach(anchor => {
+            const href = anchor.getAttribute('href');
             
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
+            // Ignora links que apontam para outras páginas ou são vazios
+            if (!href || href === '#' || href === '' || href.includes('.html')) {
+                return; // Não intercepta - deixa funcionar normalmente
+            }
+            
+            // Só intercepta links que começam com # (âncoras na mesma página)
+            if (href.startsWith('#')) {
+                // Evita adicionar múltiplos listeners
+                if (anchor.dataset.smoothScrollAdded) return;
+                anchor.dataset.smoothScrollAdded = 'true';
                 
-                // Ignora links vazios ou apenas #
-                if (!href || href === '#' || href === '') {
-                    e.preventDefault();
-                    return;
-                }
-                
-                // Se é um link de âncora na mesma página (começa com #)
-                if (href.startsWith('#')) {
-                    const target = document.querySelector(href);
+                anchor.addEventListener('click', function(e) {
+                    const targetHref = this.getAttribute('href');
+                    
+                    // Dupla verificação - se contém .html, não intercepta
+                    if (targetHref.includes('.html')) {
+                        return true; // Permite navegação normal
+                    }
+                    
+                    const target = document.querySelector(targetHref);
                     if (target) {
                         e.preventDefault();
                         const headerOffset = 90;
@@ -112,9 +120,10 @@
                             top: offsetPosition,
                             behavior: 'smooth'
                         });
+                        return false;
                     }
-                }
-            });
+                }, false);
+            }
         });
     }
     
