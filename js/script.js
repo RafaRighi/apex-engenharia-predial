@@ -40,24 +40,27 @@
         // Adiciona event listener ao botão toggle
         menuToggle.addEventListener('click', toggleMenu);
 
-        // Fechar menu ao clicar em qualquer link do menu (apenas para mobile)
+        // Fechar menu ao clicar em qualquer link do menu
         if (navLinks && navLinks.length > 0) {
             navLinks.forEach(link => {
-                // Fecha o menu apenas se estiver aberto (mobile) e NÃO interfere com navegação
-                const handleMenuClose = (e) => {
-                    // Não interfere com links que apontam para outras páginas
-                    const href = link.getAttribute('href');
-                    if (href && (href.includes('.html') || !href.startsWith('#'))) {
-                        // Link para outra página - não fecha menu, deixa navegar normalmente
-                        return;
-                    }
-                    // Só fecha se menu estiver aberto (mobile)
+                // Fecha o menu quando qualquer link do menu for clicado
+                link.addEventListener('click', function(e) {
+                    // Fecha o menu se estiver aberto (mobile)
                     if (navMenu.classList.contains('active')) {
+                        // Pequeno delay para garantir que a navegação aconteça
+                        setTimeout(() => {
+                            closeMenu();
+                        }, 100);
+                    }
+                }, { passive: true });
+                
+                // Também fecha no touchstart para melhor responsividade no mobile
+                link.addEventListener('touchstart', function() {
+                    if (navMenu.classList.contains('active')) {
+                        // Fecha imediatamente no touch para melhor UX
                         closeMenu();
                     }
-                };
-                // Usa apenas touchstart para mobile, não interfere com desktop
-                link.addEventListener('touchstart', handleMenuClose, { passive: true });
+                }, { passive: true });
             });
         }
 
@@ -127,6 +130,19 @@
                     const target = document.querySelector(targetHref);
                     if (target) {
                         e.preventDefault();
+                        
+                        // Fecha o menu se estiver aberto (mobile)
+                        const navMenu = document.getElementById('navMenu');
+                        const menuToggle = document.getElementById('menuToggle');
+                        if (navMenu && navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            if (menuToggle) {
+                                menuToggle.classList.remove('active');
+                                menuToggle.setAttribute('aria-expanded', 'false');
+                                menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+                            }
+                        }
+                        
                         const headerOffset = 90;
                         const elementPosition = target.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
