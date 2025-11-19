@@ -40,12 +40,18 @@
         // Adiciona event listener ao botão toggle
         menuToggle.addEventListener('click', toggleMenu);
 
-        // Fechar menu ao clicar em qualquer link do menu
+        // Fechar menu ao clicar em qualquer link do menu (apenas para mobile)
         if (navLinks && navLinks.length > 0) {
             navLinks.forEach(link => {
-                link.addEventListener('mousedown', closeMenu);
-                link.addEventListener('touchstart', closeMenu);
-                link.addEventListener('click', closeMenu);
+                // Fecha o menu apenas se estiver aberto (mobile)
+                const handleMenuClose = () => {
+                    if (navMenu.classList.contains('active')) {
+                        closeMenu();
+                    }
+                };
+                link.addEventListener('mousedown', handleMenuClose);
+                link.addEventListener('touchstart', handleMenuClose);
+                // Não fecha no click para não interferir com navegação
             });
         }
 
@@ -92,13 +98,14 @@
                     return;
                 }
                 
-                // Se o link aponta para outra página (ex: index.html#inicio), deixa navegar normalmente
-                if (href.includes('.html') && !href.startsWith('#')) {
-                    // Link para outra página - permite navegação normal
-                    return;
+                // Se o link aponta para outra página (ex: index.html#inicio, blog.html), deixa navegar normalmente
+                // Não intercepta - permite navegação padrão do navegador
+                if (href.includes('.html')) {
+                    // Link para outra página - permite navegação normal sem interceptação
+                    return true;
                 }
                 
-                // Se é um link de âncora na mesma página
+                // Se é um link de âncora na mesma página (começa com #)
                 if (href.startsWith('#')) {
                     const target = document.querySelector(href);
                     if (target) {
@@ -111,9 +118,10 @@
                             top: offsetPosition,
                             behavior: 'smooth'
                         });
+                        return false;
                     }
                 }
-            });
+            }, true); // Usa capture phase para garantir que executa antes de outros handlers
         });
     }
     
