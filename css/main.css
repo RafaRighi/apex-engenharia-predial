@@ -97,10 +97,13 @@ section {
 .navbar {
     padding: 15px 0;
     transition: padding 0.3s ease;
+    /* Altura mínima para prevenir layout shift quando logo carrega */
+    min-height: 80px;
 }
 
 #header.scrolled .navbar {
     padding: 8px 0;
+    min-height: 60px; /* Altura mínima quando scrollado */
 }
 
 .navbar .container {
@@ -129,9 +132,9 @@ section {
 }
 
 .logo {
-    width: 630px;
-    max-width: 50%;
-    height: 144px;
+    width: 900px;
+    max-width: 70%;
+    height: 205px;
     object-fit: contain;
     object-position: left center;
     display: block;
@@ -272,8 +275,11 @@ section {
     z-index: 2;
     max-width: 1200px;
     padding: 20px;
-    margin: 100px auto 50px;
-    /* Alinhado com container da seção sobre - mesmo max-width */
+    margin-top: calc(80px + 100px); /* Altura do header + espaço extra - previne layout shift */
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Alinhado com container da seção sobre - mesmo max-width e padding */
     box-sizing: border-box;
     /* Garantir renderização imediata */
     opacity: 1;
@@ -301,6 +307,7 @@ section {
     margin-bottom: 15px;
     font-weight: 300;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
 }
 
 .hero-text {
@@ -1299,7 +1306,7 @@ section {
     }
     
     .logo {
-        max-width: 60%;
+        max-width: 80%;
         flex-shrink: 1;
     }
 
@@ -1397,13 +1404,13 @@ section {
     }
 
     .logo {
-        width: 300px;
+        width: 420px;
         max-width: calc(100vw - 80px);
-        height: 69px;
+        height: 96px;
         margin-left: 0;
         margin-right: auto;
         flex-shrink: 1;
-        /* Otimização: reduz tamanho no mobile para melhor performance */
+        /* Logo aumentada para melhor visibilidade */
     }
     
     .logo-link {
@@ -1432,7 +1439,8 @@ section {
     }
 
     .hero-content {
-        margin-top: 20px;
+        margin-top: 100px;
+        /* Desce mais o conteúdo no mobile */
     }
 
     .hero-title {
