@@ -132,9 +132,9 @@ section {
 }
 
 .logo {
-    width: 450px;
-    max-width: 35%;
-    height: 103px;
+    width: 563px;
+    max-width: 44%;
+    height: 129px;
     object-fit: contain;
     object-position: left center;
     display: block;
@@ -1306,7 +1306,7 @@ section {
     }
     
     .logo {
-        max-width: 50%;
+        max-width: 60%;
         flex-shrink: 1;
     }
 
@@ -1404,9 +1404,9 @@ section {
     }
 
     .logo {
-        width: 280px;
+        width: 350px;
         max-width: calc(100vw - 80px);
-        height: 64px;
+        height: 80px;
         margin-left: 0;
         margin-right: auto;
         flex-shrink: 1;
