@@ -98,7 +98,7 @@ section {
     padding: 15px 0;
     transition: padding 0.3s ease;
     /* Altura mínima para prevenir layout shift quando logo carrega */
-    min-height: 80px;
+    min-height: 60px;
 }
 
 #header.scrolled .navbar {
@@ -132,9 +132,9 @@ section {
 }
 
 .logo {
-    width: 900px;
-    max-width: 70%;
-    height: 205px;
+    width: 450px;
+    max-width: 35%;
+    height: 103px;
     object-fit: contain;
     object-position: left center;
     display: block;
@@ -275,7 +275,7 @@ section {
     z-index: 2;
     max-width: 1200px;
     padding: 20px;
-    margin-top: calc(80px + 100px); /* Altura do header + espaço extra - previne layout shift */
+    margin-top: calc(60px + 100px); /* Altura do header + espaço extra - previne layout shift */
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -1306,7 +1306,7 @@ section {
     }
     
     .logo {
-        max-width: 80%;
+        max-width: 50%;
         flex-shrink: 1;
     }
 
@@ -1404,13 +1404,13 @@ section {
     }
 
     .logo {
-        width: 420px;
+        width: 280px;
         max-width: calc(100vw - 80px);
-        height: 96px;
+        height: 64px;
         margin-left: 0;
         margin-right: auto;
         flex-shrink: 1;
-        /* Logo aumentada para melhor visibilidade */
+        /* Logo em tamanho otimizado */
     }
     
     .logo-link {
