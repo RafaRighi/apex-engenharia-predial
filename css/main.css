@@ -143,13 +143,16 @@ section {
     /* Otimização: decoding async para melhor performance */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    /* Melhor visibilidade */
+    /* Visibilidade igual ao hover - aplicado no estado normal */
     opacity: 1;
-    filter: brightness(1.05) contrast(1.1);
+    filter: brightness(1.1) contrast(1.15);
+    transform: scale(1.05);
 }
 
 .logo:hover {
+    /* Mantém o mesmo estado visual do normal */
     transform: scale(1.05);
+    filter: brightness(1.1) contrast(1.15);
 }
 
 .nav-menu {
