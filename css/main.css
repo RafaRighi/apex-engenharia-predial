@@ -107,11 +107,14 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    /* Alinhado com container da seção sobre - mesmo max-width e padding */
+    padding: 0 20px;
     width: 100%;
-    max-width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     box-sizing: border-box;
+    /* Garante alinhamento perfeito com seção sobre */
+    position: relative;
 }
 
 .logo-link {
@@ -121,6 +124,8 @@ section {
     margin-right: auto;
     margin-left: 0;
     padding: 0;
+    /* Alinhado com padding do container (20px da esquerda) */
+    flex-shrink: 0;
 }
 
 .logo {
@@ -149,6 +154,9 @@ section {
     /* Previne layout shift do menu */
     min-height: 50px;
     z-index: 1100;
+    /* Alinhado com padding do container (20px da direita) */
+    margin-left: auto;
+    flex-shrink: 0;
 }
 
 .nav-link {
@@ -262,11 +270,11 @@ section {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 1200px;
     padding: 20px;
-    /* Removida animação para melhorar LCP - renderização imediata */
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin: 100px auto 50px;
+    /* Alinhado com container da seção sobre - mesmo max-width */
+    box-sizing: border-box;
     /* Garantir renderização imediata */
     opacity: 1;
     transform: none;
@@ -1282,10 +1290,11 @@ section {
     }
     
     .navbar .container {
-        padding-left: 15px;
-        padding-right: 15px;
+        /* Alinhado com container padrão - mesmo padding da seção sobre */
+        padding: 0 20px;
         width: 100%;
-        max-width: 100vw;
+        max-width: 1200px;
+        margin: 0 auto;
         box-sizing: border-box;
     }
     
