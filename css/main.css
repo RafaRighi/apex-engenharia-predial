@@ -275,7 +275,7 @@ section {
     z-index: 2;
     max-width: 1200px;
     padding: 20px;
-    margin-top: calc(60px + 150px); /* Altura do header + espaço extra aumentado - previne layout shift */
+    margin-top: calc(60px + 180px); /* Altura do header + espaço extra aumentado em 20% - previne layout shift */
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -1439,8 +1439,8 @@ section {
     }
 
     .hero-content {
-        margin-top: 140px;
-        /* Desce mais o conteúdo no mobile para dar espaço da logo e menu */
+        margin-top: 168px;
+        /* Desce mais o conteúdo no mobile para dar espaço da logo e menu - aumentado em 20% */
     }
 
     .hero-title {
