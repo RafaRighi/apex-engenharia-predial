@@ -132,9 +132,9 @@ section {
 }
 
 .logo {
-    width: 563px;
-    max-width: 44%;
-    height: 129px;
+    width: 650px;
+    max-width: 50%;
+    height: 149px;
     object-fit: contain;
     object-position: left center;
     display: block;
@@ -143,6 +143,9 @@ section {
     /* Otimização: decoding async para melhor performance */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
+    /* Melhor visibilidade */
+    opacity: 1;
+    filter: brightness(1.05) contrast(1.1);
 }
 
 .logo:hover {
@@ -1306,7 +1309,7 @@ section {
     }
     
     .logo {
-        max-width: 60%;
+        max-width: 65%;
         flex-shrink: 1;
     }
 
@@ -1404,13 +1407,13 @@ section {
     }
 
     .logo {
-        width: 350px;
+        width: 400px;
         max-width: calc(100vw - 80px);
-        height: 80px;
+        height: 91px;
         margin-left: 0;
         margin-right: auto;
         flex-shrink: 1;
-        /* Logo em tamanho otimizado */
+        /* Logo em tamanho otimizado para melhor visibilidade */
     }
     
     .logo-link {
