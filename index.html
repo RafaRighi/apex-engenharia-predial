@@ -1,46 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) - Carregamento otimizado para não bloquear renderização -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JSL6B8S18Y', {
-        'send_page_view': false
-      });
-    </script>
-    <script>
-      // Carrega gtag.js de forma diferida após interação ou 2 segundos
-      function loadGtag() {
-        if (document.querySelector('script[src*="gtag/js"]')) return;
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JSL6B8S18Y';
-        script.onload = function() {
-          gtag('config', 'G-JSL6B8S18Y', {
-            'send_page_view': true
-          });
-        };
-        document.head.appendChild(script);
-      }
-      // Carrega após 5 segundos (bem após LCP) ou apenas em interações significativas
-      // No mobile, prioriza performance sobre tracking imediato
-      var gtagLoaded = false;
-      function tryLoadGtag() {
-        if (gtagLoaded) return;
-        gtagLoaded = true;
-        loadGtag();
-      }
-      setTimeout(tryLoadGtag, 5000);
-      // Só carrega em interações que indicam engajamento real (clique, não scroll)
-      ['mousedown', 'touchstart'].forEach(function(event) {
-        document.addEventListener(event, function() {
-          // Aguarda para garantir que é uma interação real, não acidental
-          setTimeout(tryLoadGtag, 1000);
-        }, { once: true, passive: true });
-      });
-    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WD5669S6');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial em Porto Alegre. Pintura de galpões, estruturas metálicas, proteção anti-corrosiva e pintura epóxi industrial. Mais de 10 anos. Solicite seu orçamento grátis agora!">
@@ -145,7 +112,7 @@
             position: relative;
             min-height: 100vh;
             padding-bottom: 50px;
-            background: url('../img/mock-hero-apex.jpg') center/cover no-repeat;
+            background: url('img/mock-hero-apex.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -200,12 +167,16 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WD5669S6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- Cabeçalho -->
     <header id="header">
         <nav class="navbar">
             <div class="container">
                 <a href="#inicio" class="logo-link" aria-label="Voltar para o início">
-                    <img src="img/logo-apex.png" alt="Logo APEX Engenharia Predial" class="logo" width="650" height="149" fetchpriority="high" loading="eager" decoding="async" style="max-width: 50%; height: auto;">
+                    <img src="img/logo-apex.png" alt="Logo APEX Engenharia Predial" title="Logo APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial" class="logo" width="650" height="149" fetchpriority="high" loading="eager" decoding="async" style="max-width: 50%; height: auto;">
                 </a>
                 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
                     <span></span>
@@ -288,8 +259,8 @@
                         <h4>Seguros Completos</h4>
                         <p>Seguro de vida e de obra</p>
                         <div class="logos-credibilidade">
-                            <img loading="lazy" src="img/zurich.webp" alt="Zurich Seguros" width="80" height="80" style="width: 80px; margin-top: 10px; margin-right: 15px;">
-                            <img loading="lazy" src="img/crea.png" alt="CREA/RS" width="80" height="80" style="width: 80px; margin-top: 10px;">
+                            <img loading="lazy" src="img/zurich.webp" alt="Zurich Seguros" title="Zurich Seguros - Seguro de vida e obra APEX" width="80" height="80" style="width: 80px; margin-top: 10px; margin-right: 15px;">
+                            <img loading="lazy" src="img/crea.png" alt="CREA/RS" title="CREA/RS - Conselho Regional de Engenharia e Agronomia" width="80" height="80" style="width: 80px; margin-top: 10px;">
                         </div>
                     </div>
                     <div class="diferencial-item">
@@ -328,7 +299,7 @@
                 <div class="servico-imagem-container">
                     <picture class="servico-imagem">
                         <source srcset="./img/restauracao-fachada-obra-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/restauracao-fachada-obra-apex.jpg" alt="Técnicos da APEX recuperando fachada com plataforma suspensa" class="servico-imagem" width="400" height="300">
+                        <img loading="lazy" src="./img/restauracao-fachada-obra-apex.jpg" alt="Técnicos da APEX recuperando fachada com plataforma suspensa" title="Restauração de Fachadas - Equipe APEX em plataforma suspensa" class="servico-imagem" width="400" height="300">
                     </picture>
                 </div>
                 <p class="servico-desc">Especialistas em <strong>restauração</strong> e <strong>renovação de fachadas em Porto Alegre</strong>. Realizamos recuperação estrutural completa, aplicação de <strong>reboco</strong>, <strong>pastilhas</strong> e <strong>texturas</strong>, tratamento de trincas e revitalização estética do seu edifício.</p>
@@ -341,7 +312,7 @@
                 <div class="servico-imagem-container">
                     <picture class="servico-imagem">
                         <source srcset="./img/impermeabilizacao-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/impermeabilizacao-apex.jpg" alt="Técnico da APEX aplicando impermeabilização azul em laje residencial" class="servico-imagem" width="400" height="300">
+                        <img loading="lazy" src="./img/impermeabilizacao-apex.jpg" alt="Técnico da APEX aplicando impermeabilização azul em laje residencial" title="Impermeabilização de Lajes - Aplicação profissional APEX" class="servico-imagem" width="400" height="300">
                     </picture>
                 </div>
                 <p class="servico-desc">Proteção completa contra infiltrações e umidade. Especialistas em <strong>impermeabilização de lajes</strong>, telhados, piscinas e áreas molhadas. Garantimos máxima durabilidade e proteção para seu patrimônio em Porto Alegre.</p>
@@ -352,7 +323,7 @@
                 <div class="servico-icon">🎨</div>
                 <h3>Pintura Industrial e Predial</h3>
                 <div class="servico-imagem-container">
-                    <img loading="lazy" src="./img/pintura-predial-apex.jpeg" alt="Pintura Industrial e Predial Profissional em Porto Alegre" class="servico-imagem" width="400" height="300">
+                    <img loading="lazy" src="./img/pintura-predial-apex.jpeg" alt="Pintura Industrial e Predial Profissional em Porto Alegre" title="Pintura Industrial e Predial Profissional - APEX Engenharia" class="servico-imagem" width="400" height="300">
                 </div>
                 <p class="servico-desc">Especialistas em <strong>pintura industrial</strong> para galpões, estruturas metálicas e ambientes industriais. Utilizamos <strong>pintura epóxi</strong> anti-corrosiva e sistemas especiais. Também oferecemos <strong>pintura predial</strong> com <strong>pintura acrílica</strong> e <strong>esmalte</strong> para fachadas e áreas comuns.</p>
                 <a href="pintura-predial.html" class="btn-link" aria-label="Saiba mais sobre Pintura Industrial e Predial">Saiba Mais →</a>
@@ -364,7 +335,7 @@
                 <div class="servico-imagem-container">
                     <picture class="servico-imagem">
                         <source srcset="./img/restauracao-telhado-apex-02.webp" type="image/webp">
-                        <img loading="lazy" src="./img/restauracao-telhado-apex-02.jpg" alt="Equipe da APEX realizando reforma de telhado em Porto Alegre" class="servico-imagem" width="400" height="300">
+                        <img loading="lazy" src="./img/restauracao-telhado-apex-02.jpg" alt="Equipe da APEX realizando reforma de telhado em Porto Alegre" title="Reforma de Telhados - Equipe APEX em ação" class="servico-imagem" width="400" height="300">
                     </picture>
                 </div>
                 <p class="servico-desc">Reparos, substituições e <strong>reforma completa de telhados</strong>. Impermeabilização e manutenção preventiva em Porto Alegre.</p>
@@ -377,7 +348,7 @@
                 <div class="servico-imagem-container">
                     <picture class="servico-imagem">
                         <source srcset="./img/demarcacao-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/demarcacao-apex.jpg" alt="Equipe da APEX realizando demarcação de pisos em galpão industrial" class="servico-imagem" width="400" height="300">
+                        <img loading="lazy" src="./img/demarcacao-apex.jpg" alt="Equipe da APEX realizando demarcação de pisos em galpão industrial" title="Demarcação de Pisos e Estacionamentos - APEX Engenharia" class="servico-imagem" width="400" height="300">
                     </picture>
                 </div>
                 <p class="servico-desc">Organização e segurança do seu condomínio. <strong>Demarcação de estacionamentos</strong> e pisos industriais com sinalização profissional.</p>
@@ -390,7 +361,7 @@
                 <div class="servico-imagem-container">
                     <picture class="servico-imagem">
                         <source srcset="./img/acesso-cordas-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/acesso-cordas-apex.jpg" alt="Equipe da APEX realizando trabalho em altura com acesso por cordas" class="servico-imagem" width="400" height="300">
+                        <img loading="lazy" src="./img/acesso-cordas-apex.jpg" alt="Equipe da APEX realizando trabalho em altura com acesso por cordas" title="Trabalhos em Altura NR35 - Acesso por cordas APEX" class="servico-imagem" width="400" height="300">
                     </picture>
                 </div>
                 <p class="servico-desc">Equipe certificada <strong>NR35</strong>. Acesso por cordas para serviços em locais de difícil acesso com total segurança em Porto Alegre.</p>
@@ -410,7 +381,7 @@
                 <div class="galeria-item">
                     <picture>
                         <source srcset="./img/restauracao-fachada-obra-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/restauracao-fachada-obra-apex.jpg" alt="Técnicos da APEX recuperando fachada com plataforma suspensa" width="400" height="300">
+                        <img loading="lazy" src="./img/restauracao-fachada-obra-apex.jpg" alt="Técnicos da APEX recuperando fachada com plataforma suspensa" title="Restauração de Fachadas - Projeto APEX" width="400" height="300">
                     </picture>
                     <div class="galeria-overlay">
                         <h3>Restauração de Fachadas</h3>
@@ -420,7 +391,7 @@
                 <div class="galeria-item">
                     <picture>
                         <source srcset="./img/roof-coating-2846324_640.webp" type="image/webp">
-                        <img loading="lazy" src="./img/roof-coating-2846324_640.jpg" alt="Aplicação de impermeabilização azul em laje com rolo" width="400" height="300">
+                        <img loading="lazy" src="./img/roof-coating-2846324_640.jpg" alt="Aplicação de impermeabilização azul em laje com rolo" title="Impermeabilização de Lajes - Aplicação profissional" width="400" height="300">
                     </picture>
                     <div class="galeria-overlay">
                         <h3>Impermeabilização</h3>
@@ -430,7 +401,7 @@
                 <div class="galeria-item">
                     <picture>
                         <source srcset="./img/restauracao-fachada-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/restauracao-fachada-apex.jpg" alt="Equipe da APEX em plataforma realizando pintura predial" width="400" height="300">
+                        <img loading="lazy" src="./img/restauracao-fachada-apex.jpg" alt="Equipe da APEX em plataforma realizando pintura predial" title="Pintura Predial - Equipe APEX em ação" width="400" height="300">
                     </picture>
                     <div class="galeria-overlay">
                         <h3>Pintura Predial</h3>
@@ -440,7 +411,7 @@
                 <div class="galeria-item">
                     <picture>
                         <source srcset="./img/restauracao-telhado-apex-02.webp" type="image/webp">
-                        <img loading="lazy" src="./img/restauracao-telhado-apex-02.jpg" alt="Equipe da APEX realizando restauração de telhado com troca de telhas" width="400" height="300">
+                        <img loading="lazy" src="./img/restauracao-telhado-apex-02.jpg" alt="Equipe da APEX realizando restauração de telhado com troca de telhas" title="Reforma de Telhados - Restauração completa APEX" width="400" height="300">
                     </picture>
                     <div class="galeria-overlay">
                         <h3>Manutenção de Telhados</h3>
@@ -450,7 +421,7 @@
                 <div class="galeria-item">
                     <picture>
                         <source srcset="./img/demarcacao-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/demarcacao-apex.jpg" alt="Equipe da APEX realizando demarcação de pisos em galpão industrial" width="400" height="300">
+                        <img loading="lazy" src="./img/demarcacao-apex.jpg" alt="Equipe da APEX realizando demarcação de pisos em galpão industrial" title="Demarcação de Pisos - Sinalização profissional" width="400" height="300">
                     </picture>
                     <div class="galeria-overlay">
                         <h3>Demarcações de Pisos</h3>
@@ -460,7 +431,7 @@
                 <div class="galeria-item">
                     <picture>
                         <source srcset="./img/trabalhos-altura-corda-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/trabalhos-altura-corda-apex.jpg" alt="Profissional da APEX realizando pintura em altura com acesso por cordas" width="400" height="300">
+                        <img loading="lazy" src="./img/trabalhos-altura-corda-apex.jpg" alt="Profissional da APEX realizando pintura em altura com acesso por cordas" title="Trabalhos em Altura NR35 - Acesso por cordas" width="400" height="300">
                     </picture>
                     <div class="galeria-overlay">
                         <h3>Trabalhos em Altura</h3>
@@ -545,7 +516,7 @@
                     <div class="blog-preview-image">
                         <picture>
                             <source srcset="img/demarcacao-apex.webp" type="image/webp">
-                            <img loading="lazy" src="img/demarcacao-apex.jpg" alt="O que é pintura epóxi? Guia completo - Blog APEX" width="400" height="250">
+                            <img loading="lazy" src="img/demarcacao-apex.jpg" alt="O que é pintura epóxi? Guia completo - Blog APEX" title="Pintura Epóxi - Guia completo Blog APEX" width="400" height="250">
                         </picture>
                         <span class="blog-preview-category">Guia</span>
                     </div>
@@ -565,7 +536,7 @@
                     <div class="blog-preview-image">
                         <picture>
                             <source srcset="img/restauracao-fachada-obra-apex.webp" type="image/webp">
-                            <img loading="lazy" src="img/restauracao-fachada-obra-apex.jpg" alt="Quanto custa restauração de fachada em Porto Alegre - Blog APEX" width="400" height="250">
+                            <img loading="lazy" src="img/restauracao-fachada-obra-apex.jpg" alt="Quanto custa restauração de fachada em Porto Alegre - Blog APEX" title="Restauração de Fachada Porto Alegre - Preços Blog APEX" width="400" height="250">
                         </picture>
                         <span class="blog-preview-category">Guia</span>
                     </div>
@@ -586,7 +557,7 @@
                     <div class="blog-preview-image">
                         <picture>
                             <source srcset="img/blog-exigir-empresa-reforma-predial.png" type="image/png">
-                            <img loading="lazy" src="img/blog-exigir-empresa-reforma-predial.png" alt="O que exigir ao contratar empresa de reforma predial - Blog APEX" width="400" height="250">
+                            <img loading="lazy" src="img/blog-exigir-empresa-reforma-predial.png" alt="O que exigir ao contratar empresa de reforma predial - Blog APEX" title="Checklist Empresa Reforma Predial - Blog APEX" width="400" height="250">
                         </picture>
                         <span class="blog-preview-category">Dicas</span>
                     </div>
@@ -607,7 +578,7 @@
                     <div class="blog-preview-image">
                         <picture>
                             <source srcset="img/blog-restauracao-fachadas.webp" type="image/webp">
-                            <img loading="lazy" src="img/blog-restauracao-fachadas.jpg" alt="Restauração de Fachadas - Blog APEX" width="400" height="250">
+                            <img loading="lazy" src="img/blog-restauracao-fachadas.jpg" alt="Restauração de Fachadas - Blog APEX" title="Restauração de Fachadas - Quando fazer Blog APEX" width="400" height="250">
                         </picture>
                         <span class="blog-preview-category">Reformas</span>
                     </div>
@@ -628,7 +599,7 @@
                     <div class="blog-preview-image">
                         <picture>
                             <source srcset="img/blog-impermeabilizacao.webp" type="image/webp">
-                            <img loading="lazy" src="img/blog-impermeabilizacao.jpg" alt="Impermeabilização - Blog APEX" width="400" height="250">
+                            <img loading="lazy" src="img/blog-impermeabilizacao.jpg" alt="Impermeabilização - Blog APEX" title="Impermeabilização Prevenção Infiltrações - Blog APEX" width="400" height="250">
                         </picture>
                         <span class="blog-preview-category">Manutenção</span>
                     </div>
@@ -649,7 +620,7 @@
                     <div class="blog-preview-image">
                         <picture>
                             <source srcset="img/blog-trabalho-altura.webp" type="image/webp">
-                            <img loading="lazy" src="img/blog-trabalho-altura.jpg" alt="Segurança em Altura - Blog APEX" width="400" height="250">
+                            <img loading="lazy" src="img/blog-trabalho-altura.jpg" alt="Segurança em Altura - Blog APEX" title="NR35 Segurança Trabalho Altura - Blog APEX" width="400" height="250">
                         </picture>
                         <span class="blog-preview-category">Segurança</span>
                     </div>
@@ -741,7 +712,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" class="footer-logo" width="200" height="46">
+                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" title="Logo APEX Engenharia Predial" class="footer-logo" width="200" height="46">
                     <h3>APEX Engenharia Predial</h3>
                     <p>Especializada em <strong>pintura industrial</strong>, <strong>pintura predial</strong> e manutenção predial, a APEX está sempre preparada para atendê-lo. Solicite seu orçamento!</p>
                     
