@@ -16,15 +16,20 @@
             return;
         }
 
-        // Função para fechar o menu
+        // Função para fechar o menu - usa função centralizada se disponível
         const closeMenu = () => {
-            if (navMenu) {
-                navMenu.classList.remove('active');
-            }
-            if (menuToggle) {
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+            if (window.APEXUtils && window.APEXUtils.closeMenu) {
+                window.APEXUtils.closeMenu();
+            } else {
+                // Fallback caso utils.js não esteja carregado
+                if (navMenu) {
+                    navMenu.classList.remove('active');
+                }
+                if (menuToggle) {
+                    menuToggle.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+                }
             }
         };
 
@@ -88,74 +93,63 @@
     }
 })();
 
-// Scroll suave para âncoras - Garante que funciona mesmo com defer
+// Scroll suave para âncoras - Usa função centralizada do utils.js
 (function() {
     'use strict';
     
     function initSmoothScroll() {
-        // Seleciona APENAS links de âncoras na mesma página (que começam com # e NÃO contêm .html)
-        // Links para outras páginas (ex: index.html#inicio) NÃO são interceptados - funcionam normalmente
-        // Links do menu (.nav-link) NUNCA são interceptados
-        const allLinks = document.querySelectorAll('a[href]');
-        
-        allLinks.forEach(anchor => {
-            const href = anchor.getAttribute('href');
+        // Usa função centralizada se disponível
+        if (window.APEXUtils && window.APEXUtils.initSmoothScroll) {
+            window.APEXUtils.initSmoothScroll({
+                headerOffset: 90,
+                closeMenuOnScroll: true,
+                excludeSelectors: ['.nav-link', '.nav-menu']
+            });
+        } else {
+            // Fallback caso utils.js não esteja carregado
+            const allLinks = document.querySelectorAll('a[href]');
             
-            // NUNCA intercepta links do menu ou links que apontam para outras páginas
-            if (!href || 
-                href === '#' || 
-                href === '' || 
-                href.includes('.html') || 
-                anchor.classList.contains('nav-link') || 
-                anchor.closest('.nav-menu')) {
-                return; // Não intercepta - deixa funcionar normalmente
-            }
-            
-            // Só intercepta links que começam com # (âncoras na mesma página) e NÃO são do menu
-            if (href.startsWith('#')) {
-                // Evita adicionar múltiplos listeners
-                if (anchor.dataset.smoothScrollAdded) return;
-                anchor.dataset.smoothScrollAdded = 'true';
+            allLinks.forEach(anchor => {
+                const href = anchor.getAttribute('href');
                 
-                anchor.addEventListener('click', function(e) {
-                    const targetHref = this.getAttribute('href');
+                if (!href || 
+                    href === '#' || 
+                    href === '' || 
+                    href.includes('.html') || 
+                    anchor.classList.contains('nav-link') || 
+                    anchor.closest('.nav-menu')) {
+                    return;
+                }
+                
+                if (href.startsWith('#')) {
+                    if (anchor.dataset.smoothScrollAdded) return;
+                    anchor.dataset.smoothScrollAdded = 'true';
                     
-                    // Verificações de segurança - se contém .html ou é do menu, não intercepta
-                    if (targetHref.includes('.html') || 
-                        this.classList.contains('nav-link') || 
-                        this.closest('.nav-menu')) {
-                        return true; // Permite navegação normal
-                    }
-                    
-                    const target = document.querySelector(targetHref);
-                    if (target) {
-                        e.preventDefault();
+                    anchor.addEventListener('click', function(e) {
+                        const targetHref = this.getAttribute('href');
                         
-                        // Fecha o menu se estiver aberto (mobile)
-                        const navMenu = document.getElementById('navMenu');
-                        const menuToggle = document.getElementById('menuToggle');
-                        if (navMenu && navMenu.classList.contains('active')) {
-                            navMenu.classList.remove('active');
-                            if (menuToggle) {
-                                menuToggle.classList.remove('active');
-                                menuToggle.setAttribute('aria-expanded', 'false');
-                                menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
-                            }
+                        if (targetHref.includes('.html') || 
+                            this.classList.contains('nav-link') || 
+                            this.closest('.nav-menu')) {
+                            return true;
                         }
                         
-                        const headerOffset = 90;
-                        const elementPosition = target.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                        return false;
-                    }
-                }, false);
-            }
-        });
+                        const target = document.querySelector(targetHref);
+                        if (target) {
+                            e.preventDefault();
+                            const headerOffset = 90;
+                            const elementPosition = target.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                            return false;
+                        }
+                    }, false);
+                }
+            });
+        }
     }
     
     // Inicializa quando o DOM estiver pronto
@@ -170,20 +164,24 @@
     
     // Scroll automático para âncora quando a página carrega com hash na URL
     function scrollToHash() {
-        if (window.location.hash) {
-            const hash = window.location.hash;
-            const target = document.querySelector(hash);
-            if (target) {
-                // Aguarda um pouco para garantir que a página está totalmente renderizada
-                setTimeout(() => {
-                    const headerOffset = 90;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }, 100);
+        if (window.APEXUtils && window.APEXUtils.scrollToHash) {
+            window.APEXUtils.scrollToHash(90);
+        } else {
+            // Fallback caso utils.js não esteja carregado
+            if (window.location.hash) {
+                const hash = window.location.hash;
+                const target = document.querySelector(hash);
+                if (target) {
+                    setTimeout(() => {
+                        const headerOffset = 90;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
             }
         }
     }
@@ -204,6 +202,7 @@
 let lastScrollTop = 0;
 let ticking = false;
 const header = document.getElementById('header');
+const navMenu = document.getElementById('navMenu');
 
 if (header) {
     const onScroll = () => {
@@ -243,25 +242,6 @@ if (header) {
     }, { passive: true });
 }
 
-// Animação de entrada dos elementos - Otimizada para evitar CLS
-// Usa will-change e garante que elementos já tenham espaço reservado
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Usa requestAnimationFrame para melhor performance
-            requestAnimationFrame(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            });
-        }
-    });
-}, observerOptions);
-
 // Elementos para animar - DESABILITADO para evitar CLS
 // As animações de entrada estavam causando layout shift (CLS 0.20)
 // Mantendo elementos visíveis desde o início para melhor performance
@@ -271,7 +251,6 @@ if (animateElements) {
         // Elementos já visíveis desde o início - sem animação para evitar CLS
         el.style.opacity = '1';
         el.style.transform = 'none';
-        // Removido observer para evitar qualquer layout shift
     });
 }
 
@@ -309,9 +288,8 @@ if (contactForm) {
             return;
         }
         
-        // Validação de email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
+        // Validação de email usando função centralizada
+        if (!window.APEXUtils || !window.APEXUtils.isValidEmail(email)) {
             alert('Por favor, insira um email válido!');
             return;
         }

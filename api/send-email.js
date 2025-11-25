@@ -1,34 +1,4 @@
-const nodemailer = require('nodemailer');
-
-const isJsonString = (value) => {
-  if (typeof value !== 'string') {
-    return false;
-  }
-
-  try {
-    JSON.parse(value);
-    return true;
-  } catch (error) {
-    return false;
-  }
-};
-
-const readRequestBody = async (req) =>
-  new Promise((resolve, reject) => {
-    let data = '';
-
-    req.on('data', (chunk) => {
-      data += chunk;
-    });
-
-    req.on('end', () => {
-      resolve(data);
-    });
-
-    req.on('error', (error) => {
-      reject(error);
-    });
-  });
+const { isJsonString, readRequestBody, createTransporter } = require('./utils');
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -50,24 +20,13 @@ module.exports = async (req, res) => {
     return res.status(400).json({ success: false, message: 'Campos obrigatórios ausentes.' });
   }
 
-  if (!process.env.ZOHO_MAIL_USER || !process.env.ZOHO_MAIL_PASS) {
+  let transporter;
+  try {
+    transporter = createTransporter();
+  } catch (error) {
     console.error('Variáveis de ambiente ZOHO_MAIL_USER e ZOHO_MAIL_PASS não configuradas.');
     return res.status(500).json({ success: false, message: 'Configuração de e-mail ausente.' });
   }
-
-  const host = process.env.ZOHO_SMTP_HOST || 'smtp.zoho.com';
-  const port = Number(process.env.ZOHO_SMTP_PORT || 465);
-  const secure = port === 465;
-
-  const transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure,
-    auth: {
-      user: process.env.ZOHO_MAIL_USER,
-      pass: process.env.ZOHO_MAIL_PASS,
-    },
-  });
 
   try {
     await transporter.sendMail({

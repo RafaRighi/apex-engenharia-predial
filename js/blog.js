@@ -59,9 +59,8 @@ if (newsletterForm) {
         const submitButton = newsletterForm.querySelector('button[type="submit"]');
         const email = emailInput.value.trim();
         
-        // Validação de email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
+        // Validação de email usando função centralizada
+        if (!window.APEXUtils || !window.APEXUtils.isValidEmail(email)) {
             alert('Por favor, insira um email válido!');
             return;
         }
@@ -100,32 +99,47 @@ if (newsletterForm) {
     });
 }
 
-// Scroll suave para links internos (se houver)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        
-        // Ignora links vazios ou apenas com #
-        if (href === '#' || href === '') {
-            e.preventDefault();
-            return;
-        }
-        
-        const target = document.querySelector(href);
-        if (target) {
-            e.preventDefault();
-            const headerOffset = 90;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
+// Scroll suave para links internos usando função centralizada
+// Usa a mesma lógica do script.js para consistência
+if (window.APEXUtils && window.APEXUtils.initSmoothScroll) {
+    // Inicializa scroll suave quando o DOM estiver pronto
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.APEXUtils.initSmoothScroll({
+                headerOffset: 90,
+                closeMenuOnScroll: true,
+                excludeSelectors: ['.nav-link']
             });
-        }
+        });
+    } else {
+        window.APEXUtils.initSmoothScroll({
+            headerOffset: 90,
+            closeMenuOnScroll: true,
+            excludeSelectors: ['.nav-link']
+        });
+    }
+} else {
+    // Fallback caso utils.js não esteja carregado
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            
+            if (href === '#' || href === '') {
+                e.preventDefault();
+                return;
+            }
+            
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const headerOffset = 90;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-});
-
-// Código removido: funções de compartilhamento social, lazy loading customizado e cálculo de tempo de leitura
-// não estão sendo utilizadas no HTML atual. Se precisar no futuro, podem ser reimplementadas.
-
+}
