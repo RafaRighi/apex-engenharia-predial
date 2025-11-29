@@ -359,10 +359,4 @@ updateYear();
 // Prevenção de scroll horizontal
 document.body.style.overflowX = 'hidden';
 
-// Evento de clique no WhatsApp
-document.addEventListener('click', function(e){
-    const a = e.target.closest && e.target.closest('a.whatsapp-float');
-    if (!a) return;
-    e.preventDefault();
-    window.open(a.href, '_blank', 'noopener');
-});
+// Evento de clique no WhatsApp - removido, agora gerenciado por whatsapp-loader.js

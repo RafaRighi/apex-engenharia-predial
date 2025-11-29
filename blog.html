@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-                <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WD5669S6');</script>
+                <!-- Google Tag Manager - Otimizado para não bloquear thread principal -->
+    <script>
+    (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.defer=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        // Usa requestIdleCallback se disponível, senão usa setTimeout
+        if (window.requestIdleCallback) {
+            requestIdleCallback(function() {
+                f.parentNode.insertBefore(j,f);
+            }, { timeout: 2000 });
+        } else {
+            setTimeout(function() {
+                f.parentNode.insertBefore(j,f);
+            }, 0);
+        }
+    })(window,document,'script','dataLayer','GTM-WD5669S6');
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,7 +142,7 @@
                             <div class="post-image">
                                 <picture>
                                     <source srcset="img/restauracao-fachada-obra-apex.webp" type="image/webp">
-                                    <img loading="lazy" src="img/restauracao-fachada-obra-apex.jpg" alt="Quanto custa restauração de fachada em Porto Alegre" width="400" height="250">
+                                    <img loading="lazy" src="img/restauracao-fachada-obra-apex.jpg" alt="Quanto custa restauração de fachada em Porto Alegre" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Guia</span>
                             </div>
@@ -147,8 +163,7 @@
                         <article class="post-card" data-category="dicas">
                             <div class="post-image">
                                 <picture>
-                                    <source srcset="img/blog-exigir-empresa-reforma-predial.png" type="image/png">
-                                    <img loading="lazy" src="img/blog-exigir-empresa-reforma-predial.png" alt="O que exigir ao contratar empresa de reforma predial" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-exigir-empresa-reforma-predial.png" alt="O que exigir ao contratar empresa de reforma predial" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Dicas</span>
                             </div>
@@ -169,8 +184,7 @@
                         <article class="post-card" data-category="dicas">
                             <div class="post-image">
                                 <picture>
-                                    <source srcset="img/blog-escolher-empresa-pintura-industrial.png" type="image/png">
-                                    <img loading="lazy" src="img/blog-escolher-empresa-pintura-industrial.png" alt="Como escolher a melhor empresa de pintura industrial" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-escolher-empresa-pintura-industrial.png" alt="Como escolher a melhor empresa de pintura industrial" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Dicas</span>
                             </div>
@@ -192,7 +206,7 @@
                             <div class="post-image">
                                 <picture>
                                     <source srcset="img/blog-pintura-epoxi.webp" type="image/webp">
-                                    <img loading="lazy" src="img/blog-pintura-epoxi.jpg" alt="Pintura Epóxi" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-pintura-epoxi.jpg" alt="Pintura Epóxi" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Técnicas</span>
                             </div>
@@ -214,7 +228,7 @@
                             <div class="post-image">
                                 <picture>
                                     <source srcset="img/blog-acrilico-esmalte.webp" type="image/webp">
-                                    <img loading="lazy" src="img/blog-acrilico-esmalte.jpg" alt="Pintura Acrílica vs Esmalte" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-acrilico-esmalte.jpg" alt="Pintura Acrílica vs Esmalte" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Guia</span>
                             </div>
@@ -236,7 +250,7 @@
                             <div class="post-image">
                                 <picture>
                                     <source srcset="img/blog-restauracao-fachadas.webp" type="image/webp">
-                                    <img loading="lazy" src="img/blog-restauracao-fachadas.jpg" alt="Restauração de Fachadas" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-restauracao-fachadas.jpg" alt="Restauração de Fachadas" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Reformas</span>
                             </div>
@@ -258,7 +272,7 @@
                             <div class="post-image">
                                 <picture>
                                     <source srcset="img/blog-impermeabilizacao.webp" type="image/webp">
-                                    <img loading="lazy" src="img/blog-impermeabilizacao.jpg" alt="Impermeabilização" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-impermeabilizacao.jpg" alt="Impermeabilização" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Manutenção</span>
                             </div>
@@ -280,7 +294,7 @@
                             <div class="post-image">
                                 <picture>
                                     <source srcset="img/blog-trabalho-altura.webp" type="image/webp">
-                                    <img loading="lazy" src="img/blog-trabalho-altura.jpg" alt="Trabalho em Altura" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-trabalho-altura.jpg" alt="Trabalho em Altura" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Segurança</span>
                             </div>
@@ -302,7 +316,7 @@
                             <div class="post-image">
                                 <picture>
                                     <source srcset="img/blog-escolher-tinta.webp" type="image/webp">
-                                    <img loading="lazy" src="img/blog-escolher-tinta.jpg" alt="Como Escolher a Tinta Ideal para Sua Fachada" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-escolher-tinta.jpg" alt="Como Escolher a Tinta Ideal para Sua Fachada" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Dicas</span>
                             </div>
@@ -324,7 +338,7 @@
                             <div class="post-image">
                                 <picture>
                                     <source srcset="img/blog-manutencao-preventiva.webp" type="image/webp">
-                                    <img loading="lazy" src="img/blog-manutencao-preventiva.jpg" alt="Manutenção Preventiva" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-manutencao-preventiva.jpg" alt="Manutenção Preventiva" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Reformas</span>
                             </div>
@@ -346,7 +360,7 @@
                             <div class="post-image">
                                 <picture>
                                     <source srcset="img/blog-valorizacao.webp" type="image/webp">
-                                    <img loading="lazy" src="img/blog-valorizacao.jpg" alt="Valorização Imobiliária" width="400" height="250">
+                                    <img loading="lazy" src="img/blog-valorizacao.jpg" alt="Valorização Imobiliária" width="400" height="250" decoding="async">
                                 </picture>
                                 <span class="post-category">Dicas</span>
                             </div>
@@ -417,7 +431,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" class="footer-logo" width="200" height="46">
+                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" class="footer-logo" width="200" height="46" decoding="async">
                     <h3>APEX Engenharia Predial</h3>
                     <p>Especializada em pintura predial e manutenção predial, a APEX está sempre preparada para atendê-lo. Solicite seu orçamento!</p>
                     <div class="footer-social">
@@ -466,15 +480,10 @@
         </div>
     </footer>
 
-    <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5551981078843?text=Olá%20APEX,%20gostaria%20de%20um%20orçamento" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Fale conosco no WhatsApp" aria-label="WhatsApp APEX">
-        <svg viewBox="0 0 32 32" fill="currentColor">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.409 1.417-5.267-0.316-0.518c-1.351-2.217-2.067-4.78-2.067-7.403 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62-6.11 13.62-13.62 13.62zM21.524 19.006c-0.272-0.137-1.609-0.795-1.859-0.886-0.248-0.09-0.429-0.137-0.61 0.137s-0.702 0.886-0.861 1.068c-0.158 0.182-0.316 0.205-0.589 0.068-0.272-0.137-1.149-0.423-2.187-1.35-0.809-0.721-1.355-1.612-1.514-1.884s-0.017-0.421 0.12-0.557c0.123-0.123 0.272-0.319 0.408-0.478s0.181-0.272 0.272-0.453c0.090-0.181 0.045-0.34-0.023-0.478s-0.61-1.471-0.837-2.012c-0.221-0.525-0.444-0.454-0.61-0.462-0.158-0.008-0.339-0.010-0.52-0.010s-0.476 0.068-0.725 0.34c-0.248 0.272-0.949 0.928-0.949 2.263s0.972 2.625 1.108 2.806c0.137 0.181 1.898 2.963 4.651 4.088 2.753 1.125 2.753 0.75 3.252 0.704s1.609-0.657 1.836-1.291c0.226-0.635 0.226-1.178 0.158-1.291s-0.248-0.181-0.52-0.319z"/>
-        </svg>
-    </a>
-
+    <!-- Botão WhatsApp será carregado de forma adiada via whatsapp-loader.js -->
     </main>
 
+    <script src="js/whatsapp-loader.js" defer></script>
     <script src="js/utils.js"></script>
     <script src="js/script.js" defer></script>
     <script src="js/blog.js" defer></script>
