@@ -650,19 +650,112 @@
         });
     </script>
     
-    <!-- Script para formulário (usar o mesmo do index.html se existir) -->
+    <!-- Script para formulário -->
     <script>
+        console.log('🔵 Script do formulário INICIADO - arquivo carregado');
+        console.log('🔵 Timestamp:', new Date().toISOString());
+        
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Script do formulário carregado - DOMContentLoaded disparado');
             const form = document.getElementById('contactFormLP');
+            console.log('📋 Formulário encontrado:', form ? 'SIM' : 'NÃO');
+            
             if (form) {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', async function(e) {
                     e.preventDefault();
+                    console.log('📤 Formulário submetido!');
                     
-                    // Aqui você pode adicionar a lógica de envio do formulário
-                    // Por exemplo, usando fetch para enviar para um endpoint
+                    // Validação básica
+                    const nome = document.getElementById('nome-lp').value.trim();
+                    const telefone = document.getElementById('telefone-lp').value.trim();
+                    const condominio = document.getElementById('condominio-lp').value.trim();
                     
-                    alert('Obrigado! Recebemos sua solicitação. Nossa equipe entrará em contato em até 24 horas.');
-                    form.reset();
+                    console.log('📝 Dados do formulário:', { nome, telefone, condominio });
+                    
+                    if (!nome || !telefone || !condominio) {
+                        alert('Por favor, preencha todos os campos!');
+                        return;
+                    }
+
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const originalText = submitButton ? submitButton.textContent : '';
+
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = 'Enviando...';
+                    }
+
+                    try {
+                        const payload = { 
+                            nome, 
+                            telefone, 
+                            condominio,
+                            mensagem: `Solicitação de orçamento para pintura predial - Condomínio: ${condominio}`
+                        };
+                        
+                        console.log('📤 Enviando formulário:', payload);
+                        console.log('🌐 URL da API: /api/send-email');
+                        console.log('🔗 URL completa:', window.location.origin + '/api/send-email');
+                        
+                        const response = await fetch('/api/send-email', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        console.log('Resposta recebida:', {
+                            status: response.status,
+                            statusText: response.statusText,
+                            ok: response.ok
+                        });
+
+                        // Verifica se a resposta é JSON válido
+                        let data;
+                        const contentType = response.headers.get('content-type');
+                        if (contentType && contentType.includes('application/json')) {
+                            data = await response.json();
+                        } else {
+                            const text = await response.text();
+                            console.error('Resposta não é JSON:', text);
+                            throw new Error('Resposta inválida do servidor');
+                        }
+                        
+                        console.log('Dados da resposta:', data);
+
+                        if (!response.ok || !data?.success) {
+                            console.error('Erro na resposta da API:', {
+                                status: response.status,
+                                data: data,
+                                message: data?.message
+                            });
+                            throw new Error(data?.message || 'Falha no envio');
+                        }
+
+                        console.log('✅ Formulário enviado com sucesso!');
+                        alert('Orçamento solicitado com sucesso! Nossa equipe entrará em contato em até 24 horas.');
+                        form.reset();
+                    } catch (error) {
+                        console.error('❌ ERRO AO ENVIAR FORMULÁRIO:', error);
+                        console.error('❌ Tipo do erro:', error.constructor.name);
+                        console.error('❌ Mensagem do erro:', error.message);
+                        console.error('❌ Stack trace:', error.stack);
+                        console.error('❌ Detalhes completos:', {
+                            message: error.message,
+                            stack: error.stack,
+                            nome,
+                            telefone,
+                            condominio,
+                            error: error,
+                            name: error.name,
+                            cause: error.cause
+                        });
+                        alert('❌ Erro: ' + error.message + '\n\nNão foi possível enviar sua solicitação. Tente novamente mais tarde ou entre em contato pelo WhatsApp: (51) 98107-8843');
+                    } finally {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText || 'Quero um Orçamento para meu Prédio';
+                        }
+                    }
                 });
             }
         });

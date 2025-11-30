@@ -650,19 +650,61 @@
         });
     </script>
     
-    <!-- Script para formulário (usar o mesmo do index.html se existir) -->
+    <!-- Script para formulário -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contactFormLP');
             if (form) {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
-                    // Aqui você pode adicionar a lógica de envio do formulário
-                    // Por exemplo, usando fetch para enviar para um endpoint
+                    // Validação básica
+                    const nome = document.getElementById('nome-lp').value.trim();
+                    const telefone = document.getElementById('telefone-lp').value.trim();
+                    const empresa = document.getElementById('empresa-lp').value.trim();
                     
-                    alert('Obrigado! Recebemos sua solicitação. Nossa equipe entrará em contato em até 24 horas.');
-                    form.reset();
+                    if (!nome || !telefone || !empresa) {
+                        alert('Por favor, preencha todos os campos!');
+                        return;
+                    }
+
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const originalText = submitButton ? submitButton.textContent : '';
+
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = 'Enviando...';
+                    }
+
+                    try {
+                        const response = await fetch('/api/send-email', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ 
+                                nome, 
+                                telefone, 
+                                empresa,
+                                mensagem: `Solicitação de orçamento para pintura industrial - Empresa: ${empresa}`
+                            })
+                        });
+
+                        const data = await response.json();
+
+                        if (!response.ok || !data?.success) {
+                            throw new Error(data?.message || 'Falha no envio');
+                        }
+
+                        alert('Orçamento solicitado com sucesso! Nossa equipe entrará em contato em até 24 horas.');
+                        form.reset();
+                    } catch (error) {
+                        console.error('Erro ao enviar formulário:', error);
+                        alert('Não foi possível enviar sua solicitação agora. Tente novamente mais tarde ou entre em contato pelo WhatsApp: (51) 98107-8843');
+                    } finally {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = originalText || 'Quero um Orçamento para minha Indústria';
+                        }
+                    }
                 });
             }
         });
