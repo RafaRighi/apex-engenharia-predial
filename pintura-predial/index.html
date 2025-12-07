@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google Tag Manager - Carregado após LCP para melhor performance -->
+    <!-- Google Tag Manager - Carregado apenas após interação do usuário para máxima performance -->
     <script>
     (function(w,d,s,l,i){
         w[l]=w[l]||[];
         w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
         
+        let gtmLoaded = false;
+        
         function loadGTM() {
+            if (gtmLoaded) return;
+            gtmLoaded = true;
             var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
             j.async=true;
@@ -15,35 +19,21 @@
             f.parentNode.insertBefore(j,f);
         }
         
-        if ('PerformanceObserver' in window) {
-            try {
-                const observer = new PerformanceObserver((list) => {
-                    const entries = list.getEntries();
-                    const lastEntry = entries[entries.length - 1];
-                    if (lastEntry) {
-                        loadGTM();
-                        observer.disconnect();
-                    }
-                });
-                observer.observe({ entryTypes: ['largest-contentful-paint'] });
-                setTimeout(() => {
-                    observer.disconnect();
-                    loadGTM();
-                }, 3000);
-            } catch(e) {
-                if (window.requestIdleCallback) {
-                    requestIdleCallback(loadGTM, { timeout: 2000 });
-                } else {
-                    setTimeout(loadGTM, 2000);
-                }
-            }
-        } else {
-            if (window.requestIdleCallback) {
-                requestIdleCallback(loadGTM, { timeout: 2000 });
-            } else {
-                setTimeout(loadGTM, 2000);
-            }
-        }
+        // Carrega GTM apenas após interação do usuário (scroll, click, touch, keypress)
+        const loadOnInteraction = () => {
+            loadGTM();
+            ['scroll','click','touchstart','keydown'].forEach(evt => {
+                d.removeEventListener(evt, loadOnInteraction, { passive: true });
+            });
+        };
+        
+        ['scroll','click','touchstart','keydown'].forEach(evt => {
+            d.addEventListener(evt, loadOnInteraction, { passive: true, once: true });
+        });
+        
+        setTimeout(() => {
+            if (!gtmLoaded) loadGTM();
+        }, 5000);
     })(window,document,'script','dataLayer','GTM-WD5669S6');
     </script>
     <!-- End Google Tag Manager -->
@@ -65,7 +55,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="../favicon-32x32.ico">
     <link rel="preload" href="../css/main.css" as="style">
-    <link rel="preload" href="../img/logo-apex.png" as="image">
+    <link rel="preload" href="../img/logo-apex.png" as="image" fetchpriority="high">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
     
     <!-- CSS crítico inline para hero -->
     <style>
@@ -461,7 +454,7 @@
     <header class="lp-header">
         <div class="container">
             <a href="../index.html" class="logo-link" aria-label="Voltar para o início">
-                <img src="../img/logo-apex.png" alt="Logo APEX Engenharia Predial" class="lp-logo" width="200" height="46" loading="eager" fetchpriority="high">
+                <img src="../img/logo-apex.png" alt="Logo APEX Engenharia Predial" class="lp-logo" width="200" height="46" loading="eager" fetchpriority="high" decoding="async">
             </a>
         </div>
     </header>

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google Tag Manager - Carregado após LCP para melhor performance -->
+    <!-- Google Tag Manager - Carregado apenas após interação do usuário para máxima performance -->
     <script>
     (function(w,d,s,l,i){
         w[l]=w[l]||[];
         w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
         
-        // Carrega GTM apenas após LCP (Largest Contentful Paint)
+        let gtmLoaded = false;
+        
         function loadGTM() {
+            if (gtmLoaded) return;
+            gtmLoaded = true;
             var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
             j.async=true;
@@ -16,39 +19,24 @@
             f.parentNode.insertBefore(j,f);
         }
         
-        // Usa PerformanceObserver para detectar LCP
-        if ('PerformanceObserver' in window) {
-            try {
-                const observer = new PerformanceObserver((list) => {
-                    const entries = list.getEntries();
-                    const lastEntry = entries[entries.length - 1];
-                    if (lastEntry) {
-                        loadGTM();
-                        observer.disconnect();
-                    }
-                });
-                observer.observe({ entryTypes: ['largest-contentful-paint'] });
-                // Timeout de segurança: carrega após 3s mesmo se LCP não for detectado
-                setTimeout(() => {
-                    observer.disconnect();
-                    loadGTM();
-                }, 3000);
-            } catch(e) {
-                // Fallback se PerformanceObserver falhar
-                if (window.requestIdleCallback) {
-                    requestIdleCallback(loadGTM, { timeout: 2000 });
-                } else {
-                    setTimeout(loadGTM, 2000);
-                }
-            }
-        } else {
-            // Fallback para navegadores sem PerformanceObserver
-            if (window.requestIdleCallback) {
-                requestIdleCallback(loadGTM, { timeout: 2000 });
-            } else {
-                setTimeout(loadGTM, 2000);
-            }
-        }
+        // Carrega GTM apenas após interação do usuário (scroll, click, touch, keypress)
+        const loadOnInteraction = () => {
+            loadGTM();
+            // Remove listeners após carregar
+            ['scroll','click','touchstart','keydown'].forEach(evt => {
+                d.removeEventListener(evt, loadOnInteraction, { passive: true });
+            });
+        };
+        
+        // Adiciona listeners para interação
+        ['scroll','click','touchstart','keydown'].forEach(evt => {
+            d.addEventListener(evt, loadOnInteraction, { passive: true, once: true });
+        });
+        
+        // Timeout de segurança: carrega após 5s mesmo sem interação
+        setTimeout(() => {
+            if (!gtmLoaded) loadGTM();
+        }, 5000);
     })(window,document,'script','dataLayer','GTM-WD5669S6');
     </script>
     <!-- End Google Tag Manager -->
@@ -151,71 +139,49 @@
     <link rel="icon" type="image/x-icon" href="favicon-32x32.ico">
     <link rel="manifest" href="manifest.json">
     <link rel="preload" href="css/main.css" as="style">
-    <link rel="preload" href="img/logo-apex.png" as="image">
-    <link rel="preload" href="img/mock-hero-apex.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="img/logo-apex.png" as="image" fetchpriority="high">
+    <link rel="preload" href="img/mock-hero-apex.webp" as="image" fetchpriority="high" type="image/webp">
     <link rel="preload" href="js/utils.js" as="script">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <!-- CSS crítico inline para hero - melhora LCP -->
-    <style>
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            padding-bottom: 50px;
-            background: url('img/mock-hero-apex.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #ffffff;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 20px;
-            margin-top: 100px;
-            margin-bottom: 50px;
-            opacity: 1;
-            transform: none;
-        }
-        .hero-text {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            opacity: 1;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            /* Previne layout shift do texto */
-            min-height: 120px;
-            /* Garante renderização imediata - crítico para LCP */
-            display: block;
-            visibility: visible;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            font-weight: 400;
-            line-height: 1.6;
-            color: #ffffff;
-        }
-        .hero-title {
-            /* Previne layout shift do título */
-            min-height: 150px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        .hero-subtitle {
-            /* Previne layout shift do subtítulo */
-            min-height: 30px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            font-weight: 300;
-            color: #ffffff;
-        }
-    </style>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Fonts - Carregamento assíncrono para não bloquear renderização -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- CSS crítico inline - Renderização imediata sem esperar CSS externo -->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;overflow-x:hidden;width:100%;max-width:100vw}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:#1a1a1a;line-height:1.6;overflow-x:hidden;margin:0;padding:0;width:100%;max-width:100vw;position:relative}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px;width:100%;box-sizing:border-box}
+        #header{position:fixed;top:0;left:0;width:100%;max-width:100vw;background:transparent;box-shadow:none;z-index:1000;opacity:1;margin:0;padding:0;transform:translateY(0);overflow:visible}
+        .navbar{padding:15px 0;min-height:60px}
+        .navbar .container{display:flex;justify-content:space-between;align-items:center;padding:0 20px;width:100%;max-width:1200px;margin:0 auto;box-sizing:border-box;position:relative}
+        .logo-link{display:flex;align-items:center;justify-content:flex-start;margin-right:auto;flex-shrink:0;padding:0}
+        .logo{max-width:50%;height:auto;display:block;margin:0;padding:0;opacity:1}
+        .nav-menu{display:flex;list-style:none;gap:25px;align-items:center;min-height:50px;z-index:1100;margin-left:auto;flex-shrink:0}
+        .hero{position:relative;min-height:100vh;padding-bottom:50px;background:url('img/mock-hero-apex.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#ffffff}
+        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,52,89,.45) 0%,rgba(0,126,167,.45) 100%)}
+        .hero-content{position:relative;z-index:2;max-width:800px;padding:20px;margin-top:100px;margin-bottom:50px;opacity:1;transform:none}
+        .hero-title{min-height:150px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;font-weight:700;color:#ffffff;font-size:clamp(1.8rem,4vw,4rem);line-height:1.2;margin-bottom:20px;text-shadow:2px 2px 4px rgba(0,0,0,.3)}
+        .hero-subtitle{min-height:30px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;font-weight:300;color:#ffffff;font-size:clamp(1rem,2vw,1.5rem);margin-bottom:15px;text-shadow:1px 1px 2px rgba(0,0,0,.3)}
+        .hero-text{font-size:1.1rem;margin-bottom:30px;opacity:1;text-shadow:1px 1px 2px rgba(0,0,0,.3);min-height:120px;display:block;visibility:visible;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;font-weight:400;line-height:1.6;color:#ffffff}
+        img,video,iframe,embed,object{max-width:100%;height:auto}
+    </style>
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts - Carregamento assíncrono otimizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    <script>
+    // Fallback para fontes - garante renderização imediata
+    if('fonts' in document){
+        document.fonts.ready.then(function(){
+            document.documentElement.classList.add('fonts-loaded');
+        });
+    }
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -228,12 +194,11 @@
             <div class="container">
                 <a href="#inicio" class="logo-link" aria-label="Voltar para o início">
                     <img src="img/logo-apex.png" 
-                         srcset="img/logo-apex.png 1x, img/logo-apex.png 2x" 
                          alt="Logo APEX Engenharia Predial" 
                          title="Logo APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial" 
                          class="logo" 
-                         width="325" 
-                         height="75" 
+                         width="295" 
+                         height="68" 
                          fetchpriority="high" 
                          loading="eager" 
                          decoding="async" 
@@ -259,10 +224,10 @@
     <!-- Seção Inicial (Hero) -->
     <section id="inicio" class="hero">
         <picture>
-            <source media="(max-width: 640px)" srcset="img/mock-hero-apex.webp" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="img/mock-hero-apex.webp" type="image/webp">
-            <source media="(min-width: 1025px)" srcset="img/mock-hero-apex.webp" type="image/webp">
-            <img src="img/mock-hero-apex.webp" alt="APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0">
+            <source media="(max-width: 640px)" srcset="img/mock-hero-apex.webp" type="image/webp" sizes="100vw">
+            <source media="(max-width: 1024px)" srcset="img/mock-hero-apex.webp" type="image/webp" sizes="100vw">
+            <source media="(min-width: 1025px)" srcset="img/mock-hero-apex.webp" type="image/webp" sizes="100vw">
+            <img src="img/mock-hero-apex.webp" alt="APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" sizes="100vw" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;image-rendering:auto">
         </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -848,7 +813,30 @@
 
     <!-- Botão WhatsApp será carregado de forma adiada via whatsapp-loader.js -->
     <script src="js/utils.js" defer></script>
-    <script src="js/whatsapp-loader.js" defer></script>
-    <script src="js/script.js" defer></script>
+    <script>
+    // Carrega scripts não críticos apenas após LCP ou interação
+    (function() {
+        let scriptsLoaded = false;
+        const loadScripts = () => {
+            if (scriptsLoaded) return;
+            scriptsLoaded = true;
+            const scripts = ['js/whatsapp-loader.js', 'js/script.js'];
+            scripts.forEach(src => {
+                const s = document.createElement('script');
+                s.src = src;
+                s.defer = true;
+                document.body.appendChild(s);
+            });
+        };
+        
+        // Carrega após scroll ou interação
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => {
+            document.addEventListener(evt, loadScripts, { passive: true, once: true });
+        });
+        
+        // Timeout de segurança: carrega após 3s
+        setTimeout(loadScripts, 3000);
+    })();
+    </script>
 </body>
 </html>
