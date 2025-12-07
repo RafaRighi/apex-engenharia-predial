@@ -245,30 +245,48 @@ if (header) {
 // Elementos para animar - DESABILITADO para evitar CLS
 // As animações de entrada estavam causando layout shift (CLS 0.20)
 // Mantendo elementos visíveis desde o início para melhor performance
-const animateElements = document.querySelectorAll('.servico-card, .diferencial-item, .stat-item, .info-item, .galeria-item, .blog-preview-card, .numero-item, .produto-item');
-if (animateElements) {
-    animateElements.forEach(el => {
-        // Elementos já visíveis desde o início - sem animação para evitar CLS
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-    });
-}
-
-
-// Redirecionamento de Serviço
-const servicoCards = document.querySelectorAll('.servico-card');
-
-if (servicoCards.length > 0) {
-    servicoCards.forEach(card => {
-        const link = card.querySelector('.btn-link'); 
-        
-        if (link && link.href) {
-            card.addEventListener('click', () => {
-                window.location.href = link.href;
+// Executa em idle para não bloquear thread principal
+(function() {
+    const initElements = () => {
+        const animateElements = document.querySelectorAll('.servico-card, .diferencial-item, .stat-item, .info-item, .galeria-item, .blog-preview-card, .numero-item, .produto-item');
+        if (animateElements && animateElements.length > 0) {
+            animateElements.forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
             });
         }
-    });
-}
+    };
+    
+    if (window.requestIdleCallback) {
+        requestIdleCallback(initElements, { timeout: 2000 });
+    } else {
+        setTimeout(initElements, 0);
+    }
+})();
+
+
+// Redirecionamento de Serviço - Executa em idle para não bloquear thread principal
+(function() {
+    const initServiceCards = () => {
+        const servicoCards = document.querySelectorAll('.servico-card');
+        if (servicoCards.length > 0) {
+            servicoCards.forEach(card => {
+                const link = card.querySelector('.btn-link'); 
+                if (link && link.href) {
+                    card.addEventListener('click', () => {
+                        window.location.href = link.href;
+                    }, { passive: true });
+                }
+            });
+        }
+    };
+    
+    if (window.requestIdleCallback) {
+        requestIdleCallback(initServiceCards, { timeout: 2000 });
+    } else {
+        setTimeout(initServiceCards, 0);
+    }
+})();
 
 
 // Formulário de contato (restante do seu código)
@@ -318,7 +336,6 @@ if (contactForm) {
             alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
             contactForm.reset();
         } catch (error) {
-            console.error('Erro ao enviar formulário de contato:', error);
             alert('Não foi possível enviar sua mensagem agora. Tente novamente mais tarde ou envie um e-mail diretamente para contato@apexengenhariapredial.com.br.');
         } finally {
             if (submitButton) {

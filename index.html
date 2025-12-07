@@ -124,6 +124,10 @@
     <link rel="manifest" href="manifest.json">
     <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="img/logo-apex.png" as="image">
+    <link rel="preload" href="img/mock-hero-apex.webp" as="image" fetchpriority="high">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <!-- CSS crítico inline para hero - melhora LCP -->
     <style>
         .hero {
@@ -215,7 +219,12 @@
     <main>
     <!-- Seção Inicial (Hero) -->
     <section id="inicio" class="hero">
-        <img src="img/mock-hero-apex.webp" alt="APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+        <picture>
+            <source media="(max-width: 640px)" srcset="img/mock-hero-apex.webp" type="image/webp">
+            <source media="(max-width: 1024px)" srcset="img/mock-hero-apex.webp" type="image/webp">
+            <source media="(min-width: 1025px)" srcset="img/mock-hero-apex.webp" type="image/webp">
+            <img src="img/mock-hero-apex.webp" alt="APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0">
+        </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
         <h1 class="hero-title">Especialistas em <strong>Pintura Predial</strong> e <strong>Industrial</strong> em Porto Alegre e Região Metropolitana.</h1>
@@ -799,8 +808,8 @@
     </footer>
 
     <!-- Botão WhatsApp será carregado de forma adiada via whatsapp-loader.js -->
+    <script src="js/utils.js" defer></script>
     <script src="js/whatsapp-loader.js" defer></script>
-    <script src="js/utils.js"></script>
     <script src="js/script.js" defer></script>
 </body>
 </html>
