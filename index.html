@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google Tag Manager - Otimizado para não bloquear thread principal -->
+    <!-- Google Tag Manager - Carregado após LCP para melhor performance -->
     <script>
     (function(w,d,s,l,i){
         w[l]=w[l]||[];
         w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;
-        j.defer=true;
-        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        // Usa requestIdleCallback se disponível, senão usa setTimeout
-        if (window.requestIdleCallback) {
-            requestIdleCallback(function() {
-                f.parentNode.insertBefore(j,f);
-            }, { timeout: 2000 });
+        
+        // Carrega GTM apenas após LCP (Largest Contentful Paint)
+        function loadGTM() {
+            var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        }
+        
+        // Usa PerformanceObserver para detectar LCP
+        if ('PerformanceObserver' in window) {
+            try {
+                const observer = new PerformanceObserver((list) => {
+                    const entries = list.getEntries();
+                    const lastEntry = entries[entries.length - 1];
+                    if (lastEntry) {
+                        loadGTM();
+                        observer.disconnect();
+                    }
+                });
+                observer.observe({ entryTypes: ['largest-contentful-paint'] });
+                // Timeout de segurança: carrega após 3s mesmo se LCP não for detectado
+                setTimeout(() => {
+                    observer.disconnect();
+                    loadGTM();
+                }, 3000);
+            } catch(e) {
+                // Fallback se PerformanceObserver falhar
+                if (window.requestIdleCallback) {
+                    requestIdleCallback(loadGTM, { timeout: 2000 });
+                } else {
+                    setTimeout(loadGTM, 2000);
+                }
+            }
         } else {
-            setTimeout(function() {
-                f.parentNode.insertBefore(j,f);
-            }, 0);
+            // Fallback para navegadores sem PerformanceObserver
+            if (window.requestIdleCallback) {
+                requestIdleCallback(loadGTM, { timeout: 2000 });
+            } else {
+                setTimeout(loadGTM, 2000);
+            }
         }
     })(window,document,'script','dataLayer','GTM-WD5669S6');
     </script>
@@ -125,6 +153,7 @@
     <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="img/logo-apex.png" as="image">
     <link rel="preload" href="img/mock-hero-apex.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="js/utils.js" as="script">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -198,7 +227,17 @@
         <nav class="navbar">
             <div class="container">
                 <a href="#inicio" class="logo-link" aria-label="Voltar para o início">
-                    <img src="img/logo-apex.png" alt="Logo APEX Engenharia Predial" title="Logo APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial" class="logo" width="650" height="149" fetchpriority="high" loading="eager" decoding="async" style="max-width: 50%; height: auto;">
+                    <img src="img/logo-apex.png" 
+                         srcset="img/logo-apex.png 1x, img/logo-apex.png 2x" 
+                         alt="Logo APEX Engenharia Predial" 
+                         title="Logo APEX Engenharia Predial - Especialistas em Pintura Industrial e Predial" 
+                         class="logo" 
+                         width="325" 
+                         height="75" 
+                         fetchpriority="high" 
+                         loading="eager" 
+                         decoding="async" 
+                         style="max-width: 50%; height: auto;">
                 </a>
                 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
                     <span></span>
