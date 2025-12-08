@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Site institucional APEX Engenharia Predial - Projeto HTML estático",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "build": "echo 'No build step required for static site'"
+  },
   "dependencies": {
     "nodemailer": "^6.9.8"
   },
