@@ -6,60 +6,134 @@
     (function(w,d,s,l,i){
         w[l]=w[l]||[];
         w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        
+        let gtmLoaded = false;
+        
+        function loadGTM() {
+            if (gtmLoaded) return;
+            gtmLoaded = true;
         var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
         j.async=true;
-        j.defer=true;
         j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        // Usa requestIdleCallback se disponível, senão usa setTimeout
-        if (window.requestIdleCallback) {
-            requestIdleCallback(function() {
                 f.parentNode.insertBefore(j,f);
-            }, { timeout: 2000 });
-        } else {
-            setTimeout(function() {
-                f.parentNode.insertBefore(j,f);
-            }, 0);
         }
+        
+        const loadOnInteraction = () => {
+            loadGTM();
+            ['scroll','click','touchstart','keydown'].forEach(evt => {
+                d.removeEventListener(evt, loadOnInteraction, { passive: true });
+            });
+        };
+        
+        ['scroll','click','touchstart','keydown'].forEach(evt => {
+            d.addEventListener(evt, loadOnInteraction, { passive: true, once: true });
+        });
+        
+        setTimeout(() => {
+            if (!gtmLoaded) loadGTM();
+        }, 5000);
     })(window,document,'script','dataLayer','GTM-WD5669S6');
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Renovação e Restauração de Fachadas em Porto Alegre - APEX Engenharia Predial. Recuperação de Fachada Condomínio RS. Especialistas em pastilhas e reboco. Solicite orçamento grátis!">
-    <meta name="keywords" content="restauração de fachadas porto alegre, restauração fachada porto alegre, restauração de fachadas rs, reforma de fachada porto alegre, recuperação de fachadas, pintura de fachada, revestimento fachada, limpeza de fachada, renovação de fachadas porto alegre, reboco porto alegre, pastilhas, texturas, acabamento de fachada, restauração predial, recuperação estrutural, tratamento de trincas">
+    <meta name="description" content="Restauração e Renovação de Fachadas em Porto Alegre - APEX Engenharia Predial. Especialistas em recuperação estrutural, tratamento de trincas, reboco, pastilhas e texturas. Equipe certificada NR35. Orçamento grátis!">
+    <meta name="keywords" content="restauração de fachadas porto alegre, renovação de fachadas porto alegre, restauração fachada porto alegre, recuperação de fachadas, pintura de fachada, revestimento fachada, limpeza de fachada, reboco porto alegre, pastilhas fachada, texturas fachada, acabamento de fachada, restauração predial, recuperação estrutural, tratamento de trincas, empresa restauração fachadas">
     <link rel="canonical" href="https://www.apexengenhariapredial.com.br/restauracao-fachadas.html">
     <link rel="sitemap" type="application/xml" href="https://www.apexengenhariapredial.com.br/sitemap.xml">
     <meta name="author" content="APEX Engenharia Predial">
     <meta name="robots" content="index, follow">
     
-    <!-- Nota: Headers de segurança configurados no servidor (vercel.json) -->
-    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.apexengenhariapredial.com.br/restauracao-fachadas.html">
-    <meta property="og:title" content="Renovação e Restauração de Fachadas em Porto Alegre - APEX Engenharia Predial">
-    <meta property="og:description" content="Especialistas em renovação e restauração de fachadas em Porto Alegre, região metropolitana e todo o Rio Grande do Sul. Recuperação estrutural, tratamento de trincas e revestimentos duráveis. Orçamento grátis!">
-    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="og:title" content="Restauração e Renovação de Fachadas em Porto Alegre - APEX">
+    <meta property="og:description" content="Especialistas em restauração e renovação de fachadas em Porto Alegre. Recuperação estrutural, tratamento de trincas, reboco, pastilhas e texturas. Orçamento grátis!">
+    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/restauracao-fachada-obra-apex.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.apexengenhariapredial.com.br/restauracao-fachadas.html">
-    <meta property="twitter:title" content="Renovação e Restauração de Fachadas em Porto Alegre - APEX Engenharia Predial">
-    <meta property="twitter:description" content="Especialistas em renovação e restauração de fachadas em Porto Alegre, região metropolitana e todo o Rio Grande do Sul. Recuperação estrutural, tratamento de trincas e revestimentos duráveis. Orçamento grátis!">
-    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="twitter:title" content="Restauração e Renovação de Fachadas em Porto Alegre - APEX">
+    <meta property="twitter:description" content="Especialistas em restauração e renovação de fachadas em Porto Alegre. Recuperação estrutural, tratamento de trincas, reboco, pastilhas e texturas. Orçamento grátis!">
+    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/restauracao-fachada-obra-apex.jpg">
     
-    <title>Renovação e Restauração de Fachadas em Porto Alegre | APEX</title>
+    <title>Restauração e Renovação de Fachadas em Porto Alegre | APEX Engenharia</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="favicon-32x32.ico">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00a8e8">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="img/logo-apex.png" as="image">
+    <link rel="preload" href="img/restauracao-fachada-obra-apex.jpg" as="image">
+    <!-- CSS crítico inline - Renderização imediata sem esperar CSS externo -->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;overflow-x:hidden;width:100%;max-width:100vw}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:#1a1a1a;line-height:1.6;overflow-x:hidden;margin:0;padding:0;width:100%;max-width:100vw;position:relative}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px;width:100%;box-sizing:border-box}
+        #header{position:fixed;top:0;left:0;width:100%;max-width:100vw;background:transparent;box-shadow:none;z-index:1000;opacity:1;margin:0;padding:0;transform:translateY(0);overflow:visible}
+        .navbar{padding:15px 0;min-height:60px}
+        .navbar .container{display:flex;justify-content:space-between;align-items:center;padding:0 20px;width:100%;max-width:1200px;margin:0 auto;box-sizing:border-box;position:relative}
+        .logo-link{display:flex;align-items:center;justify-content:flex-start;margin-right:auto;flex-shrink:0;padding:0}
+        .logo{max-width:50%;height:auto;display:block;margin:0;padding:0;opacity:1}
+        .nav-menu{display:flex;list-style:none;gap:25px;align-items:center;min-height:50px;z-index:1100;margin-left:auto;flex-shrink:0}
+        .hero{position:relative;min-height:100vh;padding-bottom:50px;display:flex;align-items:center;justify-content:center;text-align:center;color:#ffffff}
+        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,52,89,.45) 0%,rgba(0,126,167,.45) 100%)}
+        .hero-content{position:relative;z-index:2;max-width:800px;padding:20px;margin-top:100px;margin-bottom:50px;opacity:1;transform:none}
+        img,video,iframe,embed,object{max-width:100%;height:auto}
+    </style>
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Fonts - Carregamento assíncrono para não bloquear renderização -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Google Fonts - Carregamento assíncrono otimizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    <script>
+    // Fallback para fontes - garante renderização imediata
+    if('fonts' in document){
+        document.fonts.ready.then(function(){
+            document.documentElement.classList.add('fonts-loaded');
+        });
+    }
+    </script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Restauração e Renovação de Fachadas",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "APEX Engenharia Predial",
+        "image": "https://www.apexengenhariapredial.com.br/img/logo-apex.png",
+        "url": "https://www.apexengenhariapredial.com.br",
+        "telephone": "+5551981078843",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Major Sezefredo, 1093",
+          "addressLocality": "Canoas",
+          "addressRegion": "RS",
+          "addressCountry": "BR",
+          "postalCode": "92020-000"
+        }
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Rio Grande do Sul"
+      },
+      "description": "Especialistas em restauração e renovação de fachadas em Porto Alegre e região. Recuperação estrutural, tratamento de trincas, reboco, pastilhas e texturas.",
+      "offers": {
+        "@type": "Offer",
+        "name": "Restauração e Renovação de Fachadas",
+        "description": "Serviço completo de restauração e renovação de fachadas com recuperação estrutural, tratamento de trincas, aplicação de reboco, pastilhas e texturas."
+      }
+    }
+    </script>
 </head>
 <body>
                 <!-- Google Tag Manager (noscript) -->
@@ -89,26 +163,162 @@
     </header>
 
     <main>
+    <!-- Hero Section -->
     <section class="hero">
+        <picture>
+            <source srcset="img/restauracao-fachada-obra-apex.webp" type="image/webp">
+            <img src="img/restauracao-fachada-obra-apex.jpg" alt="Equipe APEX realizando restauração e renovação de fachada em edifício" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0">
+        </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Renovação e Restauração de Fachadas em Porto Alegre</h1>
-            <p>Especialistas em <strong>renovação de fachadas</strong> e <strong>restauração de fachadas</strong> com mais de 10 anos de experiência em Porto Alegre e região. Revitalize a estética e segurança do seu edifício!</p>
-            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento</a>
+            <h1>Restauração e Renovação de Fachadas em Porto Alegre</h1>
+            <p>Especialistas em <strong>restauração de fachadas</strong> e <strong>renovação de fachadas</strong> em Porto Alegre e Região Metropolitana. Recuperação estrutural completa, tratamento de trincas, aplicação de reboco, pastilhas e texturas. Revitalizamos completamente a estética e segurança do seu edifício com equipe certificada NR35!</p>
+            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
+    <!-- Por que Restauração de Fachadas -->
     <section class="sobre">
         <div class="container">
-            <h2>Especialistas em Renovação e Restauração de Fachadas em Porto Alegre</h2>
-            <p>A <strong>APEX Engenharia Predial</strong> é líder em <strong>renovação de fachadas Porto Alegre</strong>, <strong>restauração de fachada predial Porto Alegre</strong> e <strong>recuperação de fachada condomínio RS</strong>. Com mais de 10 anos de experiência, nossa equipe certificada NR35 especializa-se em recuperação estrutural completa, tratamento profissional de trincas e fissuras, aplicação de revestimentos duráveis, <strong>empresa especializada em pastilhas fachada</strong> e impermeabilização de alta qualidade.</p>
+            <h2 class="section-title">Por Que Escolher <strong>Restauração e Renovação de Fachadas</strong>?</h2>
+            <p>A <strong>restauração de fachadas</strong> e <strong>renovação de fachadas</strong> são essenciais para preservar a integridade estrutural, estética e valor de qualquer edificação. Com o tempo, fachadas sofrem com intempéries, umidade, trincas, descolamento de revestimentos e deterioração natural, comprometendo não apenas a aparência, mas também a segurança e durabilidade da estrutura.</p>
             
-            <p>Nossos serviços de <strong>renovação de fachadas</strong> e <strong>restauração de fachadas</strong> incluem: limpeza e preparo superficial, reparo de patologias estruturais, aplicação de argamassas especiais, impermeabilização de superfícies, pintura de alto padrão com tintas premium, <strong>aplicação de pastilhas fachada</strong>, reboco profissional e acabamento perfeito. Trabalhamos com os melhores materiais do mercado para garantir máxima durabilidade e valorização do seu patrimônio. Oferecemos <strong>renovação de fachada predial Porto Alegre preço</strong> competitivo e transparente.</p>
+            <p>Diferente de simples repintura, a <strong>restauração de fachadas</strong> envolve diagnóstico completo, tratamento de patologias estruturais, recuperação de revestimentos e aplicação de sistemas duráveis. A <strong>renovação de fachadas</strong> vai além da estética, garantindo que problemas estruturais sejam corrigidos antes que se agravem, evitando custos muito maiores no futuro.</p>
             
-            <p>Proteja seu investimento com soluções de <strong>renovação de fachada</strong> e <strong>restauração de fachada</strong> que resistem ao tempo, às intempéries e às variações climáticas do Rio Grande do Sul. Somos especialistas em trabalhos em altura NR35, utilizando equipamentos modernos e técnicas avançadas para qualquer tipo de edificação.</p>
+            <div class="diferenciais-grid" style="margin-top: 40px;">
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Recuperação Estrutural Completa</h4>
+                    <p><strong>Restauração de fachadas</strong> identifica e corrige problemas estruturais como trincas, fissuras e descolamentos, garantindo segurança e estabilidade da edificação. Previne deterioração progressiva e custos futuros.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Tratamento Profissional de Trincas</h4>
+                    <p>Diagnóstico técnico e tratamento especializado de trincas e fissuras com produtos de alta qualidade. <strong>Renovação de fachadas</strong> garante que problemas não se agravem com o tempo.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Revestimentos Duráveis</h4>
+                    <p>Aplicação de <strong>reboco</strong>, <strong>pastilhas</strong> e <strong>texturas</strong> de alta qualidade que resistem às intempéries e variações climáticas do Rio Grande do Sul. Acabamento profissional e duradouro.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Valorização Estética</h4>
+                    <p><strong>Restauração de fachadas</strong> transforma completamente a aparência do edifício, aumentando valor de mercado e satisfação dos ocupantes. Renovação que impressiona.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Impermeabilização Integrada</h4>
+                    <p><strong>Renovação de fachadas</strong> inclui impermeabilização adequada, protegendo contra infiltrações e umidade que causam deterioração prematura. Proteção completa e duradoura.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Equipe Certificada NR35</h4>
+                    <p>Trabalhos em altura realizados por equipe certificada NR35, garantindo segurança total durante a <strong>restauração de fachadas</strong>. Acesso por cordas e plataformas suspensas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aplicações da Restauração de Fachadas -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Onde Aplicar <strong>Restauração e Renovação de Fachadas</strong>?</h2>
+            <p>A <strong>restauração de fachadas</strong> e <strong>renovação de fachadas</strong> são necessárias em diversos tipos de edificações. A <strong>APEX Engenharia Predial</strong> é especialista em <strong>restauração de fachadas</strong> para:</p>
             
-            <p>Solicite agora seu <strong>orçamento grátis</strong> para <strong>renovação de fachadas em Porto Alegre</strong> e <strong>restauração de fachadas em Porto Alegre</strong>. Atendemos condomínios, empresas, indústrias e residenciais em Porto Alegre, região metropolitana e todo o Rio Grande do Sul!</p>
-            <a href="/" class="btn btn-primary">Voltar ao Início</a>
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Condomínios Residenciais</h3>
+                        <p><strong>Restauração de fachadas</strong> para condomínios com recuperação estrutural, tratamento de trincas e aplicação de revestimentos duráveis. Valorização e segurança para moradores.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Edifícios Comerciais</h3>
+                        <p><strong>Renovação de fachadas</strong> para edifícios comerciais com acabamento profissional que impressiona clientes e aumenta valor de mercado. Imagem corporativa renovada.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Prédios Históricos</h3>
+                        <p><strong>Restauração de fachadas</strong> preservando características arquitetônicas originais com técnicas especializadas. Respeito ao patrimônio histórico e cultural.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Indústrias e Galpões</h3>
+                        <p><strong>Renovação de fachadas</strong> para indústrias com sistemas resistentes e duradouros. Proteção contra intempéries e manutenção da imagem profissional.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Fachadas com Patologias</h3>
+                        <p><strong>Restauração de fachadas</strong> com tratamento de trincas, descolamentos e infiltrações. Correção de problemas estruturais antes que se agravem.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Renovação Estética</h3>
+                        <p><strong>Renovação de fachadas</strong> com aplicação de <strong>pastilhas</strong>, <strong>texturas</strong> e <strong>reboco</strong> modernos. Transformação completa da aparência do edifício.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="sobre">
+        <div class="container">
+            <h2 class="section-title">Como Funciona a <strong>Restauração e Renovação de Fachadas</strong></h2>
+            <p>A <strong>restauração de fachadas</strong> e <strong>renovação de fachadas</strong> requerem processo técnico especializado e produtos de alta qualidade. A <strong>APEX Engenharia Predial</strong> segue um processo rigoroso e profissional para garantir o melhor resultado:</p>
+            
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">1. Diagnóstico Técnico</h3>
+                        <p>Inspeção completa da fachada para identificar trincas, fissuras, descolamentos, infiltrações e outros problemas. Diagnóstico técnico detalhado para planejamento da <strong>restauração de fachadas</strong>.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">2. Preparo e Limpeza</h3>
+                        <p>Limpeza técnica da superfície, remoção de revestimentos soltos, tratamento de áreas deterioradas e preparo adequado para receber novos revestimentos na <strong>renovação de fachadas</strong>.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">3. Tratamento de Trincas</h3>
+                        <p>Tratamento especializado de trincas e fissuras com produtos de alta qualidade. Prevenção de infiltrações e estabilização estrutural na <strong>restauração de fachadas</strong>.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">4. Aplicação de Revestimentos</h3>
+                        <p>Aplicação de <strong>reboco</strong>, <strong>pastilhas</strong> e <strong>texturas</strong> de alta qualidade. Impermeabilização e acabamento profissional na <strong>renovação de fachadas</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantagens para Síndicos e Gestores -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Vantagens da <strong>Restauração e Renovação de Fachadas</strong> para Síndicos e Gestores</h2>
+            <p>Como síndico ou gestor de propriedades, você precisa de soluções que valorizem o patrimônio, reduzam custos futuros e aumentem a satisfação dos ocupantes. A <strong>restauração de fachadas</strong> e <strong>renovação de fachadas</strong> oferecem todos esses benefícios:</p>
+            
+            <ul style="margin-top: 30px; font-size: 1.1rem; line-height: 2;">
+                <li><strong>Valorização do Patrimônio:</strong> <strong>Restauração de fachadas</strong> aumenta significativamente o valor de mercado do edifício, tornando-o mais atrativo para compradores e investidores.</li>
+                <li><strong>Prevenção de Custos Futuros:</strong> <strong>Renovação de fachadas</strong> corrige problemas estruturais antes que se agravem, evitando reparos emergenciais muito mais caros no futuro.</li>
+                <li><strong>Maior Satisfação dos Moradores:</strong> Edifícios com fachadas bem conservadas aumentam satisfação e orgulho dos moradores, reduzindo reclamações e conflitos condominiais.</li>
+                <li><strong>Segurança Estrutural:</strong> <strong>Restauração de fachadas</strong> garante segurança estrutural, protegendo síndicos e administradores de responsabilidades legais por problemas estruturais.</li>
+                <li><strong>Durabilidade e Economia:</strong> <strong>Renovação de fachadas</strong> com materiais de alta qualidade dura décadas, reduzindo necessidade de manutenção constante e custos recorrentes.</li>
+                <li><strong>Imagem Profissional:</strong> Fachadas restauradas transmitem imagem de cuidado e profissionalismo, aumentando atratividade para novos moradores e inquilinos.</li>
+                <li><strong>Conformidade com Normas:</strong> <strong>Restauração de fachadas</strong> garante conformidade com normas de segurança e habitabilidade, essencial para gestão responsável de propriedades.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Iniciar a <strong>Restauração e Renovação de Fachadas</strong> do seu Edifício?</h2>
+            <p>A <strong>APEX Engenharia Predial</strong> é especialista em <strong>restauração de fachadas</strong> e <strong>renovação de fachadas em Porto Alegre e Região Metropolitana</strong>. Com mais de 10 anos de experiência, oferecemos:</p>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+                <li>Diagnóstico técnico completo e gratuito da sua fachada</li>
+                <li>Orçamento detalhado e transparente para <strong>restauração de fachadas</strong></li>
+                <li>Equipe certificada NR35 para trabalhos em altura com total segurança</li>
+                <li>Materiais de alta qualidade e sistemas duráveis</li>
+                <li>Garantia documentada do serviço de <strong>renovação de fachadas</strong></li>
+                <li>Execução coordenada minimizando interrupções</li>
+            </ul>
+            <p><strong>Solicite agora seu orçamento grátis e transforme a fachada do seu edifício com <strong>restauração de fachadas</strong> e <strong>renovação de fachadas</strong> de alta qualidade!</strong></p>
+            <a href="/#contato" class="btn btn-light" aria-label="Solicitar orçamento para restauração de fachadas">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
@@ -119,11 +329,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" class="footer-logo" width="200" height="46" decoding="async">
+                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" title="Logo APEX Engenharia Predial" class="footer-logo" width="200" height="46" decoding="async">
                     <h3>APEX Engenharia Predial</h3>
-                    <p><strong>restauração de fachadas</strong>, Especializada em pintura predial e manutenção predial, a APEX está sempre preparada para atendê-lo. Solicite seu orçamento!</p>
-
-                    <!-- Redes Sociais -->
+                    <p>Especializada em <strong>restauração de fachadas</strong>, <strong>renovação de fachadas</strong>, <strong>tratamento de trincas</strong> e <strong>aplicação de reboco e pastilhas</strong>, a APEX está sempre preparada para atender sua edificação. Solicite seu orçamento!</p>
+                    
+                    <div style="margin-top: 20px; font-size: 0.9rem;">
+                        <p><strong>📍 Endereço:</strong><br>Rua Major Sezefredo, 1093<br>Bairro Marechal Rondom - Canoas/RS</p>
+                        <p style="margin-top: 10px;"><strong>📞 Telefone:</strong><br>(51) 98107-8843</p>
+                    </div>
+                    
                     <div class="footer-social">
                         <h4>Siga-nos:</h4>
                         <div class="social-icons">
@@ -139,41 +353,61 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
                 
                 <div class="footer-links">
                     <h4>Nossos Serviços</h4>
                     <ul>
-                        <li><a href="/#servicos">Restauração de Fachadas</a></li>
-                        <li><a href="/#servicos">Impermeabilização</a></li>
-                        <li><a href="/#servicos">Pintura Predial</a></li>
-                        <li><a href="/#servicos">Manutenção de Estruturas</a></li>
-                        <li><a href="/#servicos">Demarcações de pisos e Estacionamentos</a></li>
+                        <li><a href="manutencao-predial.html">Manutenção Predial</a></li>
+                        <li><a href="pintura-piso-epoxi-industrial.html">Pintura de Piso Epóxi Industrial</a></li>
+                        <li><a href="pintura-predial.html">Pintura Predial</a></li>
+                        <li><a href="restauracao-fachadas.html">Restauração de Fachadas</a></li>
+                        <li><a href="impermeabilizacao.html">Impermeabilização</a></li>
+                        <li><a href="trabalhos-em-altura.html">Trabalhos em Altura NR35</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Acesso Rápido</h4>
+                    <h4>Links Úteis</h4>
                     <ul>
-                        <li><a href="/#inicio">Início</a></li>
                         <li><a href="/#sobre">Sobre a APEX</a></li>
-                        <li><a href="/#servicos">Serviços</a></li>
-                        <li><a href="/#contato">Contato</a></li>
                         <li><a href="blog.html">Blog</a></li>
+                        <li><a href="/#contato">Contato</a></li>
+                        <li><a href="pintura-epoxi-garagem-condominio.html">Pintura Epóxi Garagem</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p><strong>renovação de fachadas</strong>, &copy; 2025 APEX Engenharia Predial. Todos os direitos reservados.</p>
+                <p>&copy; 2024 APEX Engenharia Predial. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Botão WhatsApp será carregado de forma adiada via whatsapp-loader.js -->
-    <script src="js/whatsapp-loader.js" defer></script>
-    <script src="js/utils.js"></script>
-    <script src="js/script.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script>
+    // Carrega scripts não críticos apenas após LCP ou interação
+    (function() {
+        let scriptsLoaded = false;
+        const loadScripts = () => {
+            if (scriptsLoaded) return;
+            scriptsLoaded = true;
+            const scripts = ['js/whatsapp-loader.js', 'js/script.js'];
+            scripts.forEach(src => {
+                const s = document.createElement('script');
+                s.src = src;
+                s.defer = true;
+                document.body.appendChild(s);
+            });
+        };
+        
+        // Carrega após scroll ou interação
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => {
+            document.addEventListener(evt, loadScripts, { passive: true, once: true });
+        });
+        
+        // Timeout de segurança: carrega após 3s
+        setTimeout(loadScripts, 3000);
+    })();
+    </script>
 </body>
 </html>

@@ -1,49 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-                <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WD5669S6');</script>
+    <!-- Google Tag Manager - Otimizado para não bloquear thread principal -->
+    <script>
+    (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        
+        let gtmLoaded = false;
+        
+        function loadGTM() {
+            if (gtmLoaded) return;
+            gtmLoaded = true;
+            var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        }
+        
+        const loadOnInteraction = () => {
+            loadGTM();
+            ['scroll','click','touchstart','keydown'].forEach(evt => {
+                d.removeEventListener(evt, loadOnInteraction, { passive: true });
+            });
+        };
+        
+        ['scroll','click','touchstart','keydown'].forEach(evt => {
+            d.addEventListener(evt, loadOnInteraction, { passive: true, once: true });
+        });
+        
+        setTimeout(() => {
+            if (!gtmLoaded) loadGTM();
+        }, 5000);
+    })(window,document,'script','dataLayer','GTM-WD5669S6');
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reforma de Telhados em Porto Alegre - APEX Engenharia Predial. Reparos, impermeabilização e manutenção de telhados. Substituição de telhas, coberturas metálicas e manutenção preventiva. Mais de 10 anos de experiência. Orçamento grátis!">
-    <meta name="keywords" content="reforma de telhados porto alegre, reforma de telhados rs, manutenção de telhados porto alegre, telhado metálico, telhas porto alegre, impermeabilização telhado, reparo telhado, cobertura, manutenção preventiva telhados, substituição de telhas, reforma de coberturas, telhado industrial">
+    <meta name="description" content="Manutenção e Reforma de Telhados em Porto Alegre - APEX Engenharia Predial. Especialistas em reparos, substituições, impermeabilização e manutenção preventiva de telhados. Equipe certificada NR35. Orçamento grátis!">
+    <meta name="keywords" content="reforma de telhados porto alegre, manutenção de telhados porto alegre, reforma telhado porto alegre, telhado metálico porto alegre, telhas porto alegre, impermeabilização telhado, reparo telhado porto alegre, cobertura porto alegre, manutenção preventiva telhados, substituição de telhas, reforma de coberturas, telhado industrial porto alegre">
     <link rel="canonical" href="https://www.apexengenhariapredial.com.br/manutencao-reforma-telhados.html">
     <link rel="sitemap" type="application/xml" href="https://www.apexengenhariapredial.com.br/sitemap.xml">
     <meta name="author" content="APEX Engenharia Predial">
     <meta name="robots" content="index, follow">
     
-    <!-- Nota: Headers de segurança configurados no servidor (vercel.json) -->
-    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.apexengenhariapredial.com.br/manutencao-reforma-telhados.html">
-    <meta property="og:title" content="Reforma de Telhados em Porto Alegre - APEX Engenharia Predial">
-    <meta property="og:description" content="Especialistas em reforma de telhados em Porto Alegre, região metropolitana e todo o Rio Grande do Sul. Reparos, impermeabilização e manutenção completa. Orçamento grátis!">
-    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="og:title" content="Manutenção e Reforma de Telhados em Porto Alegre - APEX">
+    <meta property="og:description" content="Especialistas em reforma e manutenção de telhados em Porto Alegre. Reparos, substituições, impermeabilização e manutenção preventiva. Orçamento grátis!">
+    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/restauracao-telhado-apex-02.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.apexengenhariapredial.com.br/manutencao-reforma-telhados.html">
-    <meta property="twitter:title" content="Reforma de Telhados em Porto Alegre - APEX Engenharia Predial">
-    <meta property="twitter:description" content="Especialistas em reforma de telhados em Porto Alegre, região metropolitana e todo o Rio Grande do Sul. Reparos, impermeabilização e manutenção completa. Orçamento grátis!">
-    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="twitter:title" content="Manutenção e Reforma de Telhados em Porto Alegre - APEX">
+    <meta property="twitter:description" content="Especialistas em reforma e manutenção de telhados em Porto Alegre. Reparos, substituições, impermeabilização e manutenção preventiva. Orçamento grátis!">
+    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/restauracao-telhado-apex-02.jpg">
     
-    <title>Reforma de Telhados em Porto Alegre - APEX Engenharia Predial</title>
+    <title>Manutenção e Reforma de Telhados em Porto Alegre | APEX Engenharia</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="favicon-32x32.ico">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00a8e8">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="img/logo-apex.png" as="image">
+    <link rel="preload" href="img/restauracao-telhado-apex-02.jpg" as="image">
+    <!-- CSS crítico inline - Renderização imediata sem esperar CSS externo -->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;overflow-x:hidden;width:100%;max-width:100vw}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:#1a1a1a;line-height:1.6;overflow-x:hidden;margin:0;padding:0;width:100%;max-width:100vw;position:relative}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px;width:100%;box-sizing:border-box}
+        #header{position:fixed;top:0;left:0;width:100%;max-width:100vw;background:transparent;box-shadow:none;z-index:1000;opacity:1;margin:0;padding:0;transform:translateY(0);overflow:visible}
+        .navbar{padding:15px 0;min-height:60px}
+        .navbar .container{display:flex;justify-content:space-between;align-items:center;padding:0 20px;width:100%;max-width:1200px;margin:0 auto;box-sizing:border-box;position:relative}
+        .logo-link{display:flex;align-items:center;justify-content:flex-start;margin-right:auto;flex-shrink:0;padding:0}
+        .logo{max-width:50%;height:auto;display:block;margin:0;padding:0;opacity:1}
+        .nav-menu{display:flex;list-style:none;gap:25px;align-items:center;min-height:50px;z-index:1100;margin-left:auto;flex-shrink:0}
+        .hero{position:relative;min-height:100vh;padding-bottom:50px;display:flex;align-items:center;justify-content:center;text-align:center;color:#ffffff}
+        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,52,89,.45) 0%,rgba(0,126,167,.45) 100%)}
+        .hero-content{position:relative;z-index:2;max-width:800px;padding:20px;margin-top:100px;margin-bottom:50px;opacity:1;transform:none}
+        img,video,iframe,embed,object{max-width:100%;height:auto}
+    </style>
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Fonts - Carregamento assíncrono para não bloquear renderização -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Google Fonts - Carregamento assíncrono otimizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    <script>
+    // Fallback para fontes - garante renderização imediata
+    if('fonts' in document){
+        document.fonts.ready.then(function(){
+            document.documentElement.classList.add('fonts-loaded');
+        });
+    }
+    </script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Manutenção e Reforma de Telhados",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "APEX Engenharia Predial",
+        "image": "https://www.apexengenhariapredial.com.br/img/logo-apex.png",
+        "url": "https://www.apexengenhariapredial.com.br",
+        "telephone": "+5551981078843",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Major Sezefredo, 1093",
+          "addressLocality": "Canoas",
+          "addressRegion": "RS",
+          "addressCountry": "BR",
+          "postalCode": "92020-000"
+        }
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Rio Grande do Sul"
+      },
+      "description": "Especialistas em manutenção e reforma de telhados em Porto Alegre e região. Reparos, substituições, impermeabilização e manutenção preventiva.",
+      "offers": {
+        "@type": "Offer",
+        "name": "Manutenção e Reforma de Telhados",
+        "description": "Serviço completo de manutenção e reforma de telhados com reparos, substituições, impermeabilização e manutenção preventiva."
+      }
+    }
+    </script>
 </head>
 <body>
                 <!-- Google Tag Manager (noscript) -->
@@ -73,26 +163,162 @@
     </header>
 
     <main>
+    <!-- Hero Section -->
     <section class="hero">
+        <picture>
+            <source srcset="img/restauracao-telhado-apex-02.webp" type="image/webp">
+            <img src="img/restauracao-telhado-apex-02.jpg" alt="Equipe APEX realizando manutenção e reforma de telhado" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0">
+        </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Reforma de Telhados em Porto Alegre</h1>
-            <p>Especialistas em <strong>reforma e manutenção de telhados</strong> com mais de 10 anos de experiência em Porto Alegre, região metropolitana e todo o Rio Grande do Sul. Proteção total contra intempéries!</p>
-            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento</a>
+            <h1>Manutenção e Reforma de Telhados em Porto Alegre</h1>
+            <p>Especialistas em <strong>manutenção de telhados</strong> e <strong>reforma de telhados</strong> em Porto Alegre e Região Metropolitana. Reparos, substituições, impermeabilização e manutenção preventiva. Equipe certificada NR35 para trabalhos em altura com total segurança!</p>
+            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
+    <!-- Por que Manutenção e Reforma de Telhados -->
     <section class="sobre">
         <div class="container">
-            <h2>Especialistas em Reforma de Telhados em Porto Alegre</h2>
-            <p>A <strong>APEX Engenharia Predial</strong> é líder em <strong>reforma de telhados em Porto Alegre</strong>, região metropolitana e todo o Rio Grande do Sul. Com mais de 10 anos de experiência, nossa equipe certificada NR35 especializa-se em reparos, substituições, impermeabilização e manutenção preventiva de telhados.</p>
+            <h2 class="section-title">Por Que Escolher <strong>Manutenção e Reforma de Telhados</strong> Profissional?</h2>
+            <p>O telhado é uma das partes mais importantes de qualquer edificação, protegendo contra intempéries, chuva, sol e vento. Com o tempo, telhados sofrem desgaste natural, infiltrações, deterioração de telhas e problemas estruturais que comprometem não apenas a cobertura, mas toda a edificação.</p>
+            
+            <p>Diferente de reparos temporários ou amadores, a <strong>manutenção de telhados</strong> e <strong>reforma de telhados</strong> profissional envolve diagnóstico completo, identificação de problemas estruturais, uso de materiais adequados e técnicas especializadas. A <strong>reforma de telhados</strong> adequada não apenas corrige problemas existentes, mas também previne futuros, garantindo proteção duradoura.</p>
+            
+            <div class="diferenciais-grid" style="margin-top: 40px;">
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Proteção Contra Infiltrações</h4>
+                    <p><strong>Reforma de telhados</strong> e <strong>manutenção de telhados</strong> previnem infiltrações que causam danos estruturais, mofo, bolor e problemas de saúde. Proteção completa da edificação.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Durabilidade Estrutural</h4>
+                    <p><strong>Manutenção de telhados</strong> adequada estende significativamente a vida útil da cobertura, evitando necessidade de substituição completa prematura.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Economia a Longo Prazo</h4>
+                    <p>Investir em <strong>reforma de telhados</strong> profissional evita reparos emergenciais caros e retrabalho. <strong>Manutenção preventiva de telhados</strong> reduz custos totais.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Segurança Estrutural</h4>
+                    <p><strong>Reforma de telhados</strong> garante segurança estrutural, prevenindo riscos de desabamento, queda de telhas e comprometimento da estrutura.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Impermeabilização Integrada</h4>
+                    <p><strong>Manutenção de telhados</strong> inclui impermeabilização adequada, protegendo contra infiltrações e umidade que causam deterioração.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Equipe Certificada NR35</h4>
+                    <p>Trabalhos em altura realizados por equipe certificada NR35, garantindo segurança total durante <strong>reforma de telhados</strong> e <strong>manutenção de telhados</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <p><strong>reforma de telhados</strong>, Nossos serviços incluem: inspeção técnica completa, reparo de vazamentos, substituição de telhas danificadas, impermeabilização de coberturas, manutenção de calhas e rufos, instalação de telhas metálicas, fibrocimento e cerâmicas, manutenção preventiva e limpeza profissional.</p>
+    <!-- Aplicações da Manutenção e Reforma de Telhados -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Onde Aplicar <strong>Manutenção e Reforma de Telhados</strong>?</h2>
+            <p>A <strong>manutenção de telhados</strong> e <strong>reforma de telhados</strong> são necessárias em diversos tipos de coberturas. A <strong>APEX Engenharia Predial</strong> é especialista em:</p>
+            
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏠 Telhados Residenciais</h3>
+                        <p><strong>Reforma de telhados</strong> e <strong>manutenção de telhados</strong> para residências com substituição de telhas, reparos estruturais e impermeabilização. Proteção completa.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Telhados de Condomínios</h3>
+                        <p><strong>Manutenção de telhados</strong> para condomínios com reparos, substituições e <strong>manutenção preventiva de telhados</strong>. Economia e proteção para todos os moradores.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏭 Telhados Industriais</h3>
+                        <p><strong>Reforma de telhados</strong> para indústrias e galpões com sistemas resistentes e duradouros. Proteção contra intempéries e condições extremas.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏗️ Coberturas Metálicas</h3>
+                        <p><strong>Manutenção de telhados</strong> metálicos com tratamento anti-corrosivo, reparos e impermeabilização. Proteção especializada para estruturas metálicas.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏠 Telhados com Infiltrações</h3>
+                        <p><strong>Reforma de telhados</strong> com tratamento de infiltrações, impermeabilização e reparos estruturais. Correção completa de problemas existentes.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🔧 Manutenção Preventiva</h3>
+                        <p><strong>Manutenção preventiva de telhados</strong> para identificar e corrigir problemas antes que se agravem. Economia e proteção a longo prazo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <p>Proteja seu imóvel com <strong>reforma de telhados</strong> de alta qualidade. Trabalhamos com os melhores materiais e técnicas para garantir proteção total contra chuvas, ventos e intempéries do Rio Grande do Sul.</p>
+    <!-- Como Funciona -->
+    <section class="sobre">
+        <div class="container">
+            <h2 class="section-title">Como Funciona a <strong>Manutenção e Reforma de Telhados</strong></h2>
+            <p>A <strong>manutenção de telhados</strong> e <strong>reforma de telhados</strong> requerem processo técnico especializado e materiais de alta qualidade. A <strong>APEX Engenharia Predial</strong> segue um processo rigoroso e profissional:</p>
+            
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">1. Inspeção Completa</h3>
+                        <p>Inspeção detalhada do telhado para identificar problemas, áreas críticas e tipo de <strong>reforma de telhados</strong> ou <strong>manutenção de telhados</strong> necessária. Diagnóstico técnico completo.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">2. Reparos Estruturais</h3>
+                        <p>Reparo de estruturas danificadas, substituição de telhas quebradas, correção de calhas e rufos. Correção de problemas estruturais na <strong>reforma de telhados</strong>.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">3. Impermeabilização</h3>
+                        <p>Aplicação de sistema de impermeabilização adequado para proteger contra infiltrações. Impermeabilização integrada na <strong>manutenção de telhados</strong>.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">4. Manutenção Preventiva</h3>
+                        <p>Programa de <strong>manutenção preventiva de telhados</strong> para identificar e corrigir problemas antes que se agravem. Proteção contínua e economia a longo prazo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <p>Solicite agora seu <strong>orçamento grátis</strong> para <strong>reforma de telhados em Porto Alegre</strong>. Atendemos residências, condomínios, empresas e indústrias em Porto Alegre, região metropolitana e todo o Rio Grande do Sul!</p>
-            <a href="/" class="btn btn-primary">Voltar ao Início</a>
+    <!-- Vantagens para Síndicos e Gestores -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Vantagens da <strong>Manutenção e Reforma de Telhados</strong> para Síndicos e Gestores</h2>
+            <p>Como síndico ou gestor de propriedades, você precisa de soluções que previnam problemas, reduzam custos e protejam o patrimônio. A <strong>manutenção de telhados</strong> e <strong>reforma de telhados</strong> profissional oferecem todos esses benefícios:</p>
+            
+            <ul style="margin-top: 30px; font-size: 1.1rem; line-height: 2;">
+                <li><strong>Prevenção de Infiltrações:</strong> <strong>Reforma de telhados</strong> e <strong>manutenção de telhados</strong> previnem infiltrações que causam danos estruturais, mofo e problemas de saúde, evitando custos muito maiores.</li>
+                <li><strong>Redução de Custos:</strong> Investir em <strong>manutenção preventiva de telhados</strong> reduz drasticamente necessidade de reparos emergenciais caros e retrabalho.</li>
+                <li><strong>Proteção Estrutural:</strong> <strong>Reforma de telhados</strong> garante segurança estrutural, prevenindo riscos de desabamento e comprometimento da edificação.</li>
+                <li><strong>Valorização do Patrimônio:</strong> Edificações com telhados bem mantidos têm maior valor de mercado e são mais atrativas para compradores e investidores.</li>
+                <li><strong>Conformidade Legal:</strong> <strong>Manutenção de telhados</strong> adequada garante conformidade com normas de habitabilidade, protegendo síndicos de responsabilidades legais.</li>
+                <li><strong>Menos Reclamações:</strong> Edificações sem problemas de infiltração reduzem reclamações de moradores, facilitando gestão condominial.</li>
+                <li><strong>Durabilidade:</strong> <strong>Reforma de telhados</strong> profissional com materiais de alta qualidade dura décadas, reduzindo necessidade de manutenção constante.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Iniciar a <strong>Manutenção e Reforma de Telhados</strong> da sua Edificação?</h2>
+            <p>A <strong>APEX Engenharia Predial</strong> é especialista em <strong>manutenção de telhados</strong> e <strong>reforma de telhados em Porto Alegre e Região Metropolitana</strong>. Com mais de 10 anos de experiência, oferecemos:</p>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+                <li>Inspeção completa e gratuita do seu telhado</li>
+                <li>Orçamento detalhado e transparente para <strong>reforma de telhados</strong> ou <strong>manutenção de telhados</strong></li>
+                <li>Equipe certificada NR35 para trabalhos em altura com total segurança</li>
+                <li>Materiais de alta qualidade e sistemas duráveis</li>
+                <li>Garantia documentada do serviço de <strong>manutenção de telhados</strong></li>
+                <li>Programa de <strong>manutenção preventiva de telhados</strong> contínua</li>
+            </ul>
+            <p><strong>Solicite agora seu orçamento grátis e proteja sua edificação com <strong>manutenção de telhados</strong> e <strong>reforma de telhados</strong> profissional de alta qualidade!</strong></p>
+            <a href="/#contato" class="btn btn-light" aria-label="Solicitar orçamento para manutenção e reforma de telhados">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
@@ -103,11 +329,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" class="footer-logo" width="200" height="46" decoding="async">
+                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" title="Logo APEX Engenharia Predial" class="footer-logo" width="200" height="46" decoding="async">
                     <h3>APEX Engenharia Predial</h3>
-                    <p>Especializada em pintura predial e manutenção predial, a APEX está sempre preparada para atendê-lo. Solicite seu orçamento!</p>
-
-                    <!-- Redes Sociais -->
+                    <p>Especializada em <strong>manutenção de telhados</strong>, <strong>reforma de telhados</strong>, <strong>substituição de telhas</strong> e <strong>impermeabilização de telhados</strong>, a APEX está sempre preparada para atender sua edificação. Solicite seu orçamento!</p>
+                    
+                    <div style="margin-top: 20px; font-size: 0.9rem;">
+                        <p><strong>📍 Endereço:</strong><br>Rua Major Sezefredo, 1093<br>Bairro Marechal Rondom - Canoas/RS</p>
+                        <p style="margin-top: 10px;"><strong>📞 Telefone:</strong><br>(51) 98107-8843</p>
+                    </div>
+                    
                     <div class="footer-social">
                         <h4>Siga-nos:</h4>
                         <div class="social-icons">
@@ -123,46 +353,60 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
                 
                 <div class="footer-links">
                     <h4>Nossos Serviços</h4>
                     <ul>
-                        <li><a href="/#servicos">Restauração de Fachadas</a></li>
-                        <li><a href="/#servicos">Impermeabilização</a></li>
-                        <li><a href="/#servicos">Pintura Predial</a></li>
-                        <li><a href="/#servicos">Manutenção de Estruturas</a></li>
-                        <li><a href="/#servicos">Demarcações de pisos e Estacionamentos</a></li>
+                        <li><a href="manutencao-predial.html">Manutenção Predial</a></li>
+                        <li><a href="pintura-piso-epoxi-industrial.html">Pintura de Piso Epóxi Industrial</a></li>
+                        <li><a href="pintura-predial.html">Pintura Predial</a></li>
+                        <li><a href="restauracao-fachadas.html">Restauração de Fachadas</a></li>
+                        <li><a href="impermeabilizacao.html">Impermeabilização</a></li>
+                        <li><a href="trabalhos-em-altura.html">Trabalhos em Altura NR35</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Acesso Rápido</h4>
+                    <h4>Links Úteis</h4>
                     <ul>
-                        <li><a href="/#inicio">Início</a></li>
                         <li><a href="/#sobre">Sobre a APEX</a></li>
-                        <li><a href="/#servicos">Serviços</a></li>
-                        <li><a href="/#contato">Contato</a></li>
                         <li><a href="blog.html">Blog</a></li>
+                        <li><a href="/#contato">Contato</a></li>
+                        <li><a href="pintura-epoxi-garagem-condominio.html">Pintura Epóxi Garagem</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 APEX Engenharia Predial. Todos os direitos reservados.</p>
+                <p>&copy; 2024 APEX Engenharia Predial. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5551981078843?text=Olá%20APEX,%20gostaria%20de%20um%20orçamento" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Fale conosco no WhatsApp" aria-label="WhatsApp APEX">
-        <svg viewBox="0 0 32 32" fill="currentColor">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.409 1.417-5.267-0.316-0.518c-1.351-2.217-2.067-4.78-2.067-7.403 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62-6.11 13.62-13.62 13.62zM21.524 19.006c-0.272-0.137-1.609-0.795-1.859-0.886-0.248-0.09-0.429-0.137-0.61 0.137s-0.702 0.886-0.861 1.068c-0.158 0.182-0.316 0.205-0.589 0.068-0.272-0.137-1.149-0.423-2.187-1.35-0.809-0.721-1.355-1.612-1.514-1.884s-0.017-0.421 0.12-0.557c0.123-0.123 0.272-0.319 0.408-0.478s0.181-0.272 0.272-0.453c0.090-0.181 0.045-0.34-0.023-0.478s-0.61-1.471-0.837-2.012c-0.221-0.525-0.444-0.454-0.61-0.462-0.158-0.008-0.339-0.010-0.52-0.010s-0.476 0.068-0.725 0.34c-0.248 0.272-0.949 0.928-0.949 2.263s0.972 2.625 1.108 2.806c0.137 0.181 1.898 2.963 4.651 4.088 2.753 1.125 2.753 0.75 3.252 0.704s1.609-0.657 1.836-1.291c0.226-0.635 0.226-1.178 0.158-1.291s-0.248-0.181-0.52-0.319z"/>
-        </svg>
-    </a>
-
-    <script src="js/utils.js"></script>
-    <script src="js/script.js" defer></script>
+    <!-- Carrega scripts não críticos apenas após LCP ou interação -->
+    <script>
+    (function() {
+        let scriptsLoaded = false;
+        const loadScripts = () => {
+            if (scriptsLoaded) return;
+            scriptsLoaded = true;
+            const scripts = ['js/script.js'];
+            scripts.forEach(src => {
+                const s = document.createElement('script');
+                s.src = src;
+                s.defer = true;
+                document.body.appendChild(s);
+            });
+        };
+        
+        // Carrega após scroll ou interação
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => {
+            document.addEventListener(evt, loadScripts, { passive: true, once: true });
+        });
+        
+        // Timeout de segurança: carrega após 3s
+        setTimeout(loadScripts, 3000);
+    })();
+    </script>
 </body>
 </html>

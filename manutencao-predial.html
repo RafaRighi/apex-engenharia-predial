@@ -6,27 +6,40 @@
     (function(w,d,s,l,i){
         w[l]=w[l]||[];
         w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true;
-        j.defer=true;
-        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        if (window.requestIdleCallback) {
-            requestIdleCallback(function() {
-                f.parentNode.insertBefore(j,f);
-            }, { timeout: 2000 });
-        } else {
-            setTimeout(function() {
-                f.parentNode.insertBefore(j,f);
-            }, 0);
+        
+        let gtmLoaded = false;
+        
+        function loadGTM() {
+            if (gtmLoaded) return;
+            gtmLoaded = true;
+            var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
         }
+        
+        const loadOnInteraction = () => {
+            loadGTM();
+            ['scroll','click','touchstart','keydown'].forEach(evt => {
+                d.removeEventListener(evt, loadOnInteraction, { passive: true });
+            });
+        };
+        
+        ['scroll','click','touchstart','keydown'].forEach(evt => {
+            d.addEventListener(evt, loadOnInteraction, { passive: true, once: true });
+        });
+        
+        setTimeout(() => {
+            if (!gtmLoaded) loadGTM();
+        }, 5000);
     })(window,document,'script','dataLayer','GTM-WD5669S6');
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Apex Engenharia é especialista em Manutenção Predial em Porto Alegre e Região. Soluções em Pintura, Restauração de Fachadas, Impermeabilização e NR35. Orçamento Grátis.">
-    <meta name="keywords" content="manutenção predial em porto alegre, manutenção predial porto alegre, manutenção predial rs, serviços de manutenção predial, empresa de manutenção predial, manutenção de edificações, manutenção de condomínios, reforma predial, serviços prediais, pintura predial, restauração de fachadas, impermeabilização predial">
+    <meta name="description" content="Manutenção Predial Completa em Porto Alegre - APEX Engenharia Predial. Especialistas em pintura predial, restauração de fachadas, impermeabilização e trabalhos em altura NR35. Soluções completas para condomínios e empresas. Orçamento grátis!">
+    <meta name="keywords" content="manutenção predial porto alegre, manutenção predial completa, serviços de manutenção predial, empresa manutenção predial, manutenção de edificações, manutenção de condomínios, reforma predial, serviços prediais, manutenção predial rs, empresa manutenção predial porto alegre, manutenção preventiva predial, gestão manutenção predial">
     <link rel="canonical" href="https://www.apexengenhariapredial.com.br/manutencao-predial.html">
     <link rel="sitemap" type="application/xml" href="https://www.apexengenhariapredial.com.br/sitemap.xml">
     <meta name="author" content="APEX Engenharia Predial">
@@ -35,42 +48,69 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.apexengenhariapredial.com.br/manutencao-predial.html">
-    <meta property="og:title" content="Manutenção Predial em Porto Alegre - Serviços Completos para Condomínios e Indústrias">
-    <meta property="og:description" content="A Apex Engenharia é especialista em Manutenção Predial em Porto Alegre e Região. Soluções em Pintura, Restauração de Fachadas, Impermeabilização e NR35. Orçamento Grátis.">
-    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="og:title" content="Manutenção Predial Completa em Porto Alegre - APEX">
+    <meta property="og:description" content="Especialistas em manutenção predial completa para condomínios e empresas. Pintura, restauração, impermeabilização e trabalhos em altura NR35. Orçamento grátis!">
+    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/manutencao-predial-completa.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.apexengenhariapredial.com.br/manutencao-predial.html">
-    <meta property="twitter:title" content="Manutenção Predial em Porto Alegre - Serviços Completos para Condomínios e Indústrias">
-    <meta property="twitter:description" content="A Apex Engenharia é especialista em Manutenção Predial em Porto Alegre e Região. Soluções em Pintura, Restauração de Fachadas, Impermeabilização e NR35. Orçamento Grátis.">
-    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="twitter:title" content="Manutenção Predial Completa em Porto Alegre - APEX">
+    <meta property="twitter:description" content="Especialistas em manutenção predial completa para condomínios e empresas. Pintura, restauração, impermeabilização e trabalhos em altura NR35. Orçamento grátis!">
+    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/manutencao-predial-completa.jpg">
     
-    <title>Manutenção Predial em Porto Alegre - Serviços Completos para Condomínios e Indústrias | APEX</title>
+    <title>Manutenção Predial Completa em Porto Alegre | APEX Engenharia</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="favicon-32x32.ico">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00a8e8">
     <link rel="preload" href="css/main.css" as="style">
     <link rel="preload" href="img/logo-apex.png" as="image">
-    <link rel="preload" href="img/restauracao-fachada-obra-apex.webp" as="image">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preload" href="img/manutencao-predial-completa.jpg" as="image">
+    <!-- CSS crítico inline - Renderização imediata sem esperar CSS externo -->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;overflow-x:hidden;width:100%;max-width:100vw}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:#1a1a1a;line-height:1.6;overflow-x:hidden;margin:0;padding:0;width:100%;max-width:100vw;position:relative}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px;width:100%;box-sizing:border-box}
+        #header{position:fixed;top:0;left:0;width:100%;max-width:100vw;background:transparent;box-shadow:none;z-index:1000;opacity:1;margin:0;padding:0;transform:translateY(0);overflow:visible}
+        .navbar{padding:15px 0;min-height:60px}
+        .navbar .container{display:flex;justify-content:space-between;align-items:center;padding:0 20px;width:100%;max-width:1200px;margin:0 auto;box-sizing:border-box;position:relative}
+        .logo-link{display:flex;align-items:center;justify-content:flex-start;margin-right:auto;flex-shrink:0;padding:0}
+        .logo{max-width:50%;height:auto;display:block;margin:0;padding:0;opacity:1}
+        .nav-menu{display:flex;list-style:none;gap:25px;align-items:center;min-height:50px;z-index:1100;margin-left:auto;flex-shrink:0}
+        .hero{position:relative;min-height:100vh;padding-bottom:50px;display:flex;align-items:center;justify-content:center;text-align:center;color:#ffffff}
+        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,52,89,.45) 0%,rgba(0,126,167,.45) 100%)}
+        .hero-content{position:relative;z-index:2;max-width:800px;padding:20px;margin-top:100px;margin-bottom:50px;opacity:1;transform:none}
+        img,video,iframe,embed,object{max-width:100%;height:auto}
+    </style>
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-    <!-- Google Fonts - Carregamento assíncrono para não bloquear renderização -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- Google Fonts - Carregamento assíncrono otimizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    <script>
+    // Fallback para fontes - garante renderização imediata
+    if('fonts' in document){
+        document.fonts.ready.then(function(){
+            document.documentElement.classList.add('fonts-loaded');
+        });
+    }
+    </script>
     
-    <!-- Schema.org Structured Data - Service -->
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "Manutenção Predial",
+      "serviceType": "Manutenção Predial Completa",
       "provider": {
         "@type": "LocalBusiness",
         "name": "APEX Engenharia Predial",
+        "image": "https://www.apexengenhariapredial.com.br/img/logo-apex.png",
         "url": "https://www.apexengenhariapredial.com.br",
         "telephone": "+5551981078843",
         "address": {
@@ -83,36 +123,14 @@
         }
       },
       "areaServed": {
-        "@type": "City",
-        "name": "Porto Alegre"
+        "@type": "State",
+        "name": "Rio Grande do Sul"
       },
-      "description": "Serviços completos de Manutenção Predial em Porto Alegre e Região Metropolitana. Pintura Predial, Restauração de Fachadas, Impermeabilização e trabalhos em altura NR35.",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Serviços de Manutenção Predial",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Pintura Predial e Industrial"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Restauração e Renovação de Fachadas"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Impermeabilização e Manutenção Estrutural"
-            }
-          }
-        ]
+      "description": "Serviços completos de manutenção predial em Porto Alegre e região. Pintura predial, restauração de fachadas, impermeabilização e trabalhos em altura NR35.",
+      "offers": {
+        "@type": "Offer",
+        "name": "Manutenção Predial Completa",
+        "description": "Soluções completas de manutenção predial incluindo pintura, restauração, impermeabilização e trabalhos em altura com equipe certificada."
       }
     }
     </script>
@@ -148,157 +166,159 @@
     <!-- Hero Section -->
     <section class="hero">
         <picture>
-            <source srcset="img/restauracao-fachada-obra-apex.webp" type="image/webp">
-            <img src="img/restauracao-fachada-obra-apex.jpg" alt="Equipe APEX trabalhando em manutenção predial" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0">
+            <source srcset="img/manutencao-predial-completa.jpg" type="image/jpeg">
+            <img src="img/manutencao-predial-completa.jpg" alt="Equipe APEX realizando manutenção predial completa em edifício" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0">
         </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Manutenção Predial em Porto Alegre: Soluções Completas para o seu Patrimônio</h1>
-            <p>A <strong>APEX Engenharia Predial</strong> é a solução definitiva para <strong>Manutenção Predial em Porto Alegre e Região Metropolitana</strong>. Somos a empresa única, certificada e confiável para cuidar de todos os aspectos da sua edificação. Com mais de 10 anos de experiência, oferecemos serviços completos de manutenção predial para condomínios, empresas e indústrias.</p>
-            <a href="/#contato" class="btn btn-primary">Solicite um Orçamento Grátis para Manutenção Predial</a>
+            <h1>Manutenção Predial Completa em Porto Alegre</h1>
+            <p>Especialistas em <strong>manutenção predial completa</strong> para condomínios, empresas e indústrias em Porto Alegre e Região Metropolitana. Soluções integradas em pintura predial, restauração de fachadas, impermeabilização e trabalhos em altura NR35. A empresa certa para cuidar de todos os aspectos da sua edificação com qualidade e segurança!</p>
+            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
-    <!-- Nossos Serviços de Manutenção Predial -->
+    <!-- Por que Manutenção Predial Completa -->
     <section class="sobre">
         <div class="container">
-            <h2 class="section-title">Serviços de <strong>Manutenção Predial em Porto Alegre</strong>: O Portfólio Completo da APEX</h2>
-            <p>A <strong>Manutenção Predial</strong> engloba uma série de serviços especializados, e a <strong>APEX</strong> é a única parceira necessária. Oferecemos soluções completas para manter, restaurar e valorizar seu patrimônio.</p>
+            <h2 class="section-title">Por Que Escolher <strong>Manutenção Predial Completa</strong>?</h2>
+            <p>A <strong>manutenção predial completa</strong> é a melhor estratégia para preservar, valorizar e garantir a segurança do seu patrimônio. Diferente de serviços pontuais, a manutenção predial integrada oferece uma visão holística da edificação, identificando e resolvendo problemas antes que se tornem críticos e custosos.</p>
             
-            <div class="servicos-grid" style="margin-top: 40px;">
-                <!-- Pintura Predial e Industrial -->
-                <div class="servico-card">
-                <div class="servico-icon">🎨</div>
-                <h3>Pintura Predial e Industrial</h3>
-                <div class="servico-imagem-container">
-                    <picture class="servico-imagem">
-                        <source srcset="./img/restauracao-fachada-obra-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/restauracao-fachada-obra-apex.jpg" alt="Equipe APEX trabalhando em restauração de fachada" title="Manutenção Predial - Equipe APEX em ação" class="servico-imagem" width="400" height="300" decoding="async">
-                    </picture>
-                </div>
-                    <p class="servico-desc">Especialistas em <strong>pintura predial</strong> e <strong>pintura industrial</strong> para fachadas, áreas internas, galpões e estruturas metálicas. Utilizamos tintas premium e sistemas especiais de alta durabilidade.</p>
-                    <a href="pintura-predial.html" class="btn-link" aria-label="Saiba mais sobre Pintura Predial e Industrial">Saiba Mais →</a>
-                </div>
-
-                <!-- Restauração e Renovação de Fachadas -->
-                <div class="servico-card">
-                    <div class="servico-icon">🏢</div>
-                    <h3>Restauração e Renovação de Fachadas</h3>
-                    <div class="servico-imagem-container">
-                        <picture class="servico-imagem">
-                            <source srcset="./img/restauracao-fachada-obra-apex.webp" type="image/webp">
-                            <img loading="lazy" src="./img/restauracao-fachada-obra-apex.jpg" alt="Restauração e Renovação de Fachadas" title="Restauração de Fachadas - APEX Engenharia" class="servico-imagem" width="400" height="300" decoding="async">
-                        </picture>
-                    </div>
-                    <p class="servico-desc">Especialistas em <strong>renovação de fachadas</strong>, <strong>tratamento de trincas</strong>, <strong>recuperação estrutural</strong> e aplicação de <strong>texturas</strong> e <strong>reboco</strong>. Revitalizamos completamente a estética e segurança do seu edifício.</p>
-                    <a href="restauracao-fachadas.html" class="btn-link" aria-label="Saiba mais sobre Restauração de Fachadas">Saiba Mais →</a>
-                </div>
-
-                <!-- Impermeabilização e Manutenção Estrutural -->
-                <div class="servico-card">
-                    <div class="servico-icon">💧</div>
-                    <h3>Impermeabilização e Manutenção Estrutural</h3>
-                    <div class="servico-imagem-container">
-                        <picture class="servico-imagem">
-                            <source srcset="./img/impermeabilizacao-apex.webp" type="image/webp">
-                            <img loading="lazy" src="./img/impermeabilizacao-apex.jpg" alt="Impermeabilização e Manutenção Estrutural" title="Impermeabilização - APEX Engenharia" class="servico-imagem" width="400" height="300" decoding="async">
-                        </picture>
-                    </div>
-                    <p class="servico-desc">Proteção completa contra infiltrações. Especialistas em <strong>impermeabilização de lajes</strong>, <strong>reforma de telhados</strong> e <strong>manutenção estrutural</strong>. Garantimos durabilidade e segurança para seu patrimônio.</p>
-                    <a href="impermeabilizacao.html" class="btn-link" aria-label="Saiba mais sobre Impermeabilização">Saiba Mais →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Por Que a APEX é a Escolha Certa -->
-    <section class="sobre" style="background-color: #f8f9fa;">
-        <div class="container">
-            <h2 class="section-title">Segurança e Qualidade: O Padrão APEX em <strong>Manutenção Predial</strong></h2>
-            <p>A <strong>APEX Engenharia Predial</strong> é a escolha certa para <strong>Manutenção Predial em Porto Alegre</strong> pelos seguintes diferenciais:</p>
+            <p>Edificações bem mantidas têm maior valor de mercado, menor custo de manutenção ao longo do tempo e proporcionam maior satisfação aos ocupantes. A <strong>manutenção predial completa</strong> engloba todos os aspectos estruturais, estéticos e funcionais de uma edificação, desde a fachada até os sistemas internos, garantindo que seu patrimônio esteja sempre em perfeitas condições.</p>
             
             <div class="diferenciais-grid" style="margin-top: 40px;">
                 <div class="diferencial-item">
                     <div class="diferencial-icon">✓</div>
-                    <h4>Certificações Completas</h4>
-                    <p><strong>NR35</strong> (Trabalho em Altura), <strong>NR33</strong> (Espaço Confinado) e <strong>NR18</strong> (Condições de Trabalho na Construção). Equipe 100% certificada e treinada.</p>
+                    <h4>Economia a Longo Prazo</h4>
+                    <p>A <strong>manutenção predial preventiva</strong> identifica e corrige problemas antes que se agravem, evitando reparos emergenciais caros. Investir em manutenção regular reduz custos totais de propriedade significativamente.</p>
                 </div>
                 <div class="diferencial-item">
                     <div class="diferencial-icon">✓</div>
-                    <h4>+10 Anos de Experiência</h4>
-                    <p>Mais de uma década atendendo condomínios, empresas e indústrias no mercado gaúcho com excelência comprovada.</p>
+                    <h4>Valorização do Patrimônio</h4>
+                    <p>Edificações bem mantidas têm maior valor de mercado e são mais atrativas para compradores e investidores. A <strong>manutenção predial completa</strong> preserva e aumenta o valor do seu imóvel.</p>
                 </div>
                 <div class="diferencial-item">
                     <div class="diferencial-icon">✓</div>
-                    <h4>Seguros Completos</h4>
-                    <p>Seguro de vida e de obra. Risco zero para síndicos e administradores. Tranquilidade total durante a execução.</p>
+                    <h4>Segurança e Conformidade</h4>
+                    <p>Manutenção regular garante que a edificação esteja em conformidade com normas de segurança, evitando riscos estruturais e problemas legais. Proteção para ocupantes e responsáveis.</p>
                 </div>
                 <div class="diferencial-item">
                     <div class="diferencial-icon">✓</div>
-                    <h4>Mão de Obra Qualificada</h4>
-                    <p>Equipe treinada, certificada e especializada em cada tipo de serviço de manutenção predial.</p>
+                    <h4>Um Único Parceiro</h4>
+                    <p>Com <strong>manutenção predial completa</strong>, você tem uma única empresa responsável por todos os aspectos da sua edificação, simplificando gestão e garantindo coordenação entre serviços.</p>
                 </div>
                 <div class="diferencial-item">
                     <div class="diferencial-icon">✓</div>
-                    <h4>Garantia Estendida</h4>
-                    <p>Materiais de alta performance que duram anos a mais que soluções convencionais. Garantia documentada.</p>
+                    <h4>Planejamento Estratégico</h4>
+                    <p>Programa de <strong>manutenção predial</strong> permite planejamento de custos e cronograma, evitando surpresas e permitindo orçamento adequado para cada necessidade.</p>
                 </div>
                 <div class="diferencial-item">
                     <div class="diferencial-icon">✓</div>
-                    <h4>Atendimento Personalizado</h4>
-                    <p>Visita técnica gratuita, orçamento detalhado e acompanhamento completo do projeto do início ao fim.</p>
+                    <h4>Satisfação dos Ocupantes</h4>
+                    <p>Edificações bem mantidas proporcionam maior conforto, segurança e satisfação aos moradores, inquilinos ou funcionários, reduzindo reclamações e rotatividade.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Áreas de Atendimento -->
+    <!-- Serviços Incluídos na Manutenção Predial -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">O Que Inclui a <strong>Manutenção Predial Completa</strong>?</h2>
+            <p>A <strong>manutenção predial completa</strong> da APEX Engenharia Predial engloba todos os serviços necessários para manter sua edificação em perfeitas condições. Nossa equipe especializada oferece soluções integradas em:</p>
+            
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🎨 Pintura Predial e Industrial</h3>
+                        <p><strong>Pintura predial</strong> de fachadas, áreas internas e externas com tintas premium. <strong>Pintura industrial</strong> para galpões, estruturas metálicas e proteção anti-corrosiva. Sistemas de alta durabilidade.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Restauração e Renovação de Fachadas</h3>
+                        <p><strong>Restauração de fachadas</strong> com recuperação estrutural, tratamento de trincas, aplicação de reboco, pastilhas e texturas. Revitalização completa da estética e segurança.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">💧 Impermeabilização</h3>
+                        <p><strong>Impermeabilização de lajes</strong>, telhados, piscinas e áreas molhadas. Proteção completa contra infiltrações e umidade, garantindo durabilidade estrutural.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🔧 Reforma de Telhados</h3>
+                        <p><strong>Reforma de telhados</strong> com reparos, substituições, impermeabilização e manutenção preventiva. Proteção completa da cobertura da edificação.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏗️ Trabalhos em Altura NR35</h3>
+                        <p><strong>Trabalhos em altura</strong> com equipe certificada NR35. Acesso por cordas para serviços em locais de difícil acesso com total segurança e conformidade.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🅿️ Demarcação de Pisos</h3>
+                        <p><strong>Demarcação de pisos</strong> e estacionamentos com sinalização profissional. Organização e segurança para condomínios e empresas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
     <section class="sobre">
         <div class="container">
-            <h2 class="section-title">Atendimento em <strong>Porto Alegre e Região Metropolitana</strong></h2>
-            <p>A <strong>APEX Engenharia Predial</strong> atende <strong>Porto Alegre</strong>, <strong>Canoas</strong>, <strong>São Leopoldo</strong>, <strong>Gravataí</strong> e todo o <strong>Rio Grande do Sul</strong>. Realizamos projetos de manutenção predial em condomínios residenciais, comerciais, empresas e indústrias.</p>
+            <h2 class="section-title">Como Funciona a <strong>Manutenção Predial Completa</strong></h2>
+            <p>A <strong>APEX Engenharia Predial</strong> segue um processo estruturado e profissional para garantir que sua edificação receba a melhor <strong>manutenção predial completa</strong> possível:</p>
             
-            <div class="galeria-grid" style="margin-top: 40px;">
-                <div class="galeria-item">
-                    <picture>
-                        <source srcset="./img/restauracao-fachada-obra-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/restauracao-fachada-obra-apex.jpg" alt="Restauração de Fachada em Condomínio de Canoas" title="Restauração de Fachada - Projeto APEX" width="400" height="300" decoding="async">
-                    </picture>
-                    <div class="galeria-overlay">
-                        <h3>Restauração de Fachada em Condomínio de Canoas</h3>
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">1. Diagnóstico Completo</h3>
+                        <p>Visita técnica gratuita para avaliação completa da edificação. Identificação de necessidades, problemas existentes e priorização de serviços de <strong>manutenção predial</strong>.</p>
                     </div>
-                </div>
-                
-                <div class="galeria-item">
-                    <picture>
-                        <source srcset="./img/pintura-predial-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/pintura-predial-apex.jpg" alt="Pintura Predial em Porto Alegre" title="Pintura Predial - Projeto APEX" width="400" height="300" decoding="async">
-                    </picture>
-                    <div class="galeria-overlay">
-                        <h3>Pintura Predial em Porto Alegre</h3>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">2. Planejamento Estratégico</h3>
+                        <p>Desenvolvimento de plano de <strong>manutenção predial</strong> com cronograma, orçamento detalhado e priorização de serviços. Planejamento que se adapta às necessidades e orçamento disponível.</p>
                     </div>
-                </div>
-                
-                <div class="galeria-item">
-                    <picture>
-                        <source srcset="./img/impermeabilizacao-apex.webp" type="image/webp">
-                        <img loading="lazy" src="./img/impermeabilizacao-apex.jpg" alt="Impermeabilização de Laje em São Leopoldo" title="Impermeabilização - Projeto APEX" width="400" height="300" decoding="async">
-                    </picture>
-                    <div class="galeria-overlay">
-                        <h3>Impermeabilização de Laje em São Leopoldo</h3>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">3. Execução Coordenada</h3>
+                        <p>Execução dos serviços de <strong>manutenção predial</strong> de forma coordenada e eficiente, minimizando interrupções e garantindo qualidade em cada etapa do processo.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">4. Manutenção Preventiva</h3>
+                        <p>Programa de <strong>manutenção predial preventiva</strong> contínua para identificar e resolver problemas antes que se agravem, garantindo longevidade e economia a longo prazo.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Final -->
+    <!-- Vantagens para Síndicos e Gestores -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Vantagens da <strong>Manutenção Predial Completa</strong> para Síndicos e Gestores</h2>
+            <p>Como síndico ou gestor de propriedades, você precisa de soluções que simplifiquem a gestão, reduzam custos e aumentem a satisfação dos ocupantes. A <strong>manutenção predial completa</strong> oferece todos esses benefícios:</p>
+            
+            <ul style="margin-top: 30px; font-size: 1.1rem; line-height: 2;">
+                <li><strong>Simplificação da Gestão:</strong> Um único parceiro para todos os serviços de <strong>manutenção predial</strong>, reduzindo complexidade administrativa e número de fornecedores a gerenciar.</li>
+                <li><strong>Redução de Custos:</strong> <strong>Manutenção predial preventiva</strong> evita reparos emergenciais caros e estende a vida útil de sistemas e componentes, reduzindo custos totais de propriedade.</li>
+                <li><strong>Planejamento Orçamentário:</strong> Programa de <strong>manutenção predial</strong> permite planejamento de custos anual, facilitando apresentação em assembleias e gestão financeira.</li>
+                <li><strong>Menos Reclamações:</strong> Edificações bem mantidas reduzem reclamações de moradores e aumentam satisfação, facilitando gestão condominial e reduzindo conflitos.</li>
+                <li><strong>Conformidade Legal:</strong> <strong>Manutenção predial completa</strong> garante conformidade com normas de segurança e habitabilidade, protegendo síndicos e administradores de responsabilidades legais.</li>
+                <li><strong>Valorização do Condomínio:</strong> Condomínios bem mantidos têm maior valor de mercado e são mais atrativos para novos moradores, aumentando receita e valorização.</li>
+                <li><strong>Garantia e Segurança:</strong> Todos os serviços de <strong>manutenção predial</strong> são executados por equipe certificada e segurada, com garantia documentada, oferecendo tranquilidade total.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Pronto para Iniciar o Seu Projeto de <strong>Manutenção Predial</strong>?</h2>
-            <p>A <strong>APEX Engenharia Predial</strong> está pronta para ser sua parceira completa em <strong>Manutenção Predial em Porto Alegre e Região Metropolitana</strong>. Com mais de 10 anos de experiência, certificações completas e seguros, garantimos a melhor solução para o seu patrimônio.</p>
-            <p><strong>Solicite agora sua visita técnica gratuita e orçamento personalizado!</strong></p>
-            <a href="/#contato" class="btn btn-light" aria-label="Fale com um Especialista e Peça seu Orçamento">Fale com um Especialista e Peça seu Orçamento</a>
+            <h2>Pronto para Contratar <strong>Manutenção Predial Completa</strong> para sua Edificação?</h2>
+            <p>A <strong>APEX Engenharia Predial</strong> é especialista em <strong>manutenção predial completa em Porto Alegre e Região Metropolitana</strong>. Com mais de 10 anos de experiência, oferecemos:</p>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+                <li>Visita técnica gratuita para diagnóstico completo da sua edificação</li>
+                <li>Plano de <strong>manutenção predial</strong> personalizado e orçamento detalhado</li>
+                <li>Execução coordenada de todos os serviços necessários</li>
+                <li>Programa de <strong>manutenção predial preventiva</strong> contínua</li>
+                <li>Equipe certificada NR35, segurada e especializada</li>
+                <li>Garantia documentada de todos os serviços</li>
+            </ul>
+            <p><strong>Solicite agora seu orçamento grátis e transforme a gestão da sua edificação com <strong>manutenção predial completa</strong> de alta qualidade!</strong></p>
+            <a href="/#contato" class="btn btn-light" aria-label="Solicitar orçamento para manutenção predial completa">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
@@ -311,15 +331,13 @@
                 <div class="footer-about">
                     <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" title="Logo APEX Engenharia Predial" class="footer-logo" width="200" height="46" decoding="async">
                     <h3>APEX Engenharia Predial</h3>
-                    <p>Especializada em <strong>manutenção predial</strong>, <strong>pintura predial</strong> e <strong>restauração de fachadas</strong>, a APEX está sempre preparada para atendê-lo. Solicite seu orçamento!</p>
+                    <p>Especializada em <strong>manutenção predial completa</strong>, <strong>pintura predial</strong>, <strong>restauração de fachadas</strong> e <strong>impermeabilização</strong>, a APEX está sempre preparada para atender sua edificação. Solicite seu orçamento!</p>
                     
-                    <!-- NAP - Name, Address, Phone -->
                     <div style="margin-top: 20px; font-size: 0.9rem;">
                         <p><strong>📍 Endereço:</strong><br>Rua Major Sezefredo, 1093<br>Bairro Marechal Rondom - Canoas/RS</p>
                         <p style="margin-top: 10px;"><strong>📞 Telefone:</strong><br>(51) 98107-8843</p>
                     </div>
                     
-                    <!-- Redes Sociais -->
                     <div class="footer-social">
                         <h4>Siga-nos:</h4>
                         <div class="social-icons">
@@ -341,35 +359,55 @@
                     <h4>Nossos Serviços</h4>
                     <ul>
                         <li><a href="manutencao-predial.html">Manutenção Predial</a></li>
+                        <li><a href="pintura-piso-epoxi-industrial.html">Pintura de Piso Epóxi Industrial</a></li>
                         <li><a href="pintura-predial.html">Pintura Predial</a></li>
                         <li><a href="restauracao-fachadas.html">Restauração de Fachadas</a></li>
                         <li><a href="impermeabilizacao.html">Impermeabilização</a></li>
-                        <li><a href="trabalhos-em-altura.html">Trabalhos em Altura</a></li>
+                        <li><a href="trabalhos-em-altura.html">Trabalhos em Altura NR35</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Acesso Rápido</h4>
+                    <h4>Links Úteis</h4>
                     <ul>
-                        <li><a href="/#inicio">Início</a></li>
                         <li><a href="/#sobre">Sobre a APEX</a></li>
-                        <li><a href="/#servicos">Serviços</a></li>
-                        <li><a href="/#contato">Contato</a></li>
                         <li><a href="blog.html">Blog</a></li>
+                        <li><a href="/#contato">Contato</a></li>
+                        <li><a href="pintura-epoxi-garagem-condominio.html">Pintura Epóxi Garagem</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 APEX Engenharia Predial. Todos os direitos reservados.</p>
+                <p>&copy; 2024 APEX Engenharia Predial. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Botão WhatsApp será carregado de forma adiada via whatsapp-loader.js -->
-    <script src="js/whatsapp-loader.js" defer></script>
-    <script src="js/utils.js"></script>
-    <script src="js/script.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script>
+    // Carrega scripts não críticos apenas após LCP ou interação
+    (function() {
+        let scriptsLoaded = false;
+        const loadScripts = () => {
+            if (scriptsLoaded) return;
+            scriptsLoaded = true;
+            const scripts = ['js/whatsapp-loader.js', 'js/script.js'];
+            scripts.forEach(src => {
+                const s = document.createElement('script');
+                s.src = src;
+                s.defer = true;
+                document.body.appendChild(s);
+            });
+        };
+        
+        // Carrega após scroll ou interação
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => {
+            document.addEventListener(evt, loadScripts, { passive: true, once: true });
+        });
+        
+        // Timeout de segurança: carrega após 3s
+        setTimeout(loadScripts, 3000);
+    })();
+    </script>
 </body>
 </html>
-

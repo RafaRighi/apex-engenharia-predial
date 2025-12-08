@@ -6,60 +6,134 @@
     (function(w,d,s,l,i){
         w[l]=w[l]||[];
         w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        
+        let gtmLoaded = false;
+        
+        function loadGTM() {
+            if (gtmLoaded) return;
+            gtmLoaded = true;
         var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
         j.async=true;
-        j.defer=true;
         j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        // Usa requestIdleCallback se disponível, senão usa setTimeout
-        if (window.requestIdleCallback) {
-            requestIdleCallback(function() {
                 f.parentNode.insertBefore(j,f);
-            }, { timeout: 2000 });
-        } else {
-            setTimeout(function() {
-                f.parentNode.insertBefore(j,f);
-            }, 0);
         }
+        
+        const loadOnInteraction = () => {
+            loadGTM();
+            ['scroll','click','touchstart','keydown'].forEach(evt => {
+                d.removeEventListener(evt, loadOnInteraction, { passive: true });
+            });
+        };
+        
+        ['scroll','click','touchstart','keydown'].forEach(evt => {
+            d.addEventListener(evt, loadOnInteraction, { passive: true, once: true });
+        });
+        
+        setTimeout(() => {
+            if (!gtmLoaded) loadGTM();
+        }, 5000);
     })(window,document,'script','dataLayer','GTM-WD5669S6');
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pintura Epóxi Industrial Porto Alegre - APEX Engenharia Predial. Especialistas em pintura de galpões, estruturas metálicas e proteção anti-corrosiva. Empresa de Pintura de Galpões RS. Solicite orçamento grátis!">
-    <meta name="keywords" content="pintura em porto alegre, pintura industrial porto alegre, pintura industrial rs, pintura de galpões porto alegre, pintura estruturas metálicas, pintura anti-corrosiva, pintura epóxi industrial, pintura predial porto alegre, pintura predial rs, pintura de predio, pintura de prédio porto alegre, pintura de prédio rs, engenharia predial porto alegre, manutenção de fachadas, impermeabilização porto alegre, impermeabilização de lajes, trabalho em altura NR35, NR35 porto alegre, pintura acrílica, pintura esmalte, pintura predial externa, pintura predial interna, renovação de fachadas, restauração de fachadas porto alegre, acabamento predial, reboco, pastilhas, texturas, demarcação de pisos, pintura de demarcação, demarcação de vagas, pintura de vagas, sinalização de estacionamento, sinalização viária, reforma de telhados, manutenção predial, pintura predial condomínios, pintura predial empresas, empresa de pintura porto alegre, orçamento pintura industrial, pintura epóxi pisos, proteção anti-corrosiva estruturas metálicas">
+    <meta name="description" content="Pintura Industrial e Predial em Porto Alegre - APEX Engenharia Predial. Especialistas em pintura de galpões, estruturas metálicas, proteção anti-corrosiva e pintura predial com tintas premium. Equipe certificada NR35. Orçamento grátis!">
+    <meta name="keywords" content="pintura industrial porto alegre, pintura predial porto alegre, pintura de galpões porto alegre, pintura estruturas metálicas, pintura anti-corrosiva, pintura epóxi industrial, pintura predial rs, pintura de prédio porto alegre, empresa pintura industrial, empresa pintura predial, pintura acrílica, pintura esmalte, proteção anti-corrosiva, pintura industrial rs">
     <link rel="canonical" href="https://www.apexengenhariapredial.com.br/pintura-predial.html">
     <link rel="sitemap" type="application/xml" href="https://www.apexengenhariapredial.com.br/sitemap.xml">
     <meta name="author" content="APEX Engenharia Predial">
     <meta name="robots" content="index, follow">
     
-    <!-- Nota: Headers de segurança configurados no servidor (vercel.json) -->
-    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.apexengenhariapredial.com.br/pintura-predial.html">
-    <meta property="og:title" content="Pintura Industrial e Predial em Porto Alegre - APEX Engenharia Predial">
-    <meta property="og:description" content="Especialistas em pintura industrial de galpões, estruturas metálicas e proteção anti-corrosiva em Porto Alegre. Também oferecemos pintura predial de fachadas e áreas internas com tintas premium. Orçamento grátis!">
-    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="og:title" content="Pintura Industrial e Predial em Porto Alegre - APEX">
+    <meta property="og:description" content="Especialistas em pintura industrial de galpões, estruturas metálicas e proteção anti-corrosiva. Também oferecemos pintura predial com tintas premium. Orçamento grátis!">
+    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/pintura-predial-apex.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.apexengenhariapredial.com.br/pintura-predial.html">
-    <meta property="twitter:title" content="Pintura Industrial e Predial em Porto Alegre - APEX Engenharia Predial">
-    <meta property="twitter:description" content="Especialistas em pintura industrial de galpões, estruturas metálicas e proteção anti-corrosiva em Porto Alegre. Também oferecemos pintura predial de fachadas e áreas internas com tintas premium. Orçamento grátis!">
-    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="twitter:title" content="Pintura Industrial e Predial em Porto Alegre - APEX">
+    <meta property="twitter:description" content="Especialistas em pintura industrial de galpões, estruturas metálicas e proteção anti-corrosiva. Também oferecemos pintura predial com tintas premium. Orçamento grátis!">
+    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/pintura-predial-apex.jpg">
     
-    <title>Pintura Industrial e Predial em Porto Alegre | APEX</title>
+    <title>Pintura Industrial e Predial em Porto Alegre | APEX Engenharia</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="favicon-32x32.ico">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00a8e8">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="img/logo-apex.png" as="image">
+    <link rel="preload" href="img/pintura-predial-apex.jpg" as="image">
+    <!-- CSS crítico inline - Renderização imediata sem esperar CSS externo -->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;overflow-x:hidden;width:100%;max-width:100vw}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:#1a1a1a;line-height:1.6;overflow-x:hidden;margin:0;padding:0;width:100%;max-width:100vw;position:relative}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px;width:100%;box-sizing:border-box}
+        #header{position:fixed;top:0;left:0;width:100%;max-width:100vw;background:transparent;box-shadow:none;z-index:1000;opacity:1;margin:0;padding:0;transform:translateY(0);overflow:visible}
+        .navbar{padding:15px 0;min-height:60px}
+        .navbar .container{display:flex;justify-content:space-between;align-items:center;padding:0 20px;width:100%;max-width:1200px;margin:0 auto;box-sizing:border-box;position:relative}
+        .logo-link{display:flex;align-items:center;justify-content:flex-start;margin-right:auto;flex-shrink:0;padding:0}
+        .logo{max-width:50%;height:auto;display:block;margin:0;padding:0;opacity:1}
+        .nav-menu{display:flex;list-style:none;gap:25px;align-items:center;min-height:50px;z-index:1100;margin-left:auto;flex-shrink:0}
+        .hero{position:relative;min-height:100vh;padding-bottom:50px;display:flex;align-items:center;justify-content:center;text-align:center;color:#ffffff}
+        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,52,89,.45) 0%,rgba(0,126,167,.45) 100%)}
+        .hero-content{position:relative;z-index:2;max-width:800px;padding:20px;margin-top:100px;margin-bottom:50px;opacity:1;transform:none}
+        img,video,iframe,embed,object{max-width:100%;height:auto}
+    </style>
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Fonts - Carregamento assíncrono para não bloquear renderização -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Google Fonts - Carregamento assíncrono otimizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    <script>
+    // Fallback para fontes - garante renderização imediata
+    if('fonts' in document){
+        document.fonts.ready.then(function(){
+            document.documentElement.classList.add('fonts-loaded');
+        });
+    }
+    </script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Pintura Industrial e Predial",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "APEX Engenharia Predial",
+        "image": "https://www.apexengenhariapredial.com.br/img/logo-apex.png",
+        "url": "https://www.apexengenhariapredial.com.br",
+        "telephone": "+5551981078843",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Major Sezefredo, 1093",
+          "addressLocality": "Canoas",
+          "addressRegion": "RS",
+          "addressCountry": "BR",
+          "postalCode": "92020-000"
+        }
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Rio Grande do Sul"
+      },
+      "description": "Especialistas em pintura industrial de galpões, estruturas metálicas e proteção anti-corrosiva. Também oferecemos pintura predial com tintas premium.",
+      "offers": {
+        "@type": "Offer",
+        "name": "Pintura Industrial e Predial",
+        "description": "Serviço completo de pintura industrial e predial com tintas premium, sistemas anti-corrosivos e acabamento profissional."
+      }
+    }
+    </script>
 </head>
 <body>
                 <!-- Google Tag Manager (noscript) -->
@@ -89,62 +163,180 @@
     </header>
 
     <main>
+    <!-- Hero Section -->
     <section class="hero">
+        <picture>
+            <source srcset="img/pintura-predial-apex.webp" type="image/webp">
+            <img src="img/pintura-predial-apex.jpg" alt="Equipe APEX realizando pintura industrial e predial" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0">
+        </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Pintura Industrial e Predial em Porto Alegre</h1>
-            <p>Especialistas em <strong>pintura industrial</strong> de galpões, estruturas metálicas, proteção anti-corrosiva e <strong>pintura predial</strong> com tintas premium. Mais de 10 anos atendendo indústrias e edifícios em Porto Alegre!</p>
-            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento</a>
+            <p>Especialistas em <strong>pintura industrial</strong> para galpões, estruturas metálicas e proteção anti-corrosiva, e <strong>pintura predial</strong> com tintas premium para fachadas e áreas comuns em Porto Alegre e Região Metropolitana. Equipe certificada NR35, mais de 10 anos de experiência e sistemas de alta durabilidade!</p>
+            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
+    <!-- Por que Pintura Industrial e Predial -->
     <section class="sobre">
         <div class="container">
-            <h2>Especialistas em Pintura Industrial e Predial em Porto Alegre</h2>
+            <h2 class="section-title">Por Que Escolher <strong>Pintura Industrial e Predial</strong> Profissional?</h2>
+            <p>A <strong>pintura industrial</strong> e <strong>pintura predial</strong> são muito mais que simples aplicação de tinta. São sistemas de proteção e acabamento que preservam estruturas, aumentam durabilidade e valorizam patrimônios. Diferente de pinturas caseiras ou amadoras, a <strong>pintura industrial</strong> e <strong>pintura predial</strong> profissional utilizam sistemas certificados, técnicas especializadas e produtos de alta qualidade.</p>
             
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary-color);">🏭 Pintura Industrial - Nossa Especialidade</h3>
-            <p>A <strong>APEX Engenharia Predial</strong> é referência em <strong>pintura industrial em Porto Alegre</strong> e <strong>pintura epóxi industrial Porto Alegre</strong>, região metropolitana e todo o Rio Grande do Sul. Como <strong>empresa de pintura de galpões RS</strong>, nossa equipe certificada NR35 especializa-se em soluções completas para o setor industrial, incluindo <strong>proteção anticorrosiva estruturas metálicas</strong> e <strong>pintura de piso industrial uretano</strong>.</p>
-
-            <p><strong>Nossos serviços de pintura industrial incluem:</strong></p>
-            <ul style="margin-left: 2rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                <li><strong>Pintura de galpões industriais:</strong> Coberturas, estruturas metálicas e fachadas com sistemas de alta durabilidade</li>
-                <li><strong>Proteção anti-corrosiva:</strong> Pintura epóxi e sistemas especiais para estruturas metálicas expostas à corrosão</li>
-                <li><strong>Pintura de equipamentos industriais:</strong> Tanques, silos, dutos, tubulações e máquinas</li>
-                <li><strong>Ambientes especiais:</strong> Pintura resistente a produtos químicos, altas temperaturas, umidade e intempéries</li>
-                <li><strong>Pintura epóxi industrial:</strong> Pisos epóxi, revestimentos de alta resistência e proteção química</li>
-                <li><strong>Sinalização industrial:</strong> Demarcação de áreas, pisos e zonas de segurança</li>
-            </ul>
-
-            <p>Trabalhamos com sistemas de <strong>pintura industrial</strong> de alta performance em Porto Alegre e região, incluindo <strong>pintura epóxi industrial Porto Alegre</strong>, tintas poliuretânicas, <strong>proteção anticorrosiva estruturas metálicas</strong>, <strong>pintura de piso industrial uretano</strong> e revestimentos especiais para cada necessidade industrial. Como <strong>empresa de pintura de galpões RS</strong>, nossa equipe especializada em <strong>pintura industrial em Porto Alegre</strong> e <strong>pintura industrial RS</strong> segue rigorosamente as normas de segurança (NR35, NR33, NR18) e utiliza apenas produtos premium das melhores marcas do mercado para garantir máxima durabilidade e proteção.</p>
-
-            <p><strong>Por que escolher a APEX para sua pintura industrial?</strong></p>
-            <ul style="margin-left: 2rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                <li>Experiência comprovada em <strong>pintura de galpões industriais</strong> de diversos tamanhos</li>
-                <li>Especialistas em <strong>proteção anti-corrosiva</strong> para estruturas metálicas expostas</li>
-                <li>Sistemas de <strong>pintura epóxi industrial</strong> para pisos e revestimentos de alta resistência</li>
-                <li>Equipe certificada NR35 para trabalhos em altura em estruturas industriais</li>
-                <li>Atendimento em indústrias de diversos segmentos: alimentício, químico, metalúrgico, têxtil, entre outros</li>
-                <li>Produtos homologados e adequados para cada ambiente industrial específico</li>
-            </ul>
-
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary-color);">🏢 Pintura Predial</h3>
-            <p>Também oferecemos serviços especializados de <strong>pintura predial</strong> e <strong>acabamento predial em Porto Alegre</strong> para edifícios residenciais e comerciais. Nossos serviços incluem: preparo profissional de superfícies, aplicação de primers especiais, <strong>pintura acrílica</strong>, <strong>pintura esmalte</strong>, pintura siliconeada e elastomérica para fachadas, áreas internas e áreas comuns.</p>
-
-            <p>Transforme seu patrimônio industrial ou predial com <strong>pintura de alto padrão</strong>. Nossa equipe garante acabamento impecável, proteção contra intempéries, resistência UV e variações climáticas do Rio Grande do Sul. Trabalhamos em altura com segurança total NR35.</p>
-
-            <p>Solicite agora seu <strong>orçamento grátis</strong> para <strong>pintura industrial</strong> ou <strong>pintura predial em Porto Alegre</strong>. Atendemos indústrias, galpões, empresas, condomínios e residenciais em Porto Alegre, região metropolitana e todo o Rio Grande do Sul!</p>
-            <a href="/" class="btn btn-primary">Voltar ao Início</a>
+            <p>Em ambientes industriais, a <strong>pintura industrial</strong> protege estruturas metálicas contra corrosão, oferece resistência a produtos químicos e condições extremas. Em edifícios, a <strong>pintura predial</strong> protege contra intempéries, umidade e ação do tempo, mantendo a estética e integridade estrutural. Ambas requerem conhecimento técnico, produtos adequados e execução profissional.</p>
+            
+            <div class="diferenciais-grid" style="margin-top: 40px;">
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Proteção Anti-Corrosiva</h4>
+                    <p><strong>Pintura industrial</strong> com sistemas especiais protege estruturas metálicas contra corrosão, estendendo significativamente a vida útil de galpões, tanques e equipamentos industriais.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Resistência a Produtos Químicos</h4>
+                    <p><strong>Pintura industrial</strong> com sistemas epóxi e poliuretânicos resiste a produtos químicos, óleos, graxas e condições extremas de ambientes industriais.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Proteção Contra Intempéries</h4>
+                    <p><strong>Pintura predial</strong> com tintas premium protege fachadas contra chuva, sol, umidade e variações climáticas, mantendo estética e integridade por décadas.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Durabilidade Extendida</h4>
+                    <p><strong>Pintura industrial</strong> e <strong>pintura predial</strong> profissional com sistemas de alta qualidade duram muito mais que soluções convencionais, reduzindo necessidade de repintura.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Valorização Estética</h4>
+                    <p><strong>Pintura predial</strong> transforma completamente a aparência de edifícios, aumentando valor de mercado e satisfação dos ocupantes.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Equipe Certificada NR35</h4>
+                    <p>Trabalhos em altura realizados por equipe certificada NR35, garantindo segurança total durante <strong>pintura industrial</strong> e <strong>pintura predial</strong>.</p>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Aplicações da Pintura Industrial e Predial -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Onde Aplicar <strong>Pintura Industrial e Predial</strong>?</h2>
+            <p>A <strong>pintura industrial</strong> e <strong>pintura predial</strong> são versáteis e podem ser aplicadas em diversos ambientes. A <strong>APEX Engenharia Predial</strong> é especialista em:</p>
+            
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏭 Galpões Industriais</h3>
+                        <p><strong>Pintura industrial</strong> para galpões com sistemas anti-corrosivos e resistentes. Proteção completa de coberturas, estruturas metálicas e fachadas industriais.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏗️ Estruturas Metálicas</h3>
+                        <p><strong>Pintura industrial</strong> com proteção anti-corrosiva para estruturas metálicas expostas. Sistemas epóxi e poliuretânicos de alta durabilidade.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Fachadas Prediais</h3>
+                        <p><strong>Pintura predial</strong> de fachadas com tintas premium acrílicas, esmaltes e sistemas elastoméricos. Proteção e valorização estética.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏭 Equipamentos Industriais</h3>
+                        <p><strong>Pintura industrial</strong> para tanques, silos, dutos, tubulações e máquinas. Sistemas resistentes a produtos químicos e condições extremas.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Áreas Internas</h3>
+                        <p><strong>Pintura predial</strong> para áreas internas, corredores, halls e áreas comuns. Acabamento profissional com tintas de alta qualidade.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏭 Ambientes Especiais</h3>
+                        <p><strong>Pintura industrial</strong> para ambientes com produtos químicos, altas temperaturas, umidade e intempéries. Sistemas especializados para cada necessidade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="sobre">
+        <div class="container">
+            <h2 class="section-title">Como Funciona a <strong>Pintura Industrial e Predial</strong></h2>
+            <p>A aplicação de <strong>pintura industrial</strong> e <strong>pintura predial</strong> requer processo técnico especializado e produtos de alta qualidade. A <strong>APEX Engenharia Predial</strong> segue um processo rigoroso e profissional:</p>
+            
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">1. Diagnóstico e Planejamento</h3>
+                        <p>Análise completa da superfície, identificação de necessidades e seleção do sistema de <strong>pintura industrial</strong> ou <strong>pintura predial</strong> mais adequado. Planejamento técnico detalhado.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">2. Preparo da Superfície</h3>
+                        <p>Limpeza técnica, lixamento, remoção de ferrugem, tratamento de áreas deterioradas e preparo adequado para receber a <strong>pintura industrial</strong> ou <strong>pintura predial</strong>.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">3. Aplicação do Primer</h3>
+                        <p>Aplicação de primer adequado para garantir aderência perfeita. Primer anti-corrosivo para <strong>pintura industrial</strong> e primer específico para <strong>pintura predial</strong>.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">4. Aplicação da Tinta</h3>
+                        <p>Aplicação de 2 a 3 demãos de tinta premium seguindo especificações técnicas. Sistemas epóxi para <strong>pintura industrial</strong> e tintas acrílicas/esmaltes para <strong>pintura predial</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantagens para Empresas e Síndicos -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Vantagens da <strong>Pintura Industrial e Predial</strong> Profissional</h2>
+            <p>Como gestor industrial, síndico ou administrador, você precisa de soluções que protejam patrimônios, reduzam custos e valorizem propriedades. A <strong>pintura industrial</strong> e <strong>pintura predial</strong> profissional oferecem todos esses benefícios:</p>
+            
+            <ul style="margin-top: 30px; font-size: 1.1rem; line-height: 2;">
+                <li><strong>Proteção Estrutural:</strong> <strong>Pintura industrial</strong> e <strong>pintura predial</strong> protegem estruturas contra corrosão, intempéries e deterioração, estendendo significativamente a vida útil.</li>
+                <li><strong>Redução de Custos:</strong> Investir em <strong>pintura industrial</strong> e <strong>pintura predial</strong> profissional reduz necessidade de reparos e retrabalho, economizando recursos a longo prazo.</li>
+                <li><strong>Valorização do Patrimônio:</strong> Propriedades bem pintadas têm maior valor de mercado e são mais atrativas para compradores, investidores e ocupantes.</li>
+                <li><strong>Durabilidade:</strong> <strong>Pintura industrial</strong> e <strong>pintura predial</strong> profissional com sistemas de alta qualidade duram décadas, reduzindo necessidade de manutenção constante.</li>
+                <li><strong>Imagem Profissional:</strong> Propriedades bem pintadas transmitem imagem de cuidado e profissionalismo, aumentando atratividade e credibilidade.</li>
+                <li><strong>Conformidade com Normas:</strong> <strong>Pintura industrial</strong> adequada garante conformidade com normas de segurança e proteção, essencial para gestão responsável.</li>
+                <li><strong>Maior Satisfação:</strong> Propriedades bem pintadas aumentam satisfação de ocupantes, funcionários e moradores, reduzindo reclamações e conflitos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Aplicar <strong>Pintura Industrial e Predial</strong> na sua Propriedade?</h2>
+            <p>A <strong>APEX Engenharia Predial</strong> é especialista em <strong>pintura industrial</strong> e <strong>pintura predial em Porto Alegre e Região Metropolitana</strong>. Com mais de 10 anos de experiência, oferecemos:</p>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+                <li>Visita técnica gratuita para avaliação da sua propriedade</li>
+                <li>Orçamento detalhado e transparente para <strong>pintura industrial</strong> ou <strong>pintura predial</strong></li>
+                <li>Sistemas de alta qualidade e tintas premium</li>
+                <li>Equipe certificada NR35 para trabalhos em altura</li>
+                <li>Garantia documentada do serviço de <strong>pintura industrial</strong> e <strong>pintura predial</strong></li>
+                <li>Execução rápida e com mínimo de interrupções</li>
+            </ul>
+            <p><strong>Solicite agora seu orçamento grátis e transforme sua propriedade com <strong>pintura industrial</strong> e <strong>pintura predial</strong> de alta qualidade!</strong></p>
+            <a href="/#contato" class="btn btn-light" aria-label="Solicitar orçamento para pintura industrial e predial">Solicitar Orçamento Grátis</a>
+        </div>
+    </section>
+
+    </main>
 
     <!-- Rodapé -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" class="footer-logo" width="200" height="46" decoding="async">
+                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" title="Logo APEX Engenharia Predial" class="footer-logo" width="200" height="46" decoding="async">
                     <h3>APEX Engenharia Predial</h3>
-                    <p><strong>pintura de fachada</strong>, Especializada em pintura predial e manutenção predial, a APEX está sempre preparada para atendê-lo. Solicite seu orçamento!</p>
+                    <p>Especializada em <strong>pintura industrial</strong>, <strong>pintura predial</strong>, <strong>pintura de galpões</strong> e <strong>proteção anti-corrosiva</strong>, a APEX está sempre preparada para atender sua propriedade. Solicite seu orçamento!</p>
+                    
+                    <div style="margin-top: 20px; font-size: 0.9rem;">
+                        <p><strong>📍 Endereço:</strong><br>Rua Major Sezefredo, 1093<br>Bairro Marechal Rondom - Canoas/RS</p>
+                        <p style="margin-top: 10px;"><strong>📞 Telefone:</strong><br>(51) 98107-8843</p>
+                    </div>
 
                     <div class="footer-social">
                         <h4>Siga-nos:</h4>
@@ -161,43 +353,60 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
                 
                 <div class="footer-links">
                     <h4>Nossos Serviços</h4>
                     <ul>
-                        <li><a href="/#servicos">Restauração de Fachadas</a></li>
-                        <li><a href="/#servicos">Impermeabilização</a></li>
-                        <li><a href="/#servicos">Pintura Predial</a></li>
-                        <li><a href="/#servicos">Manutenção de Estruturas</a></li>
-                        <li><a href="/#servicos">Demarcações de pisos e Estacionamentos</a></li>
+                        <li><a href="manutencao-predial.html">Manutenção Predial</a></li>
+                        <li><a href="pintura-piso-epoxi-industrial.html">Pintura de Piso Epóxi Industrial</a></li>
+                        <li><a href="pintura-predial.html">Pintura Predial</a></li>
+                        <li><a href="restauracao-fachadas.html">Restauração de Fachadas</a></li>
+                        <li><a href="impermeabilizacao.html">Impermeabilização</a></li>
+                        <li><a href="trabalhos-em-altura.html">Trabalhos em Altura NR35</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Acesso Rápido</h4>
+                    <h4>Links Úteis</h4>
                     <ul>
-                        <li><a href="/#inicio">Início</a></li>
                         <li><a href="/#sobre">Sobre a APEX</a></li>
-                        <li><a href="/#servicos">Serviços</a></li>
-                        <li><a href="/#contato">Contato</a></li>
                         <li><a href="blog.html">Blog</a></li>
+                        <li><a href="/#contato">Contato</a></li>
+                        <li><a href="pintura-epoxi-garagem-condominio.html">Pintura Epóxi Garagem</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p><strong>pintura acrílica</strong>, &copy; 2025 APEX Engenharia Predial. Todos os direitos reservados.</p>
+                <p>&copy; 2024 APEX Engenharia Predial. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Botão WhatsApp será carregado de forma adiada via whatsapp-loader.js -->
-    </main>
-
-    <script src="js/whatsapp-loader.js" defer></script>
-    <script src="js/utils.js"></script>
-    <script src="js/script.js" defer></script>
+    <!-- Carrega scripts não críticos apenas após LCP ou interação -->
+    <script>
+    (function() {
+        let scriptsLoaded = false;
+        const loadScripts = () => {
+            if (scriptsLoaded) return;
+            scriptsLoaded = true;
+            const scripts = ['js/script.js'];
+            scripts.forEach(src => {
+                const s = document.createElement('script');
+                s.src = src;
+                s.defer = true;
+                document.body.appendChild(s);
+            });
+        };
+        
+        // Carrega após scroll ou interação
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => {
+            document.addEventListener(evt, loadScripts, { passive: true, once: true });
+        });
+        
+        // Timeout de segurança: carrega após 3s
+        setTimeout(loadScripts, 3000);
+    })();
+    </script>
 </body>
 </html>

@@ -1,57 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-                <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WD5669S6');</script>
+    <!-- Google Tag Manager - Otimizado para não bloquear thread principal -->
+    <script>
+    (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        
+        let gtmLoaded = false;
+        
+        function loadGTM() {
+            if (gtmLoaded) return;
+            gtmLoaded = true;
+            var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+        }
+        
+        const loadOnInteraction = () => {
+            loadGTM();
+            ['scroll','click','touchstart','keydown'].forEach(evt => {
+                d.removeEventListener(evt, loadOnInteraction, { passive: true });
+            });
+        };
+        
+        ['scroll','click','touchstart','keydown'].forEach(evt => {
+            d.addEventListener(evt, loadOnInteraction, { passive: true, once: true });
+        });
+        
+        setTimeout(() => {
+            if (!gtmLoaded) loadGTM();
+        }, 5000);
+    })(window,document,'script','dataLayer','GTM-WD5669S6');
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Impermeabilização de Laje em Porto Alegre - APEX Engenharia Predial. Melhor Sistema de Impermeabilização para Condomínios. Impermeabilização com Poliureia RS. Solicite orçamento grátis!">
+    <meta name="description" content="Impermeabilização em Porto Alegre - APEX Engenharia Predial. Especialistas em impermeabilização de lajes, telhados, piscinas e áreas molhadas. Proteção completa contra infiltrações. Orçamento grátis!">
     <meta name="keywords" content="impermeabilização porto alegre, impermeabilização rs, impermeabilização lajes porto alegre, impermeabilização de lajes, impermeabilização telhados porto alegre, impermeabilização telhados, impermeabilização piscinas, impermeabilizante porto alegre, proteção contra infiltração, manta impermeabilizante, impermeabilização predial, impermeabilização de coberturas, tratamento anti-infiltração, impermeabilização no rio grande do sul">
+    <link rel="canonical" href="https://www.apexengenhariapredial.com.br/impermeabilizacao.html">
+    <link rel="sitemap" type="application/xml" href="https://www.apexengenhariapredial.com.br/sitemap.xml">
     <meta name="author" content="APEX Engenharia Predial">
     <meta name="robots" content="index, follow">
-    
-    <!-- Nota: Headers de segurança configurados no servidor (vercel.json) -->
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.apexengenhariapredial.com.br/impermeabilizacao.html">
-    <meta property="og:title" content="Impermeabilização em Porto Alegre - APEX Engenharia Predial">
-    <meta property="og:description" content="Especialistas em impermeabilização em Porto Alegre, região metropolitana e todo o Rio Grande do Sul. Proteção contra infiltrações em lajes, telhados e áreas molhadas. Orçamento grátis!">
-    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="og:title" content="Impermeabilização em Porto Alegre - APEX">
+    <meta property="og:description" content="Especialistas em impermeabilização de lajes, telhados e piscinas em Porto Alegre. Proteção completa contra infiltrações e umidade. Orçamento grátis!">
+    <meta property="og:image" content="https://www.apexengenhariapredial.com.br/img/impermeabilizacao-apex.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.apexengenhariapredial.com.br/impermeabilizacao.html">
-    <meta property="twitter:title" content="Impermeabilização em Porto Alegre - APEX Engenharia Predial">
-    <meta property="twitter:description" content="Especialistas em impermeabilização em Porto Alegre, região metropolitana e todo o Rio Grande do Sul. Proteção contra infiltrações em lajes, telhados e áreas molhadas. Orçamento grátis!">
-    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/logo-apex.png">
+    <meta property="twitter:title" content="Impermeabilização em Porto Alegre - APEX">
+    <meta property="twitter:description" content="Especialistas em impermeabilização de lajes, telhados e piscinas em Porto Alegre. Proteção completa contra infiltrações e umidade. Orçamento grátis!">
+    <meta property="twitter:image" content="https://www.apexengenhariapredial.com.br/img/impermeabilizacao-apex.jpg">
     
-    <link rel="canonical" href="https://www.apexengenhariapredial.com.br/impermeabilizacao.html">
-    <link rel="sitemap" type="application/xml" href="https://www.apexengenhariapredial.com.br/sitemap.xml">
-    <title>Impermeabilização em Porto Alegre - APEX Engenharia Predial</title>
+    <title>Impermeabilização em Porto Alegre | APEX Engenharia</title>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/x-icon" href="favicon-32x32.ico">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#00a8e8">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="preload" href="css/main.css" as="style">
+    <link rel="preload" href="img/logo-apex.png" as="image">
+    <link rel="preload" href="img/impermeabilizacao-apex.jpg" as="image">
+    <!-- CSS crítico inline - Renderização imediata sem esperar CSS externo -->
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;overflow-x:hidden;width:100%;max-width:100vw}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:#1a1a1a;line-height:1.6;overflow-x:hidden;margin:0;padding:0;width:100%;max-width:100vw;position:relative}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px;width:100%;box-sizing:border-box}
+        #header{position:fixed;top:0;left:0;width:100%;max-width:100vw;background:transparent;box-shadow:none;z-index:1000;opacity:1;margin:0;padding:0;transform:translateY(0);overflow:visible}
+        .navbar{padding:15px 0;min-height:60px}
+        .navbar .container{display:flex;justify-content:space-between;align-items:center;padding:0 20px;width:100%;max-width:1200px;margin:0 auto;box-sizing:border-box;position:relative}
+        .logo-link{display:flex;align-items:center;justify-content:flex-start;margin-right:auto;flex-shrink:0;padding:0}
+        .logo{max-width:50%;height:auto;display:block;margin:0;padding:0;opacity:1}
+        .nav-menu{display:flex;list-style:none;gap:25px;align-items:center;min-height:50px;z-index:1100;margin-left:auto;flex-shrink:0}
+        .hero{position:relative;min-height:100vh;padding-bottom:50px;display:flex;align-items:center;justify-content:center;text-align:center;color:#ffffff}
+        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,52,89,.45) 0%,rgba(0,126,167,.45) 100%)}
+        .hero-content{position:relative;z-index:2;max-width:800px;padding:20px;margin-top:100px;margin-bottom:50px;opacity:1;transform:none}
+        img,video,iframe,embed,object{max-width:100%;height:auto}
+    </style>
+    <link rel="stylesheet" href="css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/main.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Fonts - Carregamento assíncrono para não bloquear renderização -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- Google Fonts - Carregamento assíncrono otimizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+    <script>
+    // Fallback para fontes - garante renderização imediata
+    if('fonts' in document){
+        document.fonts.ready.then(function(){
+            document.documentElement.classList.add('fonts-loaded');
+        });
+    }
+    </script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Impermeabilização",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "APEX Engenharia Predial",
+        "image": "https://www.apexengenhariapredial.com.br/img/logo-apex.png",
+        "url": "https://www.apexengenhariapredial.com.br",
+        "telephone": "+5551981078843",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Major Sezefredo, 1093",
+          "addressLocality": "Canoas",
+          "addressRegion": "RS",
+          "addressCountry": "BR",
+          "postalCode": "92020-000"
+        }
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Rio Grande do Sul"
+      },
+      "description": "Especialistas em impermeabilização de lajes, telhados, piscinas e áreas molhadas em Porto Alegre e região. Proteção completa contra infiltrações e umidade.",
+      "offers": {
+        "@type": "Offer",
+        "name": "Impermeabilização",
+        "description": "Serviço completo de impermeabilização com sistemas de alta qualidade para lajes, telhados, piscinas e áreas molhadas."
+      }
+    }
+    </script>
 </head>
 <body>
-                <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WD5669S6"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-<body>
-                <!-- Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WD5669S6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
@@ -78,27 +163,162 @@
     </header>
 
     <main>
-
+    <!-- Hero Section -->
     <section class="hero">
+        <picture>
+            <source srcset="img/impermeabilizacao-apex.webp" type="image/webp">
+            <img src="img/impermeabilizacao-apex.jpg" alt="Técnico APEX aplicando impermeabilização em laje" fetchpriority="high" loading="eager" width="1920" height="1080" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0">
+        </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Impermeabilização em Porto Alegre</h1>
-            <p>Especialistas em <strong>impermeabilização de lajes, telhados e piscinas</strong> com mais de 10 anos de experiência em Porto Alegre, região metropolitana e todo o Rio Grande do Sul. Proteção completa contra infiltrações!</p>
-            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento</a>
+            <p>Especialistas em <strong>impermeabilização</strong> de lajes, telhados, piscinas e áreas molhadas em Porto Alegre e Região Metropolitana. Proteção completa contra infiltrações, umidade e deterioração estrutural. Sistemas de alta qualidade que garantem máxima durabilidade e segurança para seu patrimônio!</p>
+            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
+    <!-- Por que Impermeabilização -->
     <section class="sobre">
         <div class="container">
-            <h2>Especialistas em Impermeabilização em Porto Alegre</h2>
-            <p>A <strong>APEX Engenharia Predial</strong> é líder em <strong>impermeabilização de laje em Porto Alegre</strong>, região metropolitana e todo o Rio Grande do Sul. Com mais de 10 anos de experiência, oferecemos o <strong>melhor sistema de impermeabilização para condomínios</strong> e <strong>impermeabilização com poliureia RS</strong>. Nossa equipe certificada especializa-se em proteção completa contra infiltrações para lajes, telhados, piscinas, áreas molhadas, terrazos e fundações. Realizamos <strong>impermeabilização de lajes</strong>, <strong>impermeabilização de telhados</strong> e <strong>impermeabilização de piscinas</strong> com <strong>impermeabilizantes</strong> de alta qualidade.</p>
+            <h2 class="section-title">Por Que Escolher <strong>Impermeabilização</strong> Profissional?</h2>
+            <p>A <strong>impermeabilização</strong> é uma das etapas mais importantes na construção e manutenção de edificações. Infiltrações e umidade são responsáveis por mais de 80% dos problemas estruturais em edifícios, causando deterioração de concreto, corrosão de armaduras, mofo, bolor e comprometimento da segurança estrutural.</p>
+            
+            <p>Diferente de soluções caseiras ou temporárias, a <strong>impermeabilização</strong> profissional utiliza sistemas certificados e técnicas especializadas que garantem proteção duradoura. A <strong>impermeabilização</strong> adequada não apenas previne infiltrações, mas também protege contra variações térmicas, intempéries e ação do tempo, estendendo significativamente a vida útil da estrutura.</p>
+            
+            <div class="diferenciais-grid" style="margin-top: 40px;">
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Proteção Estrutural Completa</h4>
+                    <p><strong>Impermeabilização</strong> protege estruturas contra infiltrações que causam deterioração do concreto, corrosão de armaduras e comprometimento da segurança. Prevenção de problemas estruturais graves.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Prevenção de Mofo e Bolor</h4>
+                    <p><strong>Impermeabilização</strong> adequada previne umidade que causa mofo, bolor e problemas de saúde. Ambiente saudável e seguro para ocupantes.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Economia a Longo Prazo</h4>
+                    <p>Investir em <strong>impermeabilização</strong> profissional evita reparos emergenciais caros e retrabalho. Economia significativa comparada a soluções temporárias ou inadequadas.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Durabilidade Extendida</h4>
+                    <p><strong>Impermeabilização</strong> com sistemas de alta qualidade dura décadas, estendendo significativamente a vida útil da estrutura e reduzindo necessidade de manutenção.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Valorização do Patrimônio</h4>
+                    <p>Edificações com <strong>impermeabilização</strong> adequada têm maior valor de mercado e são mais atrativas para compradores, evitando problemas que desvalorizam o imóvel.</p>
+                </div>
+                <div class="diferencial-item">
+                    <div class="diferencial-icon">✓</div>
+                    <h4>Sistemas Certificados</h4>
+                    <p><strong>Impermeabilização</strong> com sistemas certificados e testados, garantindo conformidade com normas técnicas e máxima eficácia na proteção.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <p>Nossos serviços de <strong>impermeabilização</strong> incluem: <strong>impermeabilização rígida e flexível</strong>, aplicação de <strong>membranas asfálticas</strong>, <strong>mantas PVC</strong>, impermeabilização de piscinas e reservatórios, tratamento de áreas molhadas, impermeabilização de subsolos e fundações. Utilizamos apenas produtos <strong>impermeabilizantes</strong> de alta qualidade certificados para garantir proteção duradoura. Nossa <strong>impermeabilização</strong> previne infiltrações, umidade, mofo e deterioração estrutural.</p>
+    <!-- Aplicações da Impermeabilização -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Onde Aplicar <strong>Impermeabilização</strong>?</h2>
+            <p>A <strong>impermeabilização</strong> é essencial em diversas áreas de uma edificação. A <strong>APEX Engenharia Predial</strong> é especialista em <strong>impermeabilização</strong> para:</p>
+            
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏢 Lajes e Coberturas</h3>
+                        <p><strong>Impermeabilização de lajes</strong> protege contra infiltrações que causam danos estruturais e problemas de umidade. Essencial para lajes planas, terraços e coberturas.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏠 Telhados e Coberturas</h3>
+                        <p><strong>Impermeabilização de telhados</strong> protege contra infiltrações em telhados planos, inclinados e coberturas metálicas. Proteção completa da estrutura.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏊 Piscinas e Áreas Molhadas</h3>
+                        <p><strong>Impermeabilização de piscinas</strong> garante estanqueidade total e proteção contra vazamentos. Essencial para piscinas, banheiros e áreas molhadas.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏗️ Fundações e Subsolos</h3>
+                        <p><strong>Impermeabilização</strong> de fundações e subsolos protege contra umidade do solo e infiltrações que comprometem a estrutura. Proteção essencial.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🚿 Banheiros e Áreas Úmidas</h3>
+                        <p><strong>Impermeabilização</strong> de banheiros, cozinhas e áreas úmidas previne infiltrações que causam danos em pisos e paredes. Proteção completa.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">🏭 Áreas Industriais</h3>
+                        <p><strong>Impermeabilização</strong> para áreas industriais com sistemas resistentes a produtos químicos e condições extremas. Proteção especializada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <p>Proteja seu patrimônio contra infiltrações, umidade, mofo e deterioração estrutural. A <strong>impermeabilização adequada</strong> é fundamental para a durabilidade e valorização do seu imóvel, evitando custosos reparos futuros e garantindo conforto e saúde para os moradores.</p>
+    <!-- Como Funciona -->
+    <section class="sobre">
+        <div class="container">
+            <h2 class="section-title">Como Funciona a <strong>Impermeabilização</strong></h2>
+            <p>A aplicação de <strong>impermeabilização</strong> requer conhecimento técnico, produtos de alta qualidade e processo adequado. A <strong>APEX Engenharia Predial</strong> segue um processo rigoroso e profissional para garantir o melhor resultado:</p>
+            
+            <div style="margin-top: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">1. Diagnóstico e Análise</h3>
+                        <p>Inspeção completa para identificar pontos de infiltração, áreas críticas e tipo de sistema de <strong>impermeabilização</strong> mais adequado. Diagnóstico técnico detalhado.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">2. Preparo da Superfície</h3>
+                        <p>Limpeza técnica, remoção de materiais soltos, tratamento de juntas, reparo de trincas e nivelamento. Superfície preparada para receber a <strong>impermeabilização</strong>.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">3. Aplicação do Sistema</h3>
+                        <p>Aplicação do sistema de <strong>impermeabilização</strong> adequado (membranas, mantas, produtos líquidos) seguindo especificações técnicas e normas. Aplicação profissional.</p>
+                    </div>
+                    <div style="background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 15px;">4. Proteção e Acabamento</h3>
+                        <p>Proteção mecânica do sistema de <strong>impermeabilização</strong> e acabamento adequado. Garantia de durabilidade e eficácia do sistema aplicado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <p>Solicite agora seu <strong>orçamento grátis</strong> para <strong>impermeabilização em Porto Alegre</strong>. Atendemos residências, condomínios, empresas e indústrias em Porto Alegre, região metropolitana e todo o Rio Grande do Sul!</p>
-            <a href="/" class="btn btn-primary">Voltar ao Início</a>
+    <!-- Vantagens para Síndicos e Gestores -->
+    <section class="sobre" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Vantagens da <strong>Impermeabilização</strong> para Síndicos e Gestores</h2>
+            <p>Como síndico ou gestor de propriedades, você precisa de soluções que previnam problemas, reduzam custos e protejam o patrimônio. A <strong>impermeabilização</strong> profissional oferece todos esses benefícios:</p>
+            
+            <ul style="margin-top: 30px; font-size: 1.1rem; line-height: 2;">
+                <li><strong>Prevenção de Problemas Estruturais:</strong> <strong>Impermeabilização</strong> adequada previne infiltrações que causam deterioração estrutural, evitando reparos emergenciais muito caros.</li>
+                <li><strong>Redução de Custos de Manutenção:</strong> Investir em <strong>impermeabilização</strong> profissional reduz drasticamente necessidade de reparos e retrabalho, economizando recursos a longo prazo.</li>
+                <li><strong>Proteção da Saúde:</strong> <strong>Impermeabilização</strong> previne umidade que causa mofo e bolor, protegendo saúde dos ocupantes e evitando problemas respiratórios.</li>
+                <li><strong>Valorização do Patrimônio:</strong> Edificações com <strong>impermeabilização</strong> adequada têm maior valor de mercado e são mais atrativas para compradores e investidores.</li>
+                <li><strong>Conformidade Legal:</strong> <strong>Impermeabilização</strong> adequada garante conformidade com normas de habitabilidade, protegendo síndicos de responsabilidades legais.</li>
+                <li><strong>Menos Reclamações:</strong> Edificações sem problemas de infiltração reduzem reclamações de moradores, facilitando gestão condominial.</li>
+                <li><strong>Durabilidade:</strong> <strong>Impermeabilização</strong> profissional dura décadas, reduzindo necessidade de manutenção constante e custos recorrentes.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Aplicar <strong>Impermeabilização</strong> na sua Edificação?</h2>
+            <p>A <strong>APEX Engenharia Predial</strong> é especialista em <strong>impermeabilização em Porto Alegre e Região Metropolitana</strong>. Com mais de 10 anos de experiência, oferecemos:</p>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+                <li>Diagnóstico técnico completo e gratuito</li>
+                <li>Orçamento detalhado e transparente para <strong>impermeabilização</strong></li>
+                <li>Sistemas certificados e de alta qualidade</li>
+                <li>Equipe especializada e experiente</li>
+                <li>Garantia documentada do serviço de <strong>impermeabilização</strong></li>
+                <li>Execução rápida e com mínimo de interrupções</li>
+            </ul>
+            <p><strong>Solicite agora seu orçamento grátis e proteja sua edificação com <strong>impermeabilização</strong> profissional de alta qualidade!</strong></p>
+            <a href="/#contato" class="btn btn-light" aria-label="Solicitar orçamento para impermeabilização">Solicitar Orçamento Grátis</a>
         </div>
     </section>
 
@@ -109,11 +329,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" class="footer-logo" width="200" height="46" decoding="async">
+                    <img loading="lazy" src="img/logo-apex.png" alt="Logo APEX" title="Logo APEX Engenharia Predial" class="footer-logo" width="200" height="46" decoding="async">
                     <h3>APEX Engenharia Predial</h3>
-                    <p>Especializada em pintura predial e manutenção predial, a APEX está sempre preparada para atendê-lo. Solicite seu orçamento!</p>
-
-                    <!-- Redes Sociais -->
+                    <p>Especializada em <strong>impermeabilização</strong>, <strong>impermeabilização de lajes</strong>, <strong>impermeabilização de telhados</strong> e <strong>impermeabilização de piscinas</strong>, a APEX está sempre preparada para atender sua edificação. Solicite seu orçamento!</p>
+                    
+                    <div style="margin-top: 20px; font-size: 0.9rem;">
+                        <p><strong>📍 Endereço:</strong><br>Rua Major Sezefredo, 1093<br>Bairro Marechal Rondom - Canoas/RS</p>
+                        <p style="margin-top: 10px;"><strong>📞 Telefone:</strong><br>(51) 98107-8843</p>
+                    </div>
+                    
                     <div class="footer-social">
                         <h4>Siga-nos:</h4>
                         <div class="social-icons">
@@ -129,46 +353,61 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
                 
                 <div class="footer-links">
                     <h4>Nossos Serviços</h4>
                     <ul>
-                        <li><a href="/#servicos">Restauração de Fachadas</a></li>
-                        <li><a href="/#servicos">Impermeabilização</a></li>
-                        <li><a href="/#servicos">Pintura Predial</a></li>
-                        <li><a href="/#servicos">Manutenção de Estruturas</a></li>
-                        <li><a href="/#servicos">Demarcações de pisos e Estacionamentos</a></li>
+                        <li><a href="manutencao-predial.html">Manutenção Predial</a></li>
+                        <li><a href="pintura-piso-epoxi-industrial.html">Pintura de Piso Epóxi Industrial</a></li>
+                        <li><a href="pintura-predial.html">Pintura Predial</a></li>
+                        <li><a href="restauracao-fachadas.html">Restauração de Fachadas</a></li>
+                        <li><a href="impermeabilizacao.html">Impermeabilização</a></li>
+                        <li><a href="trabalhos-em-altura.html">Trabalhos em Altura NR35</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Acesso Rápido</h4>
+                    <h4>Links Úteis</h4>
                     <ul>
-                        <li><a href="/#inicio">Início</a></li>
                         <li><a href="/#sobre">Sobre a APEX</a></li>
-                        <li><a href="/#servicos">Serviços</a></li>
-                        <li><a href="/#contato">Contato</a></li>
                         <li><a href="blog.html">Blog</a></li>
+                        <li><a href="/#contato">Contato</a></li>
+                        <li><a href="pintura-epoxi-garagem-condominio.html">Pintura Epóxi Garagem</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 APEX Engenharia Predial. Todos os direitos reservados.</p>
+                <p>&copy; 2024 APEX Engenharia Predial. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5551981078843?text=Olá%20APEX,%20gostaria%20de%20um%20orçamento" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Fale conosco no WhatsApp" aria-label="WhatsApp APEX">
-        <svg viewBox="0 0 32 32" fill="currentColor">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.247 1.409 1.417-5.267-0.316-0.518c-1.351-2.217-2.067-4.78-2.067-7.403 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62-6.11 13.62-13.62 13.62zM21.524 19.006c-0.272-0.137-1.609-0.795-1.859-0.886-0.248-0.09-0.429-0.137-0.61 0.137s-0.702 0.886-0.861 1.068c-0.158 0.182-0.316 0.205-0.589 0.068-0.272-0.137-1.149-0.423-2.187-1.35-0.809-0.721-1.355-1.612-1.514-1.884s-0.017-0.421 0.12-0.557c0.123-0.123 0.272-0.319 0.408-0.478s0.181-0.272 0.272-0.453c0.090-0.181 0.045-0.34-0.023-0.478s-0.61-1.471-0.837-2.012c-0.221-0.525-0.444-0.454-0.61-0.462-0.158-0.008-0.339-0.010-0.52-0.010s-0.476 0.068-0.725 0.34c-0.248 0.272-0.949 0.928-0.949 2.263s0.972 2.625 1.108 2.806c0.137 0.181 1.898 2.963 4.651 4.088 2.753 1.125 2.753 0.75 3.252 0.704s1.609-0.657 1.836-1.291c0.226-0.635 0.226-1.178 0.158-1.291s-0.248-0.181-0.52-0.319z"/>
-        </svg>
-    </a>
-
-    <script src="js/utils.js"></script>
-    <script src="js/script.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script>
+    // Carrega scripts não críticos apenas após LCP ou interação
+    (function() {
+        let scriptsLoaded = false;
+        const loadScripts = () => {
+            if (scriptsLoaded) return;
+            scriptsLoaded = true;
+            const scripts = ['js/whatsapp-loader.js', 'js/script.js'];
+            scripts.forEach(src => {
+                const s = document.createElement('script');
+                s.src = src;
+                s.defer = true;
+                document.body.appendChild(s);
+            });
+        };
+        
+        // Carrega após scroll ou interação
+        ['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => {
+            document.addEventListener(evt, loadScripts, { passive: true, once: true });
+        });
+        
+        // Timeout de segurança: carrega após 3s
+        setTimeout(loadScripts, 3000);
+    })();
+    </script>
 </body>
 </html>
