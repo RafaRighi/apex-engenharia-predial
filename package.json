@@ -5,7 +5,11 @@
   "private": true,
   "scripts": {
     "build": "echo 'Build estatico OK'",
-    "start": "serve"
+    "start": "serve",
+    "convert-logos": "node scripts/convert-logos-to-webp.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
   },
   "dependencies": {
     "nodemailer": "^6.9.8"
