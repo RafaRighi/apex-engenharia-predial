@@ -3,6 +3,7 @@ const { isJsonString, readRequestBody, createTransporter, isValidEmail } = requi
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
     return res.status(405).json({ success: false, message: 'Método não permitido.' });
   }
 

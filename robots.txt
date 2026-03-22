@@ -13,6 +13,8 @@ Disallow: /
 
 User-agent: *
 Allow: /
+# APIs (POST): Googlebot em GET recebe 405 — não devem ser rastreadas como páginas
+Disallow: /api/
 
 # Permitir todos os recursos importantes para SEO
 Allow: /img/
@@ -36,19 +38,17 @@ Allow: /robots.txt
 Allow: /manifest.json
 
 # Crawlers específicos
+# Obs.: Googlebot ignora Crawl-delay (não use — gera aviso no Search Console).
+# Bing suporta Crawl-delay; para este site não é necessário.
+
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Googlebot-Image
 Allow: /img/
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
 # Sitemap location (Obrigatório para melhor indexação)
 Sitemap: https://www.apexengenhariapredial.com.br/sitemap.xml
-
-# Crawl-delay padrão para evitar sobrecarga
-Crawl-delay: 1
