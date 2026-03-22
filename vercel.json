@@ -3,6 +3,18 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
+  "redirects": [
+    {
+      "source": "/pintura-predial/index.html",
+      "destination": "/pintura-predial/",
+      "permanent": true
+    },
+    {
+      "source": "/pintura-industrial/index.html",
+      "destination": "/pintura-industrial/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
