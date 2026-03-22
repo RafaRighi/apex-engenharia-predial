@@ -108,14 +108,14 @@ if (window.APEXUtils && window.APEXUtils.initSmoothScroll) {
             window.APEXUtils.initSmoothScroll({
                 headerOffset: 90,
                 closeMenuOnScroll: true,
-                excludeSelectors: ['.nav-link']
+                excludeSelectors: ['.nav-link', '.nav-menu']
             });
         });
     } else {
         window.APEXUtils.initSmoothScroll({
             headerOffset: 90,
             closeMenuOnScroll: true,
-            excludeSelectors: ['.nav-link']
+            excludeSelectors: ['.nav-link', '.nav-menu']
         });
     }
 } else {

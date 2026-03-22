@@ -1405,6 +1405,7 @@ margin-bottom: 10px;
 padding: 30px 20px;
 }
 }
+/* z-index abaixo do #header (1000) para não bloquear cliques no menu fixo */
 .breadcrumb {
 background: transparent;
 padding: 1rem 0;
@@ -1414,8 +1415,13 @@ position: absolute;
 top: 0;
 left: 0;
 width: 100%;
-z-index: 1001;
+z-index: 50;
+pointer-events: none;
 color: var(--white);
+}
+.breadcrumb a,
+.breadcrumb button {
+pointer-events: auto;
 }
 .breadcrumb-container {
 max-width: 1200px;

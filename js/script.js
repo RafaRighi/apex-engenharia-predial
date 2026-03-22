@@ -50,20 +50,12 @@
             navLinks.forEach(link => {
                 // Fecha o menu quando qualquer link do menu for clicado
                 link.addEventListener('click', function(e) {
-                    // Fecha o menu se estiver aberto (mobile)
+                    // Fecha o menu se estiver aberto (mobile) — só após o clique,
+                    // para não remover o drawer antes do navegador processar o link
                     if (navMenu.classList.contains('active')) {
-                        // Pequeno delay para garantir que a navegação aconteça
                         setTimeout(() => {
                             closeMenu();
-                        }, 100);
-                    }
-                }, { passive: true });
-                
-                // Também fecha no touchstart para melhor responsividade no mobile
-                link.addEventListener('touchstart', function() {
-                    if (navMenu.classList.contains('active')) {
-                        // Fecha imediatamente no touch para melhor UX
-                        closeMenu();
+                        }, 150);
                     }
                 }, { passive: true });
             });
@@ -205,6 +197,9 @@ const header = document.getElementById('header');
 const navMenu = document.getElementById('navMenu');
 
 if (header) {
+    // Blog e posts: manter header sempre clicável (evita menu inacessível com .hidden + pointer-events: none)
+    const skipHeaderAutoHide = /blog/i.test(window.location.pathname || '');
+
     const onScroll = () => {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -218,8 +213,8 @@ if (header) {
         // Não esconder se menu mobile estiver aberto
         const isMenuOpen = navMenu && navMenu.classList.contains('active');
 
-        // Lógica de direção: esconde ao descer, mostra ao subir
-        if (!isMenuOpen) {
+        // Lógica de direção: esconde ao descer, mostra ao subir (só na home e páginas de serviço)
+        if (!isMenuOpen && !skipHeaderAutoHide) {
             const isScrollingDown = currentScroll > lastScrollTop;
             const beyondThreshold = currentScroll > 120;
 
@@ -228,6 +223,8 @@ if (header) {
             } else {
                 header.classList.remove('hidden');
             }
+        } else if (skipHeaderAutoHide) {
+            header.classList.remove('hidden');
         }
 
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
