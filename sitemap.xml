@@ -4,7 +4,7 @@
     <!-- Página Principal - Prioridade Máxima -->
     <url>
         <loc>https://www.apexengenhariapredial.com.br/</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -12,14 +12,14 @@
     <!-- Landing Pages - Máxima Prioridade (Conversão) -->
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-predial/</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-industrial/</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -27,63 +27,63 @@
     <!-- Páginas de Serviços Principais - Alta Prioridade -->
     <url>
         <loc>https://www.apexengenhariapredial.com.br/manutencao-predial.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-predial.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/restauracao-fachadas.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/impermeabilizacao.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/trabalhos-em-altura.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/manutencao-reforma-telhados.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/demarcacoes-pisos.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-epoxi-garagem-condominio.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-piso-epoxi-industrial.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -91,29 +91,64 @@
     <!-- Páginas de Localização -->
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-predial-canoas.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-predial-sao-leopoldo.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-predial-gravatai.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/pintura-predial-esteio.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/pintura-predial-novo-hamburgo.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/pintura-predial-litoral.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/lp-pintura-predial.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/lp-pintura-industrial.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
     </url>
     
     <!-- Blog Principal -->
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -121,56 +156,77 @@
     <!-- Posts do Blog - Conteúdo SEO -->
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/pintura-epoxi-guia-completo.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/restauracao-fachadas-quando-fazer.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/impermeabilizacao-prevencao-infiltracoes.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/pintura-acrilica-vs-esmalte.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/escolher-tinta-ideal-fachada.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/nr35-seguranca-trabalho-altura.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/manutencao-preventiva-edificios.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/reformas-que-valorizam-imovel.html</loc>
-        <lastmod>2025-12-25</lastmod>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/quanto-custa-restauracao-fachada-porto-alegre.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/o-que-exigir-ao-contratar-empresa-reforma-predial.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/como-escolher-melhor-empresa-pintura-industrial.html</loc>
+        <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
