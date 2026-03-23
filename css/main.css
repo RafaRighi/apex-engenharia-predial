@@ -1493,7 +1493,7 @@ font-size: 0.85rem;
 }
 }
 
-/* E-E-A-T: credenciais e intenção de busca (home) */
+/* E-E-A-T: credenciais e blocos de dúvidas (home) */
 .eeat-credenciais {
 padding: 60px 0;
 background: var(--white);
@@ -1593,6 +1593,74 @@ font-size: 0.95rem;
 color: var(--text-light);
 }
 .intencao-servicos a {
+color: var(--primary-color);
+font-weight: 600;
+}
+
+/* Pilares de busca (reforma predial / Trends) — home */
+.trends-pilares-home {
+padding: 56px 0 64px;
+background: var(--white);
+border-top: 1px solid #e8eef2;
+}
+.trends-pilares-home .section-title {
+text-align: center;
+}
+.trends-pilares-intro {
+max-width: 820px;
+margin: 0 auto 2rem;
+text-align: center;
+}
+.trends-pilares-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.25rem;
+margin-top: 0.5rem;
+}
+.trends-pilar-card {
+background: linear-gradient(180deg, #f8fbfd 0%, var(--white) 100%);
+border-radius: 12px;
+padding: 1.35rem 1.4rem;
+border: 1px solid #e0eaef;
+box-shadow: var(--shadow-sm);
+}
+.trends-pilar-card h3 {
+font-size: 1.08rem;
+color: var(--secondary-color);
+margin: 0 0 0.65rem;
+line-height: 1.35;
+}
+.trends-pilar-card p {
+margin: 0 0 0.75rem;
+font-size: 0.98rem;
+color: var(--text-light);
+line-height: 1.65;
+}
+.trends-pilar-card p:last-child {
+margin-bottom: 0;
+}
+.trends-pilar-links {
+font-size: 0.92rem !important;
+margin-top: 0.5rem !important;
+}
+.trends-pilar-links a {
+color: var(--primary-color);
+font-weight: 600;
+text-decoration: none;
+}
+.trends-pilar-links a:hover {
+text-decoration: underline;
+}
+.trends-pilares-cta {
+text-align: center;
+margin-top: 2rem;
+max-width: 640px;
+margin-left: auto;
+margin-right: auto;
+font-size: 0.95rem;
+color: var(--text-light);
+}
+.trends-pilares-cta a {
 color: var(--primary-color);
 font-weight: 600;
 }

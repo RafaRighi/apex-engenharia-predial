@@ -1,6 +1,6 @@
 /* Estilos específicos do Blog */
 
-/* E-E-A-T: autoria nos artigos + intro intenção (blog) */
+/* E-E-A-T: autoria nos artigos + intro do blog */
 .blog-intent-intro {
 background: var(--bg-light);
 border-bottom: 1px solid #e8eef2;
@@ -16,20 +16,6 @@ padding: 0 20px;
 font-size: 1.35rem;
 color: var(--secondary-color);
 margin-bottom: 0.75rem;
-}
-.blog-intent-inner > p {
-color: var(--text-light);
-margin-bottom: 1rem;
-line-height: 1.65;
-}
-.blog-intent-list {
-margin: 0;
-padding-left: 1.25rem;
-color: var(--text-dark);
-line-height: 1.7;
-}
-.blog-intent-list li {
-margin-bottom: 0.35rem;
 }
 .blog-org-author {
 display: flex;
