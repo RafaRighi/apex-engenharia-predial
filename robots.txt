@@ -1,15 +1,12 @@
 # APEX Engenharia Predial - Robots.txt
 # Otimizado para melhor indexação no Google
 #
-# ATENÇÃO — AdsBot (abaixo): bloqueio reduz rastreamento do Google para anúncios.
-# Se usar Google Ads com URLs deste domínio, REMOVA ou comente o bloco AdsBot
-# (pode afetar revisão de página, Quality Score e rastreamento de conversões).
+# Google Ads: AdsBot precisa poder rastrear o site para revisão de anúncios e páginas de destino.
 
 User-agent: AdsBot-Google
-Disallow: /
-
+Allow: /
 User-agent: AdsBot-Google-Mobile
-Disallow: /
+Allow: /
 
 User-agent: *
 Allow: /
