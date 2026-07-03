@@ -1,0 +1,9 @@
+# Arquivos de estratégia interna de SEO — não publicar no repositório
+CLAUDE.md
+CLAUDE-SITE.md
+CLAUDE-IA.md
+MONITORAMENTO-SEO.md
+docs/
+
+# Configurações locais do Claude Code
+.claude/
