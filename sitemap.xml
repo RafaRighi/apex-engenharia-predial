@@ -9,38 +9,38 @@
         <priority>1.0</priority>
     </url>
     
-    <!-- Landing Pages - Máxima Prioridade (Conversão) -->
+    <!-- Página de Keyword Principal do Projeto - Prioridade Máxima -->
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/restauracao-fachadas.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Páginas de Serviços Gerais - Alta Prioridade -->
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-predial/</loc>
         <lastmod>2026-03-23</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
+        <priority>0.9</priority>
     </url>
-    
+
     <url>
         <loc>https://www.apexengenhariapredial.com.br/pintura-industrial/</loc>
         <lastmod>2026-03-23</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
+        <priority>0.9</priority>
     </url>
-    
-    <!-- Páginas de Serviços Principais - Alta Prioridade -->
+
     <url>
         <loc>https://www.apexengenhariapredial.com.br/manutencao-predial.html</loc>
         <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <url>
-        <loc>https://www.apexengenhariapredial.com.br/pintura-predial.html</loc>
-        <lastmod>2026-03-23</lastmod>
-        <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <url>
-        <loc>https://www.apexengenhariapredial.com.br/restauracao-fachadas.html</loc>
+        <loc>https://www.apexengenhariapredial.com.br/pintura-predial.html</loc>
         <lastmod>2026-03-23</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
