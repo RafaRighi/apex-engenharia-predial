@@ -47,5 +47,31 @@ Allow: /img/
 User-agent: Bingbot
 Allow: /
 
+# Bots de IA (AI Overviews, ChatGPT, Perplexity, Apple Intelligence)
+# Explicitamente permitidos para visibilidade em respostas de IA generativa.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
 # Sitemap location (Obrigatório para melhor indexação)
 Sitemap: https://www.apexengenhariapredial.com.br/sitemap.xml
