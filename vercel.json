@@ -6,7 +6,12 @@
   "redirects": [
     {
       "source": "/pintura-predial/index.html",
-      "destination": "/pintura-predial/",
+      "destination": "/pintura-predial.html",
+      "permanent": true
+    },
+    {
+      "source": "/pintura-predial/",
+      "destination": "/pintura-predial.html",
       "permanent": true
     },
     {
