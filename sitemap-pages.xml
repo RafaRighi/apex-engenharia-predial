@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Home - Prioridade máxima -->
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Hub de Fachadas -->
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/restauracao-fachadas.html</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Hub de Telhados -->
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/manutencao-reforma-telhados.html</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- LP de Pintura Industrial -->
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/lp-pintura-industrial.html</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Páginas de Cidades (Silo Regional) -->
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/pintura-predial-esteio.html</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/pintura-predial-novo-hamburgo.html</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/pintura-predial-litoral.html</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>

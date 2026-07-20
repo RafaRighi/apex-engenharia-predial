@@ -20,6 +20,14 @@ Allow: /js/
 Allow: /blog/
 Allow: /blog/posts/
 
+# Silo de conversão - Hubs, LP e páginas de cidade (Allow explícito)
+Allow: /restauracao-fachadas.html
+Allow: /manutencao-reforma-telhados.html
+Allow: /lp-pintura-industrial.html
+Allow: /pintura-predial-esteio.html
+Allow: /pintura-predial-novo-hamburgo.html
+Allow: /pintura-predial-litoral.html
+
 # Bloquear arquivos e diretórios desnecessários
 Disallow: /.git/
 Disallow: /.htaccess
@@ -29,8 +37,24 @@ Disallow: /SE-Competitor-Analysis.md
 Disallow: /SEO-IMPLEMENTATION.md
 Disallow: /SSL-IMPLEMENTATION.md
 
+# Proteção contra varreduras pesadas / probing de vulnerabilidades
+# (o site não usa WordPress/PHP nem tem esses caminhos - bloqueio preventivo
+# para não desperdiçar crawl budget com bots batendo em rotas inexistentes)
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+Disallow: /wp-content/
+Disallow: /.env
+Disallow: /vendor/
+Disallow: /node_modules/
+Disallow: /cgi-bin/
+Disallow: /*.sql$
+Disallow: /*.bak$
+
 # Permitir indexação de arquivos importantes
-Allow: /sitemap.xml
+Allow: /sitemap_index.xml
+Allow: /sitemap-pages.xml
+Allow: /sitemap-posts.xml
 Allow: /robots.txt
 Allow: /manifest.json
 
@@ -74,4 +98,4 @@ User-agent: Claude-Web
 Allow: /
 
 # Sitemap location (Obrigatório para melhor indexação)
-Sitemap: https://www.apexengenhariapredial.com.br/sitemap.xml
+Sitemap: https://www.apexengenhariapredial.com.br/sitemap_index.xml
