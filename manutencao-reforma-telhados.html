@@ -181,7 +181,10 @@
             <h1>Manutenção e Reforma de Telhados em Porto Alegre</h1>
             <p class="hero-credenciais" style="margin: 14px 0; font-weight: 600; font-size: 1.05rem;">✓ +10 anos de experiência &nbsp;·&nbsp; ✓ Equipe certificada NR35 &nbsp;·&nbsp; ✓ Seguros Zurich &nbsp;·&nbsp; ✓ Registro CREA/RS</p>
             <p>Especialistas em <strong>manutenção de telhados</strong> e <strong>reforma de telhados</strong> em Porto Alegre e Região Metropolitana. Reparos, substituições, impermeabilização e manutenção preventiva. Equipe certificada NR35 para trabalhos em altura com total segurança!</p>
-            <a href="/#contato" class="btn btn-primary">Solicitar Orçamento Grátis</a>
+            <div class="hero-buttons">
+                <a href="/#contato" class="btn btn-primary">Solicitar Orçamento Grátis</a>
+                <a href="https://wa.me/5551981078843?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20manutenção%20e%20reforma%20de%20telhados." class="btn btn-cta-whatsapp" target="_blank" rel="noopener noreferrer">Falar no WhatsApp Agora</a>
+            </div>
         </div>
     </section>
 
@@ -452,7 +455,7 @@
         const loadScripts = () => {
             if (scriptsLoaded) return;
             scriptsLoaded = true;
-            const scripts = ['js/script.js'];
+            const scripts = ['js/whatsapp-loader.js', 'js/script.js'];
             scripts.forEach(src => {
                 const s = document.createElement('script');
                 s.src = src;

@@ -314,6 +314,17 @@ background: var(--white);
 color: var(--primary-color);
 transform: translateY(-3px);
 }
+.btn-cta-whatsapp {
+background: #25d366;
+color: var(--white);
+border: 2px solid #25d366;
+}
+.btn-cta-whatsapp:hover {
+background: #128c7e;
+border-color: #128c7e;
+transform: translateY(-3px);
+box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+}
 .btn-light {
 background: var(--white);
 color: var(--primary-color);
