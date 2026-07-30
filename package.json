@@ -4,7 +4,7 @@
   "description": "Site institucional APEX Engenharia Predial - Projeto HTML estático",
   "private": true,
   "scripts": {
-    "build": "echo 'Build estatico OK'",
+    "build": "node scripts/generate-sitemaps.js && echo 'Build estatico OK'",
     "start": "serve",
     "convert-logos": "node scripts/convert-logos-to-webp.js"
   },

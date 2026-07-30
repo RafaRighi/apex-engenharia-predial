@@ -16,7 +16,17 @@
     },
     {
       "source": "/pintura-industrial/index.html",
-      "destination": "/pintura-industrial/",
+      "destination": "/pintura-piso-epoxi-industrial.html",
+      "permanent": true
+    },
+    {
+      "source": "/pintura-industrial/",
+      "destination": "/pintura-piso-epoxi-industrial.html",
+      "permanent": true
+    },
+    {
+      "source": "/pintura-industrial",
+      "destination": "/pintura-piso-epoxi-industrial.html",
       "permanent": true
     }
   ],
