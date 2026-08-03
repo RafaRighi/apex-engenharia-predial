@@ -980,7 +980,7 @@ color: var(--text-light);
 font-size: 0.95rem;
 }
 .contato-mapa {
-margin-top: 30px;
+grid-column: 1 / -1;
 border-radius: 10px;
 overflow: hidden;
 }
@@ -1474,8 +1474,8 @@ text-align: center;
 .info-icon {
 margin-bottom: 10px;
 }
-.contato-mapa {
-margin-top: 20px;
+.contato-mapa iframe {
+height: 300px;
 }
 .contato-form {
 padding: 30px 20px;
