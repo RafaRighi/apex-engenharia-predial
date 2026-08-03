@@ -7,3 +7,6 @@ docs/
 
 # Configurações locais do Claude Code
 .claude/
+
+# Dependências Node (sharp, usado pelos scripts de conversão de imagem)
+node_modules/
