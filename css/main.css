@@ -979,6 +979,14 @@ color: var(--secondary-color);
 color: var(--text-light);
 font-size: 0.95rem;
 }
+.contato-mapa {
+margin-top: 30px;
+border-radius: 10px;
+overflow: hidden;
+}
+.contato-mapa iframe {
+display: block;
+}
 .contato-form {
 background: var(--bg-light);
 padding: 40px;
@@ -1465,6 +1473,9 @@ text-align: center;
 }
 .info-icon {
 margin-bottom: 10px;
+}
+.contato-mapa {
+margin-top: 20px;
 }
 .contato-form {
 padding: 30px 20px;
