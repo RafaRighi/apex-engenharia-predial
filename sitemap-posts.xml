@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog.html</loc>
-        <lastmod>2026-07-20</lastmod>
+        <lastmod>2026-09-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/antes-e-depois-reforma-fachada-predio.html</loc>
+        <lastmod>2026-11-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/como-escolher-melhor-empresa-pintura-industrial.html</loc>
-        <lastmod>2026-07-05</lastmod>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/como-fazemos-vistoria-fachada.html</loc>
+        <lastmod>2026-09-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.apexengenhariapredial.com.br/blog/posts/erro-comum-fachadas-porto-alegre.html</loc>
+        <lastmod>2026-09-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -20,7 +38,7 @@
     </url>
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/impermeabilizacao-prevencao-infiltracoes.html</loc>
-        <lastmod>2026-07-05</lastmod>
+        <lastmod>2026-08-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -32,7 +50,7 @@
     </url>
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/nr35-seguranca-trabalho-altura.html</loc>
-        <lastmod>2026-07-08</lastmod>
+        <lastmod>2026-08-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -56,7 +74,7 @@
     </url>
     <url>
         <loc>https://www.apexengenhariapredial.com.br/blog/posts/quanto-custa-restauracao-fachada-porto-alegre.html</loc>
-        <lastmod>2026-07-08</lastmod>
+        <lastmod>2026-07-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
